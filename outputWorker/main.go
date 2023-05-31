@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/Temctl/E-Notification/outputWorker/helper"
 	"github.com/joho/godotenv"
 	"github.com/streadway/amqp"
 )
@@ -35,7 +36,7 @@ func main() {
 	}
 
 	msgs, err := channel.Consume(
-		"pushNotification",
+		os.Getenv("PUSHNOTIFCHANNELKEY"),
 		"",
 		true,
 		false,
@@ -48,7 +49,7 @@ func main() {
 	forever := make(chan bool)
 	go func() {
 		for msg := range msgs {
-			helper.Push_notif(string(msg.Body))
+			helper.Push_notif(msg.Body, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
 			fmt.Printf("Received Message: %s\n", msg.Body)
 		}
 	}()

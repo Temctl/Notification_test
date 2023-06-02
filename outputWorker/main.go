@@ -52,22 +52,24 @@ func main() {
 		nil,
 	)
 
-	// print consumed messages from queue
-	var notif model.PushNotificationModel
-	forever := make(chan bool)
-	go func() {
-		for msg := range msgs {
-			err := json.Unmarshal(msg.Body, &notif)
-			if err == nil {
-				helper.Push_notif(notif, "")
-				fmt.Printf("Received Message: %s\n", msg.Body)
-			} else {
-				panic(err)
+	if err == nil {
+		// print consumed messages from queue
+		var notif model.PushNotificationModel
+		forever := make(chan bool)
+		go func() {
+			for msg := range msgs {
+				err := json.Unmarshal(msg.Body, &notif)
+				if err == nil {
+					helper.Push_notif(notif, getPushToken(notif.Regnum))
+					fmt.Printf("Received Message: %s\n", msg.Body)
+				} else {
+					panic(err)
+				}
+
 			}
+		}()
 
-		}
-	}()
-
-	fmt.Println("Waiting for messages...")
-	<-forever
+		fmt.Println("Waiting for messages...")
+		<-forever
+	}
 }

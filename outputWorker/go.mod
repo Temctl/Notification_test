@@ -16,7 +16,7 @@ require (
 	cloud.google.com/go/iam v0.13.0 // indirect
 	cloud.google.com/go/longrunning v0.4.2 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
-	github.com/Temctl/E-Notification/util v0.0.0-20230531100133-33fbd847adcf // indirect
+	github.com/Temctl/E-Notification/util v0.0.0-20230602040049-0006db352c4f // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect

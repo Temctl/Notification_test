@@ -19,6 +19,8 @@ firebase.google.com/go v3.13.0+incompatible/go.mod h1:xlah6XbEyW6tbfSklcfe5FHJIw
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Temctl/E-Notification/util v0.0.0-20230531100133-33fbd847adcf h1:26M4vmy4Smw9jPZHIaXHvd/YVABkxK31Ex/1Rhuzk14=
 github.com/Temctl/E-Notification/util v0.0.0-20230531100133-33fbd847adcf/go.mod h1:fakCLTkuCZJZp8UJ4Vg7lP/ns9/3N1U3Yznqqs/PsKw=
+github.com/Temctl/E-Notification/util v0.0.0-20230602040049-0006db352c4f h1:BrPsj27rcOzayQrt3pHDE5km4k0bE1DLyy5cm1dR65o=
+github.com/Temctl/E-Notification/util v0.0.0-20230602040049-0006db352c4f/go.mod h1:fakCLTkuCZJZp8UJ4Vg7lP/ns9/3N1U3Yznqqs/PsKw=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=

@@ -40,7 +40,7 @@ func main() {
 
 	channel, err := connection.Channel()
 	if err != nil {
-		panic(err)
+		elog.Warning(err)
 	}
 
 	msgs, err := channel.Consume(

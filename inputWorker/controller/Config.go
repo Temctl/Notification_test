@@ -117,11 +117,26 @@ func Config(w http.ResponseWriter, r *http.Request) {
 	// Redis write heseg
 	result := SetRedis("key1", string(data))
 
-	re := GetRedis("key1")
+	// Send a response
+	fmt.Println(result)
+
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(info.Email))
+}
+func ConfigGet(w http.ResponseWriter, r *http.Request) {
+
+	elog.Info("Config api start..")
+
+	// Get the value of the "name" parameter from the query string
+	keys := r.FormValue("keys")
+	// Check if the parameter is present
+	if keys == "" {
+		elog.Warning("Medeelel alga...")
+	}
+
+	result := GetRedis(keys)
 
 	// Send a response
 	fmt.Println(result)
-	fmt.Println(re)
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(info.Email))
 }

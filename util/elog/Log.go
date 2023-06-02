@@ -57,21 +57,21 @@ func init() {
 		MaxBackups: elog_backups, // Max number of old log files to keep
 		MaxAge:     elog_maxage,  // Max number of days to keep log files
 		Compress:   true,
-	}, "INFO: ", log.Ldate|log.Ltime)
+	}, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile|log.LstdFlags)
 	warnLogger = log.New(&lumberjack.Logger{
 		Filename:   logPath,
 		MaxSize:    elog_maxsize,
 		MaxBackups: elog_backups,
 		MaxAge:     elog_maxage,
 		Compress:   true,
-	}, "WARNING: ", log.Ldate|log.Ltime)
+	}, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile|log.LstdFlags)
 	errorLogger = log.New(&lumberjack.Logger{
 		Filename:   logPath,
 		MaxSize:    elog_maxsize,
 		MaxBackups: elog_backups,
 		MaxAge:     elog_maxage,
 		Compress:   true,
-	}, "ERROR: ", log.Ldate|log.Ltime)
+	}, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile|log.LstdFlags)
 	// -------------------------------------------------------
 	// SETCONFIG ---------------------------------------------
 	// -------------------------------------------------------

@@ -39,6 +39,6 @@ func ConnectionRedis() *redis.Client {
 		return nil
 	}
 	elog.Info("Redis server response: " + pong)
-	return client
 
+	return client
 }

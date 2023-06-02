@@ -13,7 +13,7 @@ func startRouter() {
 	// START -------------------------------------------------
 	// -------------------------------------------------------
 
-	elog.Info("Start Router")
+	elog.Info("Start Router ...")
 	router := mux.NewRouter()
 
 	// -------------------------------------------------------
@@ -22,6 +22,7 @@ func startRouter() {
 
 	router.HandleFunc("/input", controller.Input).Methods("GET")
 	router.HandleFunc("/config", controller.Config).Methods("POST")
+	router.HandleFunc("/config", controller.ConfigGet).Methods("GET")
 
 	// -------------------------------------------------------
 	// LISTEN ------------------------------------------------

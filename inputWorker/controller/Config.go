@@ -6,10 +6,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strconv"
 
 	"github.com/Temctl/E-Notification/inputWorker/model"
-	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/Temctl/E-Notification/util/redis"
 )
@@ -20,24 +18,15 @@ import (
 func SetRedis(key string, data string) bool {
 
 	elog.Info("set redis...")
-	// -------------------------------------------------------
-	// GET UTIL CONFIG ---------------------------------------
-	// -------------------------------------------------------
-
-	host := util.REDIS_HOST
-	port := strconv.Itoa(util.REDIS_PORT)
 
 	// -------------------------------------------------------
-	// CREATE REDIS CLIENT -----------------------------------
+	// CONNECTION REDIS CLIENT -----------------------------------
 	// -------------------------------------------------------
-
-	addr := host + ":" + port
-	client := redis.NewClient(&redis.Options{
-		Addr:     addr,
-		Password: "", // no password set
-		DB:       0,  // use default DB
-	})
-
+	client := redis.ConnectionRedis()
+	if client == nil {
+		fmt.Println("Failed to create Redis client")
+		return false
+	}
 	// -------------------------------------------------------
 	// REDIS luu data oruulah --------------------------------
 	// -------------------------------------------------------
@@ -71,22 +60,13 @@ func SetRedis(key string, data string) bool {
 func GetRedis(key string) string {
 	elog.Info("get redis...")
 	// -------------------------------------------------------
-	// GET UTIL CONFIG ---------------------------------------
+	// CONNECTION REDIS CLIENT -----------------------------------
 	// -------------------------------------------------------
-
-	host := util.REDIS_HOST
-	port := strconv.Itoa(util.REDIS_PORT)
-
-	// -------------------------------------------------------
-	// CREATE REDIS CLIENT -----------------------------------
-	// -------------------------------------------------------
-
-	addr := host + ":" + port
-	client := redis.NewClient(&redis.Options{
-		Addr:     addr,
-		Password: "", // no password set
-		DB:       0,  // use default DB
-	})
+	client := redis.ConnectionRedis()
+	if client == nil {
+		fmt.Println("Failed to create Redis client")
+		return ""
+	}
 
 	// -------------------------------------------------------
 	// REDIS ees data avah -----------------------------------
@@ -98,6 +78,19 @@ func GetRedis(key string) string {
 		elog.Error("redis client get data: ", err)
 		return ""
 	}
+
+	// -------------------------------------------------------
+	// Close the Redis client --------------------------------
+	// -------------------------------------------------------
+
+	closeErr := client.Close()
+	if closeErr != nil {
+		elog.Error("Error closing Redis client:", closeErr)
+		return ""
+	} else {
+		elog.Info("Redis client closed successfully")
+	}
+
 	return val
 }
 
@@ -122,9 +115,9 @@ func Config(w http.ResponseWriter, r *http.Request) {
 	}
 	elog.Info("Writing redis")
 	// Redis write heseg
-	result := redis.SetRedis("key1", string(data))
+	result := SetRedis("key1", string(data))
 
-	re := redis.GetRedis("key1")
+	re := GetRedis("key1")
 
 	// Send a response
 	fmt.Println(result)

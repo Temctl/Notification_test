@@ -10,6 +10,7 @@ import (
 )
 
 func ConnectionRedis() *redis.Client {
+
 	// -------------------------------------------------------
 	// GET UTIL CONFIG ---------------------------------------
 	// -------------------------------------------------------
@@ -31,6 +32,7 @@ func ConnectionRedis() *redis.Client {
 	// -------------------------------------------------------
 	// Ping the Redis server to check the connection ---------
 	// -------------------------------------------------------
+
 	pong, err := client.Ping(context.Background()).Result()
 	if err != nil {
 		elog.Error("Failed to ping Redis server:", err)
@@ -38,4 +40,5 @@ func ConnectionRedis() *redis.Client {
 	}
 	elog.Info("Redis server response: " + pong)
 	return client
+
 }

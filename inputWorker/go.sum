@@ -1,5 +1,9 @@
 github.com/Temctl/E-Notification/util v0.0.0-20230602040607-517272cbb009 h1:6kJvw9zIvXb+1mhg9Y7tdaAd7m89zaTxexZ7wgfKrUE=
 github.com/Temctl/E-Notification/util v0.0.0-20230602040607-517272cbb009/go.mod h1:fakCLTkuCZJZp8UJ4Vg7lP/ns9/3N1U3Yznqqs/PsKw=
+github.com/Temctl/E-Notification/util v0.0.0-20230602043338-318fac6b55e7 h1:L9wkOAJ8VSTmxaNbHeDpYQBA9YrLMRR+aMdliifEhR8=
+github.com/Temctl/E-Notification/util v0.0.0-20230602043338-318fac6b55e7/go.mod h1:cwDsn/hM1NplHSxwfr8DdryTokj9lKUkOm9P9AA9uqk=
+github.com/Temctl/E-Notification/util v0.0.0-20230602045937-85951f3f5ae2 h1:Q3Fi9s5UMlFoaD0iDuVfHF1bTEpzwt7YbtCHROkpPEk=
+github.com/Temctl/E-Notification/util v0.0.0-20230602045937-85951f3f5ae2/go.mod h1:wKkRNorGu/u6O75rBn7CGHLw08etEWmpE44xOGdAfTw=
 github.com/cespare/xxhash/v2 v2.2.0 h1:DC2CZ1Ep5Y4k3ZQ899DldepgrayRUGE6BBZ/cd9Cj44=
 github.com/cespare/xxhash/v2 v2.2.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f h1:lO4WD4F/rVNCu3HqELle0jiPLLBs70cWOduZpkS1E78=

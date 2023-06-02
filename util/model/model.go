@@ -5,4 +5,6 @@ type PushNotificationModel struct {
 	Body     string
 	ImageUrl string
 	Data     map[string]string
+	regnum   string
+	civilId  string
 }

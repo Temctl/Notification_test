@@ -8,6 +8,7 @@ import (
 
 	"github.com/Temctl/E-Notification/outputWorker/helper"
 	"github.com/Temctl/E-Notification/util/model"
+	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/joho/godotenv"
 	"github.com/streadway/amqp"
 )
@@ -18,7 +19,7 @@ func init() {
 	file.Close()
 	log.SetFlags(log.Ldate | log.Lshortfile)
 
-	err := godotenv.Load(".config/env")
+	err := godotenv.Load("./env")
 	if err != nil {
 		panic(err)
 	}
@@ -34,7 +35,7 @@ func main() {
 
 	connection, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	if err != nil {
-		panic(err)
+		elog.Warning(err)
 	}
 
 	channel, err := connection.Channel()

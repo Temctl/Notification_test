@@ -92,7 +92,7 @@ func init() {
 func Info(message string) {
 	infoLogger.Println(message)
 }
-func Warning(message string) {
+func Warning(message error) {
 	warnLogger.Println(message)
 }
 func Error(message string, err error) {

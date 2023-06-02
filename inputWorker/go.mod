@@ -3,7 +3,7 @@ module github.com/Temctl/E-Notification/inputWorker
 go 1.20
 
 require (
-	github.com/Temctl/E-Notification/util v0.0.0-20230602045937-85951f3f5ae2 // indirect
+	github.com/Temctl/E-Notification/util v0.0.0-20230602060253-69ca35f98ddd // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/gorilla/mux v1.8.0 // indirect

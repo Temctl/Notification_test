@@ -8,3 +8,39 @@ type PushNotificationModel struct {
 	Regnum   string
 	CivilId  string
 }
+
+type XypNotification struct {
+	Date        string
+	ServiceName string
+	ServiceDesc string
+	OrgName     string
+	Regnum      string
+	CivilId     string
+	RequestId   string
+	ResultCode  int
+	ClientId    int
+}
+
+type AttentionType string
+
+const (
+	TYPENOTSPECIFIED = iota
+	DRIVERLICENSEEXPIRE30
+	IDCARDGOINGTOEXPIRE
+	DRIVERLICENSEEXPIRED
+	INTPASSPORTGOINGTOEXPIRE
+)
+
+type AttentionNotification struct {
+	Type       AttentionType
+	Regnum     string
+	CivilId    string
+	ExpireDate string
+	Content    string
+}
+
+type RegularNotification struct {
+	Content string
+	Regnum  string
+	CivilId string
+}

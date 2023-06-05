@@ -22,11 +22,11 @@ func Input(w http.ResponseWriter, r *http.Request) {
 	// -------------------------------------------------------
 
 	conn, err := amqp.Dial("amqp://guest:guest@" + host + ":" + port + "/")
-	elog.Error("Cannot connect", err)
+	elog.Error().Println("Cannot connect", err)
 
 	defer conn.Close()
 
-	elog.Info("RABBITMQ: Succesful connected...")
+	elog.Info().Println("RABBITMQ: Succesful connected...")
 
 	// -------------------------------------------------------
 	// CREATE CHANNEL ----------------------------------------
@@ -34,7 +34,7 @@ func Input(w http.ResponseWriter, r *http.Request) {
 
 	amqpChannel, err := conn.Channel()
 
-	elog.Error("Cannot create amqp channel", err)
+	elog.Error().Println("Cannot create amqp channel", err)
 
 	defer amqpChannel.Close()
 
@@ -43,7 +43,7 @@ func Input(w http.ResponseWriter, r *http.Request) {
 	// -------------------------------------------------------
 
 	queue, err := amqpChannel.QueueDeclare("queue2", false, false, false, false, nil)
-	elog.Error("couldn't declare add queue", err)
+	elog.Error().Println("couldn't declare add queue", err)
 	// err = amqpChannel.Qos(1, 0, false)
 	// handleError(err, "could notconfig Qos")
 
@@ -57,6 +57,6 @@ func Input(w http.ResponseWriter, r *http.Request) {
 			Body:        []byte("push2"),
 		},
 	)
-	elog.Error("Publish error", err)
-	elog.Info("RABBITMQ: Successfully Publishing message")
+	elog.Error().Println("Publish error", err)
+	elog.Info().Println("RABBITMQ: Successfully Publishing message")
 }

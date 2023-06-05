@@ -17,14 +17,14 @@ import (
 // -------------------------------------------------------
 func SetRedis(key string, data string) bool {
 
-	elog.Info("set redis...")
+	elog.Info().Println("set redis...")
 
 	// -------------------------------------------------------
 	// CONNECTION REDIS CLIENT -----------------------------------
 	// -------------------------------------------------------
 	client := redis.ConnectionRedis()
 	if client == nil {
-		fmt.Println("Failed to create Redis client")
+		elog.Error().Println("Failed to create Redis client")
 		return false
 	}
 	// -------------------------------------------------------
@@ -34,7 +34,7 @@ func SetRedis(key string, data string) bool {
 	ctx := context.Background()
 	clientErr := client.Set(ctx, key, data, 0).Err()
 	if clientErr != nil {
-		elog.Error("redis setlehed aldaa garlaa", clientErr)
+		elog.Error().Println("redis setlehed aldaa garlaa", clientErr)
 		return false
 	} else {
 		elog.Info("Successful...")
@@ -46,10 +46,10 @@ func SetRedis(key string, data string) bool {
 
 	closeErr := client.Close()
 	if closeErr != nil {
-		elog.Error("Error closing Redis client:", closeErr)
+		elog.Error().Println("Error closing Redis client:", closeErr)
 		return false
 	} else {
-		elog.Info("Redis client closed successfully")
+		elog.Info().Println("Redis client closed successfully")
 	}
 	return true
 }
@@ -58,7 +58,7 @@ func SetRedis(key string, data string) bool {
 // GET REDIS ---------------------------------------------
 // -------------------------------------------------------
 func GetRedis(key string) string {
-	elog.Info("get redis...")
+	elog.Info().Println("get redis...")
 	// -------------------------------------------------------
 	// CONNECTION REDIS CLIENT -----------------------------------
 	// -------------------------------------------------------
@@ -75,7 +75,7 @@ func GetRedis(key string) string {
 	ctx := context.Background()
 	val, err := client.Get(ctx, key).Result()
 	if err != nil {
-		elog.Error("redis client get data: ", err)
+		elog.Error().Println("redis client get data: ", err)
 		return ""
 	}
 
@@ -85,10 +85,10 @@ func GetRedis(key string) string {
 
 	closeErr := client.Close()
 	if closeErr != nil {
-		elog.Error("Error closing Redis client:", closeErr)
+		elog.Error().Println("Error closing Redis client:", closeErr)
 		return ""
 	} else {
-		elog.Info("Redis client closed successfully")
+		elog.Info().Println("Redis client closed successfully")
 	}
 
 	return val
@@ -98,8 +98,7 @@ func GetRedis(key string) string {
 // CONFIG api controller code ----------------------------
 // -------------------------------------------------------
 func Config(w http.ResponseWriter, r *http.Request) {
-
-	elog.Info("Config api start..")
+	elog.Info().Println("Config api start..")
 	var info model.ConfigInfo
 	err := json.NewDecoder(r.Body).Decode(&info)
 	if err != nil {
@@ -113,7 +112,7 @@ func Config(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("Failed to serialize struct:", err)
 	}
-	elog.Info("Writing redis")
+	elog.Info().Println("Writing redis")
 	// Redis write heseg
 	result := SetRedis("key1", string(data))
 
@@ -125,13 +124,13 @@ func Config(w http.ResponseWriter, r *http.Request) {
 }
 func ConfigGet(w http.ResponseWriter, r *http.Request) {
 
-	elog.Info("Config api start..")
+	elog.Info().Println("Config api start..")
 
 	// Get the value of the "name" parameter from the query string
 	keys := r.FormValue("keys")
 	// Check if the parameter is present
 	if keys == "" {
-		elog.Warning("Medeelel alga...")
+		elog.Warning().Println("Medeelel alga...")
 	}
 
 	result := GetRedis(keys)

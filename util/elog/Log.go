@@ -85,7 +85,7 @@ func init() {
 func Info() *log.Logger {
 	return infoLogger
 }
-func Warning(message string) *log.Logger {
+func Warning() *log.Logger {
 	return warnLogger
 }
 func Error() *log.Logger {

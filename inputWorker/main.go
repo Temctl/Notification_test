@@ -14,7 +14,7 @@ func startRouter() {
 	// START -------------------------------------------------
 	// -------------------------------------------------------
 
-	elog.Info("Start Router ...")
+	elog.Info().Println("Start Router ...")
 	router := mux.NewRouter()
 
 	// -------------------------------------------------------
@@ -33,7 +33,7 @@ func startRouter() {
 }
 
 func main() {
-	elog.Info("Start server ...")
+	elog.Info().Println("Start server ...")
 	log.Println("Fsdfsdf")
 	startRouter()
 }

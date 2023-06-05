@@ -12,9 +12,9 @@ import (
 // PUBLIC VAR --------------------------------------------
 // -------------------------------------------------------
 var (
-	infoLogger  *log.Logger
-	warnLogger  *log.Logger
-	errorLogger *log.Logger
+	InfoLogger  *log.Logger
+	WarnLogger  *log.Logger
+	ErrorLogger *log.Logger
 )
 
 func init() {
@@ -53,21 +53,21 @@ func init() {
 		MaxAge:     elog_maxage,  // Max number of days to keep old log files
 		Compress:   true,         // Whether to compress old log files
 	}
-	infoLogger = log.New(&lumberjack.Logger{
+	InfoLogger = log.New(&lumberjack.Logger{
 		Filename:   logPath,
 		MaxSize:    elog_maxsize, // Max size in megabytes before log rotation
 		MaxBackups: elog_backups, // Max number of old log files to keep
 		MaxAge:     elog_maxage,  // Max number of days to keep log files
 		Compress:   true,
 	}, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile|log.LstdFlags)
-	warnLogger = log.New(&lumberjack.Logger{
+	WarnLogger = log.New(&lumberjack.Logger{
 		Filename:   logPath,
 		MaxSize:    elog_maxsize,
 		MaxBackups: elog_backups,
 		MaxAge:     elog_maxage,
 		Compress:   true,
 	}, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile|log.LstdFlags)
-	errorLogger = log.New(&lumberjack.Logger{
+	ErrorLogger = log.New(&lumberjack.Logger{
 		Filename:   logPath,
 		MaxSize:    elog_maxsize,
 		MaxBackups: elog_backups,
@@ -85,11 +85,11 @@ func init() {
 // PUBLIC FUNC -------------------------------------------
 // -------------------------------------------------------
 func Info() *log.Logger {
-	return infoLogger
+	return InfoLogger
 }
 func Warning() *log.Logger {
-	return warnLogger
+	return WarnLogger
 }
 func Error() *log.Logger {
-	return errorLogger
+	return ErrorLogger
 }

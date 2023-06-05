@@ -22,13 +22,15 @@ func init() {
 	if workerName == "" {
 		workerName = "default"
 	}
+	logPath := os.Getenv("logpath")
+	if logPath == "" {
+		logPath = "./logs/" + workerName + ".log"
+	} else {
+		logPath = logPath + workerName + ".log"
+	}
 	// ------------------------------------------------------
 	// IMPORT ENV -------------------------------------------
 	// ------------------------------------------------------
-	logPath := os.Getenv("ELOG_PATH")
-	if logPath == "" {
-		logPath = "./logs/" + workerName + ".log"
-	}
 	elog_maxsize, err := strconv.Atoi(os.Getenv("ELOG_MAXSIZE"))
 	if err != nil {
 		elog_maxsize = 100

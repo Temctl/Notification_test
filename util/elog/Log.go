@@ -82,12 +82,12 @@ func init() {
 // -------------------------------------------------------
 // PUBLIC FUNC -------------------------------------------
 // -------------------------------------------------------
-func Info(message string) {
-	infoLogger.Println(message)
+func Info() *log.Logger {
+	return infoLogger
 }
-func Warning(message string) {
-	warnLogger.Println(message)
+func Warning(message string) *log.Logger {
+	return warnLogger
 }
-func Error(message string, err error) {
-	errorLogger.Printf(" %s : %s", message, err)
+func Error() *log.Logger {
+	return errorLogger
 }

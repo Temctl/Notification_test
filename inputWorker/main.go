@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/Temctl/E-Notification/inputWorker/controller"
@@ -33,5 +34,6 @@ func startRouter() {
 
 func main() {
 	elog.Info("Start server ...")
+	log.Println("Fsdfsdf")
 	startRouter()
 }

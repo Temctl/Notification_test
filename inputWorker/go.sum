@@ -8,6 +8,8 @@ github.com/Temctl/E-Notification/util v0.0.0-20230602060253-69ca35f98ddd h1:HTfL
 github.com/Temctl/E-Notification/util v0.0.0-20230602060253-69ca35f98ddd/go.mod h1:CF+ARlveM1AAC+/rU+82eWrKwho/zCiayPZl4pxq5oM=
 github.com/Temctl/E-Notification/util v0.0.0-20230602083453-a8cb8882d200 h1:YeZQdZcHvzLlBavCZSGr3hwf0i4BzMNgnoRE33CyUKQ=
 github.com/Temctl/E-Notification/util v0.0.0-20230602083453-a8cb8882d200/go.mod h1:CF+ARlveM1AAC+/rU+82eWrKwho/zCiayPZl4pxq5oM=
+github.com/Temctl/E-Notification/util v0.0.0-20230602092449-4894a6f8a849 h1:zyTpfO+tqhrAqRS+z4W9LmQxl6OTilG0WdOGWMGh0k4=
+github.com/Temctl/E-Notification/util v0.0.0-20230602092449-4894a6f8a849/go.mod h1:CF+ARlveM1AAC+/rU+82eWrKwho/zCiayPZl4pxq5oM=
 github.com/cespare/xxhash/v2 v2.2.0 h1:DC2CZ1Ep5Y4k3ZQ899DldepgrayRUGE6BBZ/cd9Cj44=
 github.com/cespare/xxhash/v2 v2.2.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f h1:lO4WD4F/rVNCu3HqELle0jiPLLBs70cWOduZpkS1E78=

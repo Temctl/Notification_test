@@ -35,10 +35,10 @@ func ConnectionRedis() *redis.Client {
 
 	pong, err := client.Ping(context.Background()).Result()
 	if err != nil {
-		elog.Error("Failed to ping Redis server:", err)
+		elog.Info().Println("Failed to ping Redis server:", err)
 		return nil
 	}
-	elog.Info("Redis server response: " + pong)
+	elog.Info().Println("Redis server response: " + pong)
 
 	return client
 }

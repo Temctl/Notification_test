@@ -1,18 +1,52 @@
 package util
 
+import "os"
+
 var (
-	PORT int = 8085
+	ENV  string = os.Getenv("ENV")
+	PORT int
 
-	REDIS_HOST     string = "localhost"
-	REDIS_PORT     int    = 6379
-	REDIS_PASSWORD string = ""
-	REDIS_DB       int    = 0
+	REDIS_HOST     string
+	REDIS_PORT     int
+	REDIS_PASSWORD string
+	REDIS_DB       int
 
-	RABBITMQ_HOST string = "localhost"
-	RABBITMQ_PORT int    = 5672
+	RABBITMQ_HOST string
+	RABBITMQ_PORT int
 
-	ELOG_PATH    string = "./tmp"
-	ELOG_MAXSIZE int    = 100
-	ELOG_BACKUPS int    = 10
-	ELOG_MAXAGE  int    = 30
+	ELOG_MAXSIZE int
+	ELOG_BACKUPS int
+	ELOG_MAXAGE  int
 )
+
+func init() {
+	if ENV == "" {
+		PORT = 8085
+
+		REDIS_HOST = "localhost"
+		REDIS_PORT = 6379
+		REDIS_PASSWORD = ""
+		REDIS_DB = 0
+
+		RABBITMQ_HOST = "localhost"
+		RABBITMQ_PORT = 5672
+
+		ELOG_MAXSIZE = 100
+		ELOG_BACKUPS = 10
+		ELOG_MAXAGE = 30
+	} else if ENV == "prod" {
+		PORT = 8085
+
+		REDIS_HOST = "localhost"
+		REDIS_PORT = 6379
+		REDIS_PASSWORD = ""
+		REDIS_DB = 0
+
+		RABBITMQ_HOST = "localhost"
+		RABBITMQ_PORT = 5672
+
+		ELOG_MAXSIZE = 100
+		ELOG_BACKUPS = 10
+		ELOG_MAXAGE = 30
+	}
+}

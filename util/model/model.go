@@ -9,6 +9,7 @@ type PushNotificationModel struct {
 	CivilId  string
 }
 
+
 type XypNotification struct {
 	Date        string
 	ServiceName string

@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/Temctl/E-Notification/util"
 )
 
 func SendSocial() {
@@ -15,15 +17,15 @@ func SendSocial() {
 
 	text := fmt.Sprintf("%s: %s", civilID, content)
 
-	SOCIAL_DATA["message"]["text"] = text
+	jsonData, err := json.Marshal(util.SOCIAL_DATA)
+	if err != nil {
+		fmt.Printf("could not marshal json: %s\n", err)
+		return
+	}
+	jsonData["message"]["text"] = text
 	SOCIAL_DATA["ref"] = civilID
 
 	logger.Debug("socialdata is --------------------------------", SOCIAL_DATA)
-
-	jsonData, err := json.Marshal(SOCIAL_DATA)
-	if err != nil {
-		log.Fatal("Failed to marshal SOCIAL_DATA:", err)
-	}
 
 	request, err := http.NewRequest("POST", SOCIAL_URL, bytes.NewBuffer(jsonData))
 	if err != nil {

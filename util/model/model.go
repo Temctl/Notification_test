@@ -9,7 +9,6 @@ type PushNotificationModel struct {
 	CivilId  string
 }
 
-
 type XypNotification struct {
 	Date        string
 	ServiceName string
@@ -44,4 +43,10 @@ type RegularNotification struct {
 	Content string
 	Regnum  string
 	CivilId string
+}
+
+type GroupNotification struct {
+	IsAll    bool
+	Regnums  []string
+	CivilIds []string
 }

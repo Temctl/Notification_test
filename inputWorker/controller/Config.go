@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Temctl/E-Notification/inputWorker/model"
 	"github.com/Temctl/E-Notification/util/elog"
+	umodel "github.com/Temctl/E-Notification/util/model"
 	"github.com/Temctl/E-Notification/util/redis"
 )
 
@@ -32,12 +32,12 @@ func SetRedis(key string, data string) bool {
 	// -------------------------------------------------------
 
 	ctx := context.Background()
-	clientErr := client.Set(ctx, key, data, 0).Err()
+	clientErr := client.HSet(ctx, "conf:"+key, data).Err()
 	if clientErr != nil {
 		elog.Error().Println("redis setlehed aldaa garlaa", clientErr)
 		return false
 	} else {
-		elog.Info("Successful...")
+		elog.Info().Println("Successful...")
 	}
 
 	// -------------------------------------------------------
@@ -94,13 +94,16 @@ func GetRedis(key string) string {
 	return val
 }
 
-// -------------------------------------------------------
-// CONFIG api controller code ----------------------------
-// -------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// CONFIG api controller code -------------------------------------------------------
+// ----------------------------------------------------------------------------------
+
+// Redist medeelel hiih
 func Config(w http.ResponseWriter, r *http.Request) {
 	elog.Info().Println("Config api start..")
-	var info model.ConfigInfo
-	err := json.NewDecoder(r.Body).Decode(&info)
+	// var info model.ConfigInfo
+	var redisConfigData umodel.RedisConfigNotification
+	err := json.NewDecoder(r.Body).Decode(&redisConfigData)
 	if err != nil {
 		http.Error(w, "Failed to parse request body", http.StatusBadRequest)
 		return
@@ -108,20 +111,22 @@ func Config(w http.ResponseWriter, r *http.Request) {
 	// Close the request body to prevent resource leaks
 	defer r.Body.Close()
 	// json marshal
-	data, err := json.Marshal(info)
+	data, err := json.Marshal(redisConfigData)
 	if err != nil {
 		log.Println("Failed to serialize struct:", err)
 	}
 	elog.Info().Println("Writing redis")
 	// Redis write heseg
-	result := SetRedis("key1", string(data))
+	result := SetRedis(redisConfigData.CivilId, string(data))
 
 	// Send a response
 	fmt.Println(result)
 
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(info.Email))
+	w.Write([]byte(redisConfigData.CivilId))
 }
+
+// Redis medeelel avah
 func ConfigGet(w http.ResponseWriter, r *http.Request) {
 
 	elog.Info().Println("Config api start..")

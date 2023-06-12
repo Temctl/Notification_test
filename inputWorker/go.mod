@@ -3,8 +3,9 @@ module github.com/Temctl/E-Notification/inputWorker
 go 1.20
 
 require (
-	github.com/Temctl/E-Notification/util v0.0.0-20230605012242-be2c94570e7c // indirect
+	github.com/Temctl/E-Notification/util v0.0.0-20230612082742-2f432afbeafc // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect

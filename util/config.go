@@ -17,6 +17,8 @@ var (
 	ELOG_MAXSIZE int
 	ELOG_BACKUPS int
 	ELOG_MAXAGE  int
+
+	RABBITMQURL string
 )
 
 func init() {
@@ -34,6 +36,8 @@ func init() {
 		ELOG_MAXSIZE = 100
 		ELOG_BACKUPS = 10
 		ELOG_MAXAGE = 30
+
+		RABBITMQURL = "amqp://guest:guest@localhost:5672/"
 	} else if ENV == "prod" {
 		PORT = 8085
 
@@ -48,5 +52,7 @@ func init() {
 		ELOG_MAXSIZE = 100
 		ELOG_BACKUPS = 10
 		ELOG_MAXAGE = 30
+
+		RABBITMQURL = "amqp://guest:guest@localhost:5672/"
 	}
 }

@@ -40,7 +40,6 @@ func batchTokens(tokens []string, batchSize int) [][]string {
 }
 
 func PushToTokens(request model.PushNotificationModel, deviceTokens []string, client *messaging.Client) {
-
 	tokenBatches := batchTokens(deviceTokens, 500) // Split tokens into batches of 500
 
 	var wg sync.WaitGroup
@@ -48,7 +47,7 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 
 	for _, tokenBatch := range tokenBatches {
 		fmt.Println(tokenBatch)
-		go func() {
+		go func(tokens []string) {
 			defer wg.Done()
 
 			message := &messaging.MulticastMessage{
@@ -72,7 +71,7 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 					},
 				},
 				Data:   request.Data,
-				Tokens: tokenBatch,
+				Tokens: tokens,
 			}
 			// Send the push notification
 			response, err := client.SendMulticast(context.Background(), message)
@@ -83,7 +82,7 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 
 			fmt.Printf("Successful count: %d\n", response.SuccessCount)
 			fmt.Printf("Failed count: %d\n", response.FailureCount)
-		}()
+		}(tokenBatch)
 	}
 
 	wg.Wait()

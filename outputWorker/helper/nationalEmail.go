@@ -6,9 +6,9 @@ import (
 	"net/smtp"
 )
 
-func sendNatEmail() {
+func SendEmail() {
 	from := mail.Address{Name: "notification@e-mongolia.mn", Address: "notification@e-mongolia.mn"}
-	to := mail.Address{Name: "", Address: "example@e-mongolia.mn"} // Replace with the recipient's email address
+	to := mail.Address{Name: "", Address: "891834062934@e-mongolia.mn"} // Replace with the recipient's email address
 	subject := "Иргэн танд мэдээлэл хүргэж байна"
 	body := "<html><body><h1>Hello!</h1></body></html>" // Replace with the HTML content of your email
 

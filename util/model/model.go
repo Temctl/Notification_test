@@ -50,3 +50,14 @@ type GroupNotification struct {
 	Regnums  []string
 	CivilIds []string
 }
+
+type RedisConfigNotification struct {
+	CivilId         string
+	Regnum          string
+	EmailAddress    string
+	IsSms           bool
+	IsEmail         bool
+	IsPush          bool
+	IsNationalEmail bool
+	Social          bool
+}

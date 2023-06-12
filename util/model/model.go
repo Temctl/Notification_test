@@ -51,7 +51,7 @@ type GroupNotification struct {
 	CivilIds []string
 }
 
-type RedisConfigNotification struct {
+type RedisConfigModel struct {
 	CivilId         string
 	Regnum          string
 	EmailAddress    string

@@ -71,3 +71,7 @@ func init() {
 		RABBITMQURL = "amqp://guest:guest@localhost:5672/"
 	}
 }
+
+func WriteDbLog() bool {
+	return true
+}

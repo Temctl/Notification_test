@@ -4,71 +4,49 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
-	"time"
-
-	"github.com/Temctl/E-Notification/util"
 )
 
-func SendSocial() {
-	civilID := "your_civil_id" // Replace with the actual value
-	content := "Your content"  // Replace with the actual value
+var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
 
-	text := fmt.Sprintf("%s: %s", civilID, content)
+func SendSocial(regnum string, type string, pool string, expireDate string, id string, civilId string, content string) {
+	// Create JSON data
+	data := map[string]interface{}{
+		"message": map[string]interface{}{
+			"text": 
+		},
+		"key2": "value2",
+	}
 
-	jsonData, err := json.Marshal(util.SOCIAL_DATA)
+	// Convert JSON data to byte slice
+	jsonData, err := json.Marshal(data)
 	if err != nil {
-		fmt.Printf("could not marshal json: %s\n", err)
+		fmt.Println("Error:", err)
 		return
 	}
-	jsonData["message"]["text"] = text
-	SOCIAL_DATA["ref"] = civilID
 
-	logger.Debug("socialdata is --------------------------------", SOCIAL_DATA)
-
-	request, err := http.NewRequest("POST", SOCIAL_URL, bytes.NewBuffer(jsonData))
+	// Send POST request
+	response, err := http.Post(SOCIAL_URL, "application/json", bytes.NewBuffer(jsonData))
 	if err != nil {
-		log.Fatal("Failed to create HTTP request:", err)
-	}
-
-	request.Header.Set("Content-Type", "application/json")
-	request.Header.Set("Authorization", "Bearer "+AUTH_TOKEN)
-
-	client := http.Client{Timeout: 10 * time.Second}
-	response, err := client.Do(request)
-	if err != nil {
-		log.Fatal("Failed to send HTTP request:", err)
+		fmt.Println("Error:", err)
+		return
 	}
 	defer response.Body.Close()
 
-	var data map[string]interface{}
-	err = json.NewDecoder(response.Body).Decode(&data)
+	// Check response status code
+	if response.StatusCode != http.StatusOK {
+		fmt.Println("Error: Unexpected status code:", response.StatusCode)
+		return
+	}
+
+	// Read response body
+	var result map[string]interface{}
+	err = json.NewDecoder(response.Body).Decode(&result)
 	if err != nil {
-		log.Fatal("Failed to decode response:", err)
+		fmt.Println("Error:", err)
+		return
 	}
 
-	if code, ok := data["code"].(int); ok && code == 1000 {
-		logger.Info("send social success")
-
-		now := time.Now()
-		dtString := now.Format("02/01/2006 15:04:05")
-
-		sql := fmt.Sprintf(`
-			INSERT INTO public.notif_log
-			(regnum, civilid, "content", date_pushed, sent_type, org_name, org_type, notif_type)
-			VALUES ('%s', %s, '%s', (to_timestamp('%s', 'dd/mm/yyyy HH24:MI:SS')), 'FACEBOOK', '', '', '%s')
-		`, regnum, civilID, text, dtString, notifType)
-
-		// Execute the SQL query using your database library
-
-		redisClient := redis_local() // Replace with your Redis client initialization code
-		redisClient.Incr(SOCIAL_NOTIF_NUM)
-
-		fmt.Println("Social notification sent successfully.")
-		return true
-	} else {
-		logger.Error("error sending to social", data["message"])
-		return false
-	}
+	// Process the response
+	fmt.Println("Response:", result)
 }

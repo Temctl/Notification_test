@@ -4,7 +4,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"io/ioutil"
+	"os"
 
 	"gopkg.in/gomail.v2"
 )
@@ -24,7 +24,7 @@ func SendEmail() {
 
 	// Load the CA bundle file
 	caCertFile := "./cert/My_CA_Bundle.ca-bundle"
-	caCert, err := ioutil.ReadFile(caCertFile)
+	caCert, err := os.ReadFile(caCertFile)
 	if err != nil {
 		panic(err)
 	}

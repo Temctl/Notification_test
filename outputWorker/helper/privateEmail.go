@@ -1,18 +1,25 @@
 package helper
 
-import(
+import (
+	"crypto/tls"
 	"fmt"
+	"net"
+	"net/mail"
+	"net/smtp"
+
+	"github.com/Temctl/E-Notification/util"
 )
 
-func SendMail(){
-	civilID := "your_civil_id" // Replace with the actual value
-	sendMsg := "Your HTML content"   // Replace with your HTML content
+func SendMail() {
+	// civilID := "your_civil_id"     // Replace with the actual value
+	sendMsg := "Your HTML content" // Replace with your HTML content
 
 	// Get private email from Redis
 	// privateEmail, err := redisLocal.HGet(fmt.Sprintf("users:%s", civilID), "email").Result()
 	// if err != nil {
 	// 	panic(err)
 	// }
+	privateEmail := "utemuka@gmail.com"
 
 	// Compose the email message
 	msg := []byte(fmt.Sprintf("Subject: Иргэн танд мэдээлэл хүргэж байна\r\n"+
@@ -23,10 +30,10 @@ func SendMail(){
 		"%s\r\n", privateEmail, sendMsg))
 
 	// Create the SMTP client
-	auth := smtp.PlainAuth("", AWS_SES_USER, AWS_SES_PASSWORD, AWS_SMTP)
-	addr := fmt.Sprintf("%s:%d", AWS_SMTP, 465)
+	auth := smtp.PlainAuth("", util.AWS_SES_USER, util.AWS_SES_PASSWORD, util.AWS_SMTP)
+	addr := fmt.Sprintf("%s:%d", util.AWS_SMTP, 465)
 	host, _, _ := net.SplitHostPort(addr)
-	from := mail.Address{Name: "", Address: FROM_EMAIL}
+	// from := mail.Address{Name: "", Address: util.FROM_EMAIL}
 	to := mail.Address{Name: "", Address: privateEmail}
 
 	// Establish a TLS connection to the SMTP server
@@ -47,7 +54,7 @@ func SendMail(){
 		panic(err)
 	}
 
-	if err = client.Mail(from.Address); err != nil {
+	if err = client.Mail("notification@e-mongolia.mn"); err != nil {
 		panic(err)
 	}
 

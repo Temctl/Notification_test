@@ -148,6 +148,7 @@ func main() {
 				push1.Title = "regular notif test"
 				helper.PushToTokens(push1, tmp, client)
 				helper.SendEmail()
+				helper.SendMail()
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
 				panic(err)

@@ -83,6 +83,19 @@ func main() {
 		panic(err)
 	}
 
+	regularNotifs, err := channel.Consume(
+		"REGULARNOTIFtest",
+		"",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		panic(err)
+	}
+
 	var tmp []string
 	tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
 	for i := 0; i < 1200; i++ {
@@ -127,7 +140,7 @@ func main() {
 
 	var regularModel model.RegularNotification
 	go func() {
-		for msg := range attentionNotifs {
+		for msg := range regularNotifs {
 			err := json.Unmarshal(msg.Body, &regularModel)
 			if err == nil {
 				var push1 model.PushNotificationModel

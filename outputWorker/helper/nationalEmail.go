@@ -9,7 +9,7 @@ import (
 	"gopkg.in/gomail.v2"
 )
 
-func SendEmail() {
+func SendNatEmail() {
 	from := "notification@e-mongolia.mn"
 	to := "891834062934@e-mongolia.mn"
 	subject := "Test"

@@ -10,7 +10,7 @@ import (
 	"github.com/Temctl/E-Notification/util"
 )
 
-func SendMail() {
+func SendPrivEmail() {
 	// civilID := "your_civil_id"     // Replace with the actual value
 	sendMsg := "Your HTML content" // Replace with your HTML content
 
@@ -19,6 +19,7 @@ func SendMail() {
 	// if err != nil {
 	// 	panic(err)
 	// }
+	// privateEmail := "temuulen@ema.gov.mn"
 	privateEmail := "utemuka@gmail.com"
 
 	// Compose the email message

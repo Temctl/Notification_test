@@ -12,14 +12,13 @@ import (
 	"github.com/Temctl/E-Notification/outputWorker/helper"
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/Temctl/E-Notification/util/model"
+	"github.com/Temctl/E-Notification/util/redis"
 	"github.com/joho/godotenv"
 	"github.com/streadway/amqp"
 	"google.golang.org/api/option"
 )
 
 var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
-
-
 
 func init() {
 	file, _ := os.Create("./log/output.log")
@@ -53,13 +52,15 @@ func main() {
 
 	connection, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	if err != nil {
-		elog.ErrorLogger.Println(err)
+		fmt.Println("Error connection to rabbitmq:", err)
 	}
 
 	channel, err := connection.Channel()
 	if err != nil {
-		elog.ErrorLogger.Println(err)
+		fmt.Println("Error connecting to amqp channel:", err)
 	}
+
+	notifRedis := redis.ConnectionRedis()
 
 	xypNotifs, err := channel.Consume(
 		"XYPNOTIFtest",
@@ -150,9 +151,14 @@ func main() {
 				var push1 model.PushNotificationModel
 				push1.Body = "regular notif test"
 				push1.Title = "regular notif test"
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+regularModel.CivilId).Result()
+				if err != nil{
+					panic(err)
+				}
 				helper.PushToTokens(push1, tmp, client)
-				helper.SendEmail()
-				helper.SendMail()
+				helper.SendNatEmail()
+				helper.SendPrivEmail()
+				helper.SendSocial(userConf["civilId"])
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
 				panic(err)

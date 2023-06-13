@@ -51,13 +51,14 @@ type GroupNotification struct {
 	CivilIds []string
 }
 
-type RedisConfigNotification struct {
-	CivilId         string `json:"civilId"`
-	Regnum          string `json:"regnum"`
-	EmailAddress    string `json:"emailAddress"`
-	IsSms           bool   `json:"isSms"`
-	IsEmail         bool   `json:"isEmail"`
-	IsPush          bool   `json:"isPush"`
-	IsNationalEmail bool   `json:"isNationalEmail"`
-	Social          bool   `json:"social"`
+type UserConfigNotification struct {
+	CivilId         string   `json:"civilId"`
+	Regnum          string   `json:"regnum"`
+	EmailAddress    string   `json:"emailAddress"`
+	IsSms           bool     `json:"isSms"`
+	IsEmail         bool     `json:"isEmail"`
+	IsPush          bool     `json:"isPush"`
+	IsNationalEmail bool     `json:"isNationalEmail"`
+	Social          bool     `json:"social"`
+	DeviceTokens    []string `json:"deviceTokens"`
 }

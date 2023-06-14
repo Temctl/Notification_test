@@ -194,6 +194,7 @@ func main() {
 				} else {
 					civilId = regularModel.CivilId
 				}
+<<<<<<< Updated upstream
 				var notificationType model.NotificationType
 				helper.SendRegularNotif(civilId, regularModel.Content, notificationType, notifRedis, client)
 
@@ -221,8 +222,48 @@ func main() {
 					}
 
 				} else {
+<<<<<<< HEAD
 					for _, civilId := range groupModel.CivilIds {
 						helper.SendRegularNotif(civilId, groupModel.Content, notificationType, notifRedis, client)
+=======
+					civilId = xypModel.CivilId
+				}
+				userConf, err := notifRedis.HGetAll("conf:" + civilId).Result()
+=======
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
+				var push1 model.PushNotificationModel
+				push1.Body = "regular notif test"
+				push1.Title = "regular notif test"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+
+=======
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+regularModel.CivilId).Result()
+>>>>>>> Stashed changes
+				if err != nil {
+					panic(err)
+				}
+				if isPush, ok := userConf["isPush"]; ok && isPush == "true" {
+					var tmp []string
+					tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
+					for i := 0; i < 700; i++ {
+						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
+					}
+					userDeviceTokens, err := notifRedis.LRange("deviceTokens:"+civilId, 0, -1).Result()
+					if err != nil {
+						panic(err)
+					} else {
+						helper.PushToTokens(push1, userDeviceTokens, client)
+					}
+
+				}
+				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
+					helper.SendNatEmail(civilId)
+				}
+				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
+					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
+						helper.SendPrivEmail(emailAddress)
+>>>>>>> 189abdf (zasvaruud)
 					}
 				}
 				fmt.Printf("Received Message: %s\n", msg.Body)

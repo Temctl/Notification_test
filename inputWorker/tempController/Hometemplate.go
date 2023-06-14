@@ -1,15 +1,13 @@
-package controller
+package tempController
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
 
-func LoginTemplateHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Fsdfsdfsdf")
+func HomeTemplateHandler(w http.ResponseWriter, r *http.Request) {
 	// Load and parse the template file
-	tmpl, err := template.ParseFiles("./template/Login.html")
+	tmpl, err := template.ParseFiles("./template/Home.html")
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return

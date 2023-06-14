@@ -9,9 +9,10 @@ import (
 	"gopkg.in/gomail.v2"
 )
 
-func SendNatEmail() {
+func SendNatEmail(civilId string) {
 	from := "notification@e-mongolia.mn"
-	to := "891834062934@e-mongolia.mn"
+	// to := "891834062934@e-mongolia.mn"
+	to := civilId + "@e-mongolia.mn"
 	subject := "Test"
 	body := "<html><body><h1>Hello!</h1></body></html>" // Replace with the HTML content of your email
 

@@ -40,7 +40,7 @@ func init() {
 	if ENV == "" {
 		PORT = 8085
 
-		REDIS_HOST = "localhost"
+		REDIS_HOST = "172.72.0.11"
 		REDIS_PORT = 6379
 		REDIS_PASSWORD = ""
 		REDIS_DB = 0
@@ -52,7 +52,7 @@ func init() {
 		ELOG_BACKUPS = 10
 		ELOG_MAXAGE = 30
 
-		RABBITMQURL = "amqp://guest:guest@localhost:5672/"
+		RABBITMQURL = "amqp://guest:guest@172.72.0.11:5672/"
 	} else if ENV == "prod" {
 		PORT = 8085
 

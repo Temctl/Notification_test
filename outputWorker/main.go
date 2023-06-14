@@ -101,12 +101,6 @@ func main() {
 		panic(err)
 	}
 
-	var tmp []string
-	tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
-	for i := 0; i < 1200; i++ {
-		tmp = append(tmp, strconv.FormatInt(int64(i), 10))
-	}
-
 	// print consumed messages from queue
 	forever := make(chan bool)
 	var xypModel model.XypNotification
@@ -114,10 +108,49 @@ func main() {
 		for msg := range xypNotifs {
 			err := json.Unmarshal(msg.Body, &xypModel)
 			if err == nil {
-				var push model.PushNotificationModel
-				push.Body = "xyp notif test"
-				push.Title = "xyp notif test"
-				helper.PushToTokens(push, tmp, client)
+				var civilId string
+				if xypModel.CivilId == "" {
+					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+xypModel.Regnum).Result()
+					if err != nil {
+						panic(err)
+					}
+				} else {
+					civilId = xypModel.CivilId
+				}
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
+				var push1 model.PushNotificationModel
+				push1.Body = "regular notif test"
+				push1.Title = "regular notif test"
+
+				if err != nil {
+					panic(err)
+				}
+				if isPush, ok := userConf["isPush"]; ok && isPush == "true" {
+					var tmp []string
+					tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
+					for i := 0; i < 700; i++ {
+						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
+					}
+					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					if err != nil {
+						panic(err)
+					} else {
+						helper.PushToTokens(push1, userDeviceTokens, client)
+					}
+
+				}
+				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
+					helper.SendNatEmail(civilId)
+				}
+				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
+					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
+						helper.SendPrivEmail(emailAddress)
+					}
+				}
+				if isSocial, ok := userConf["social"]; ok && isSocial == "true" {
+					helper.SendSocial(civilId)
+				}
+
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
 				panic(err)
@@ -131,10 +164,49 @@ func main() {
 		for msg := range attentionNotifs {
 			err := json.Unmarshal(msg.Body, &attentionModel)
 			if err == nil {
+				var civilId string
+				if attentionModel.CivilId == "" {
+					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+attentionModel.Regnum).Result()
+					if err != nil {
+						panic(err)
+					}
+				} else {
+					civilId = attentionModel.CivilId
+				}
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
 				var push1 model.PushNotificationModel
-				push1.Body = "attention notif test"
-				push1.Title = "attention notif test"
-				helper.PushToTokens(push1, tmp, client)
+				push1.Body = "regular notif test"
+				push1.Title = "regular notif test"
+
+				if err != nil {
+					panic(err)
+				}
+				if isPush, ok := userConf["isPush"]; ok && isPush == "true" {
+					var tmp []string
+					tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
+					for i := 0; i < 700; i++ {
+						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
+					}
+					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					if err != nil {
+						panic(err)
+					} else {
+						helper.PushToTokens(push1, userDeviceTokens, client)
+					}
+
+				}
+				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
+					helper.SendNatEmail(civilId)
+				}
+				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
+					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
+						helper.SendPrivEmail(emailAddress)
+					}
+				}
+				if isSocial, ok := userConf["social"]; ok && isSocial == "true" {
+					helper.SendSocial(civilId)
+				}
+
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
 				panic(err)
@@ -148,17 +220,49 @@ func main() {
 		for msg := range regularNotifs {
 			err := json.Unmarshal(msg.Body, &regularModel)
 			if err == nil {
+				var civilId string
+				if regularModel.CivilId == "" {
+					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+regularModel.Regnum).Result()
+					if err != nil {
+						panic(err)
+					}
+				} else {
+					civilId = regularModel.CivilId
+				}
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
 				var push1 model.PushNotificationModel
 				push1.Body = "regular notif test"
 				push1.Title = "regular notif test"
-				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+regularModel.CivilId).Result()
-				if err != nil{
+
+				if err != nil {
 					panic(err)
 				}
-				helper.PushToTokens(push1, tmp, client)
-				helper.SendNatEmail()
-				helper.SendPrivEmail()
-				helper.SendSocial(userConf["civilId"])
+				if isPush, ok := userConf["isPush"]; ok && isPush == "true" {
+					var tmp []string
+					tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
+					for i := 0; i < 700; i++ {
+						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
+					}
+					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					if err != nil {
+						panic(err)
+					} else {
+						helper.PushToTokens(push1, userDeviceTokens, client)
+					}
+
+				}
+				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
+					helper.SendNatEmail(civilId)
+				}
+				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
+					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
+						helper.SendPrivEmail(emailAddress)
+					}
+				}
+				if isSocial, ok := userConf["social"]; ok && isSocial == "true" {
+					helper.SendSocial(civilId)
+				}
+
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
 				panic(err)

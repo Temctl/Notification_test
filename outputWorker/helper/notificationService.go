@@ -8,9 +8,6 @@ import (
 
 func SendRegularNotif(civilId string, content string, notifificationType model.NotificationType, redis *redis.Client, client *messaging.Client) {
 	userConf, err := redis.HGetAll("conf:" + civilId).Result()
-	var push1 model.PushNotificationModel
-	push1.Body = "regular notif test"
-	push1.Title = "regular notif test"
 
 	if err != nil {
 		panic(err)
@@ -20,7 +17,11 @@ func SendRegularNotif(civilId string, content string, notifificationType model.N
 		if err != nil {
 			panic(err)
 		} else {
-			PushToTokens(push1, userDeviceTokens, client)
+			var push model.PushNotificationModel
+			push.Body = content
+			push.Title = "regular notif test"
+			push.
+			PushToNonToken(push, userDeviceTokens, client)
 		}
 	}
 	if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {

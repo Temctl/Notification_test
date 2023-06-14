@@ -7,6 +7,7 @@ type PushNotificationModel struct {
 	Data     map[string]string
 	Regnum   string
 	CivilId  string
+	Type     string
 }
 
 type XypNotification struct {

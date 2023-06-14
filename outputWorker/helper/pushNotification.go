@@ -88,9 +88,9 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 	wg.Wait()
 }
 
-func PushToNonToken(request model.PushNotificationModel, regnum string, client *messaging.Client) {
+func PushToNonToken(request model.PushNotificationModel, civilId string, client *messaging.Client) {
 	//TODO
-	PushToToken(request, getPushTokenRegnum(regnum), client)
+	PushToToken(request, getPushTokenCivilId(civilId), client)
 }
 
 func PushToToken(request model.PushNotificationModel, deviceToken string, client *messaging.Client) {

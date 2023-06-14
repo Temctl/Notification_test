@@ -6,3 +6,4 @@ ERROR: 2023/06/05 14:44:43 main.go:28: open ./env: no such file or directory
 ERROR: 2023/06/12 10:35:16 main.go:52: dial tcp 127.0.0.1:5672: connect: connection refused
 ERROR: 2023/06/12 10:36:28 main.go:52: dial tcp 127.0.0.1:5672: connect: connection refused
 ERROR: 2023/06/12 10:36:50 main.go:52: dial tcp 127.0.0.1:5672: connect: connection refused
+INFO: 2023/06/14 14:44:50 Redis.go:39: Redis server response: PONG

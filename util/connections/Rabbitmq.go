@@ -7,7 +7,7 @@ import (
 	"github.com/streadway/amqp"
 )
 
-func ConnectionRabbitmq() *amqp.Channel {
+func GetRabbitmqChannel() (*amqp.Channel, error) {
 	fmt.Println("RabbitMQ in GoLang : started")
 
 	connection, err := amqp.Dial(util.RABBITMQURL)
@@ -67,5 +67,5 @@ func ConnectionRabbitmq() *amqp.Channel {
 		panic(err)
 	}
 
-	return channel
+	return channel, err
 }

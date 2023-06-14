@@ -10,11 +10,11 @@ import (
 
 	firebase "firebase.google.com/go"
 	"github.com/Temctl/E-Notification/outputWorker/helper"
+	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/Temctl/E-Notification/util/model"
 	"github.com/Temctl/E-Notification/util/redis"
 	"github.com/joho/godotenv"
-	"github.com/streadway/amqp"
 	"google.golang.org/api/option"
 )
 
@@ -50,13 +50,8 @@ func main() {
 		return
 	}
 
-	connection, err := amqp.Dial(util.)
-	if err != nil {
-		fmt.Println("Error connection to rabbitmq:", err)
-	}
-
-	channel, err := connection.Channel()
-	if err != nil {
+	channel := connections.ConnectionRabbitmq()
+	if channel == nil {
 		fmt.Println("Error connecting to amqp channel:", err)
 	}
 

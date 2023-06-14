@@ -50,7 +50,7 @@ func main() {
 		return
 	}
 
-	connection, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	connection, err := amqp.Dial(util.)
 	if err != nil {
 		fmt.Println("Error connection to rabbitmq:", err)
 	}

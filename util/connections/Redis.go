@@ -1,12 +1,11 @@
 package connections
 
 import (
-	"context"
 	"strconv"
 
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/elog"
-	"github.com/redis/go-redis/v9"
+	"github.com/go-redis/redis"
 )
 
 func ConnectionRedis() (*redis.Client, error) {
@@ -33,7 +32,7 @@ func ConnectionRedis() (*redis.Client, error) {
 	// Ping the Redis server to check the connection ---------
 	// -------------------------------------------------------
 
-	ping, err := client.Ping(context.Background()).Result()
+	ping, err := client.Ping().Result()
 	if err != nil {
 		elog.Info().Println("Failed to ping Redis server:", err)
 	}

@@ -8,14 +8,12 @@ import (
 	"os"
 	"strconv"
 
-	firebase "firebase.google.com/go"
 	"github.com/Temctl/E-Notification/outputWorker/helper"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/Temctl/E-Notification/util/model"
 	"github.com/Temctl/E-Notification/util/redis"
 	"github.com/joho/godotenv"
-	"google.golang.org/api/option"
 )
 
 var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
@@ -33,25 +31,14 @@ func init() {
 }
 
 func main() {
-
-	// Initialize the Firebase app
-	opt := option.WithCredentialsFile("config/firebase.json")
-	config := &firebase.Config{ProjectID: "mgov-12390"}
-	app, err := firebase.NewApp(context.Background(), config, opt)
+	// Get the FCM client
+	client, err := connections.GetFCMClient()
 	if err != nil {
 		fmt.Println("Error initializing Firebase app:", err)
-		return
 	}
 
-	// Get the FCM client
-	client, err := app.Messaging(context.Background())
+	channel, err := connections.GetRabbitmqChannel()
 	if err != nil {
-		fmt.Println("Error getting FCM client:", err)
-		return
-	}
-
-	channel := connections.ConnectionRabbitmq()
-	if channel == nil {
 		fmt.Println("Error connecting to amqp channel:", err)
 	}
 

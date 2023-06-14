@@ -9,7 +9,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func ConnectionRedis() *redis.Client {
+func ConnectionRedis() (*redis.Client, error) {
 
 	// -------------------------------------------------------
 	// GET UTIL CONFIG ---------------------------------------
@@ -33,12 +33,11 @@ func ConnectionRedis() *redis.Client {
 	// Ping the Redis server to check the connection ---------
 	// -------------------------------------------------------
 
-	pong, err := client.Ping(context.Background()).Result()
+	ping, err := client.Ping(context.Background()).Result()
 	if err != nil {
 		elog.Info().Println("Failed to ping Redis server:", err)
-		return nil
 	}
-	elog.Info().Println("Redis server response: " + pong)
+	elog.Info().Println("Redis server response: " + ping)
 
-	return client
+	return client, err
 }

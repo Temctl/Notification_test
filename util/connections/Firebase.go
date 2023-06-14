@@ -16,8 +16,9 @@ func GetFCMClient() (*messaging.Client, error) {
 	app, err := firebase.NewApp(context.Background(), config, opt)
 	if err != nil {
 		fmt.Println("Error initializing Firebase app:", err)
+		return nil, err
 	}
 
-	// return the FCM client
+	// Get the FCM client
 	return app.Messaging(context.Background())
 }

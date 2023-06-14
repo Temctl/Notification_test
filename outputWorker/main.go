@@ -137,11 +137,11 @@ func main() {
 
 				}
 				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
-					helper.SendNatEmail(civilId)
+					// helper.SendNatEmail(civilId)
 				}
 				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
 					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
-						helper.SendPrivEmail(emailAddress)
+						// helper.SendPrivEmail(emailAddress)
 					}
 				}
 				if isSocial, ok := userConf["social"]; ok && isSocial == "true" {
@@ -170,7 +170,7 @@ func main() {
 				} else {
 					civilId = attentionModel.CivilId
 				}
-				helper.SendRegularNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
+				helper.SendAttentionNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
 
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {

@@ -6,19 +6,37 @@ import (
 	"net"
 	"net/mail"
 	"net/smtp"
+	"os"
+	"strings"
 
 	"github.com/Temctl/E-Notification/util"
+	"github.com/Temctl/E-Notification/util/model"
 )
 
-func SendPrivEmail(emailAddress string) {
-	// civilID := "your_civil_id"     // Replace with the actual value
-	sendMsg := "Your HTML content" // Replace with your HTML content
+func AttentionPrivEmail(civilId string, content string, notificationType model.NotificationType) int {
+	htmlUrl := "helper/attention_email.html"
+	imgElem := "<img style=\"padding-left: 50px;\" src=\"https://content.e-mongolia.mn/png/drivercard.png\" alt=\"citizenCard\" width=\"300px\">"
+	if notificationType == model.NotificationType(rune(4)) {
+		imgElem = "<img style=\"padding-left: 50px;\" src=\"https://content.e-mongolia.mn/png/passport1.png\" width=\"220px\" alt=\"foreignCard\">"
+	} else if notificationType == model.NotificationType(rune(2)) {
+		imgElem = "<img style=\"padding-left: 50px;\" src=\"https://content.e-mongolia.mn/png/citizencard.png\" alt=\"citizenCard\" width=\"300px\">"
+	}
 
-	// Get private email from Redis
-	// privateEmail, err := redisLocal.HGet(fmt.Sprintf("users:%s", civilID), "email").Result()
-	// if err != nil {
-	// 	panic(err)
-	// }
+	htmlContent, err := os.ReadFile(htmlUrl)
+	if err != nil {
+		fmt.Println("Error reading HTML file:", err)
+		return 0
+	}
+
+	baseHTML := string(htmlContent)
+	msg := strings.ReplaceAll(baseHTML, "{TEXT_REPLACE}", content)
+	msg = strings.ReplaceAll(msg, "{IMG_ELEMENT}", imgElem)
+
+	return sendPrivEmail(civilId, msg)
+}
+
+func sendPrivEmail(emailAddress string, content string) int {
+
 	// privateEmail := "temuulen@ema.gov.mn"
 	privateEmail := "utemuka@gmail.com"
 
@@ -28,7 +46,7 @@ func SendPrivEmail(emailAddress string) {
 		"Content-Type: text/html; charset=utf-8\r\n"+
 		"Content-Transfer-Encoding: quoted-printable\r\n"+
 		"\r\n"+
-		"%s\r\n", privateEmail, sendMsg))
+		"%s\r\n", privateEmail, content))
 
 	// Create the SMTP client
 	auth := smtp.PlainAuth("", util.AWS_SES_USER, util.AWS_SES_PASSWORD, util.AWS_SMTP)
@@ -40,39 +58,47 @@ func SendPrivEmail(emailAddress string) {
 	// Establish a TLS connection to the SMTP server
 	conn, err := tls.Dial("tcp", addr, &tls.Config{ServerName: host})
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 	defer conn.Close()
 
 	// Create the SMTP client and send the email
 	client, err := smtp.NewClient(conn, host)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 	defer client.Quit()
 
 	if err = client.Auth(auth); err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 
 	if err = client.Mail("notification@e-mongolia.mn"); err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 
 	if err = client.Rcpt(to.Address); err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 
 	w, err := client.Data()
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 	defer w.Close()
 
 	_, err = w.Write(msg)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return 0
 	}
 
 	fmt.Println("Private email sent successfully.")
+	return 1
 }

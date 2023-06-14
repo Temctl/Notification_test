@@ -59,6 +59,8 @@ github.com/Temctl/E-Notification/util v0.0.0-20230614063138-e18c71a0c027 h1:ZZFE
 github.com/Temctl/E-Notification/util v0.0.0-20230614063138-e18c71a0c027/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/Temctl/E-Notification/util v0.0.0-20230614073719-a4a69285a537 h1:UAhK2PTg10IZlheImJT/lagw3zdn6ZqkSVF+n/8/ooE=
 github.com/Temctl/E-Notification/util v0.0.0-20230614073719-a4a69285a537/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
+github.com/Temctl/E-Notification/util v0.0.0-20230614073829-d9c783b133d3 h1:aSmEopEUjJdd2hzLUU6kHeXzePSa9+M0Q9oVkiN3w8I=
+github.com/Temctl/E-Notification/util v0.0.0-20230614073829-d9c783b133d3/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=

@@ -79,6 +79,7 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 				fmt.Println("Error sending push notification:", err)
 				return
 			}
+			// TODO write log
 
 			fmt.Printf("Successful count: %d\n", response.SuccessCount)
 			fmt.Printf("Failed count: %d\n", response.FailureCount)

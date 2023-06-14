@@ -23,7 +23,7 @@ require (
 	cloud.google.com/go/iam v0.13.0 // indirect
 	cloud.google.com/go/longrunning v0.4.2 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
-	github.com/Temctl/E-Notification/util v0.0.0-20230614063138-e18c71a0c027 // indirect
+	github.com/Temctl/E-Notification/util v0.0.0-20230614073719-a4a69285a537 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect

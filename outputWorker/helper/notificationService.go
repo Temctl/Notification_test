@@ -20,7 +20,7 @@ func SendRegularNotif(civilId string, content string, notifificationType model.N
 			var push model.PushNotificationModel
 			push.Body = content
 			push.Title = "regular notif test"
-			push.
+			push.Type = notifificationType
 			PushToNonToken(push, userDeviceTokens, client)
 		}
 	}

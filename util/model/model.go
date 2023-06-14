@@ -1,15 +1,5 @@
 package model
 
-type PushNotificationModel struct {
-	Title    string
-	Body     string
-	ImageUrl string
-	Data     map[string]string
-	Regnum   string
-	CivilId  string
-	Type     string
-}
-
 type XypNotification struct {
 	Date        string
 	ServiceName string
@@ -38,6 +28,16 @@ type AttentionNotification struct {
 	CivilId    string
 	ExpireDate string
 	Content    string
+}
+
+type PushNotificationModel struct {
+	Title    string
+	Body     string
+	ImageUrl string
+	Data     map[string]string
+	Regnum   string
+	CivilId  string
+	Type     NotificationType
 }
 
 type RegularNotification struct {

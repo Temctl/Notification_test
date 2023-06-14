@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -108,14 +107,14 @@ func main() {
 			if err == nil {
 				var civilId string
 				if xypModel.CivilId == "" {
-					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+xypModel.Regnum).Result()
+					civilId, err = notifRedis.Get("getByReg:" + xypModel.Regnum).Result()
 					if err != nil {
 						panic(err)
 					}
 				} else {
 					civilId = xypModel.CivilId
 				}
-				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
+				userConf, err := notifRedis.HGetAll("conf:" + civilId).Result()
 				var push1 model.PushNotificationModel
 				push1.Body = "regular notif test"
 				push1.Title = "regular notif test"
@@ -129,7 +128,7 @@ func main() {
 					for i := 0; i < 700; i++ {
 						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
 					}
-					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					userDeviceTokens, err := notifRedis.LRange("deviceTokens:"+civilId, 0, -1).Result()
 					if err != nil {
 						panic(err)
 					} else {
@@ -164,14 +163,14 @@ func main() {
 			if err == nil {
 				var civilId string
 				if attentionModel.CivilId == "" {
-					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+attentionModel.Regnum).Result()
+					civilId, err = notifRedis.Get("getByReg:" + attentionModel.Regnum).Result()
 					if err != nil {
 						panic(err)
 					}
 				} else {
 					civilId = attentionModel.CivilId
 				}
-				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
+				userConf, err := notifRedis.HGetAll("conf:" + civilId).Result()
 				var push1 model.PushNotificationModel
 				push1.Body = "regular notif test"
 				push1.Title = "regular notif test"
@@ -185,7 +184,7 @@ func main() {
 					for i := 0; i < 700; i++ {
 						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
 					}
-					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					userDeviceTokens, err := notifRedis.LRange("deviceTokens:"+civilId, 0, -1).Result()
 					if err != nil {
 						panic(err)
 					} else {
@@ -220,7 +219,7 @@ func main() {
 			if err == nil {
 				var civilId string
 				if regularModel.CivilId == "" {
-					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+regularModel.Regnum).Result()
+					civilId, err = notifRedis.Get("getByReg:" + regularModel.Regnum).Result()
 					if err != nil {
 						panic(err)
 					}
@@ -228,7 +227,6 @@ func main() {
 					civilId = regularModel.CivilId
 				}
 				var notificationType model.NotificationType
-				notificationType = 0
 				helper.SendRegularNotif(civilId, regularModel.Content, notificationType, notifRedis, client)
 
 				fmt.Printf("Received Message: %s\n", msg.Body)
@@ -246,17 +244,19 @@ func main() {
 			if err == nil {
 				var civilId string
 				if len(groupModel.CivilIds) == 0 {
-					for _, v := range groupModel.Regnums {
+					for _, regnum := range groupModel.Regnums {
+						civilId, err = notifRedis.Get("getByReg:" + regnum).Result()
+						if err != nil {
+							panic(err)
+						}
+						var notificationType model.NotificationType
+						helper.SendRegularNotif(civilId, groupModel., notificationType, notifRedis, client)
+					}
 
-					}
-					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+xypModel.Regnum).Result()
-					if err != nil {
-						panic(err)
-					}
 				} else {
 					civilId = xypModel.CivilId
 				}
-				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
+				userConf, err := notifRedis.HGetAll("conf:" + civilId).Result()
 
 				if err != nil {
 					panic(err)
@@ -267,7 +267,7 @@ func main() {
 					for i := 0; i < 700; i++ {
 						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
 					}
-					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					userDeviceTokens, err := notifRedis.LRange("deviceTokens:"+civilId, 0, -1).Result()
 					if err != nil {
 						panic(err)
 					} else {

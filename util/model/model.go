@@ -47,6 +47,7 @@ type RegularNotification struct {
 
 type GroupNotification struct {
 	IsAll    bool
+	Content  string
 	Regnums  []string
 	CivilIds []string
 }

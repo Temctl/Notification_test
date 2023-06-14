@@ -9,10 +9,10 @@ import (
 	"strconv"
 
 	"github.com/Temctl/E-Notification/outputWorker/helper"
+	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/Temctl/E-Notification/util/model"
-	"github.com/Temctl/E-Notification/util/redis"
 	"github.com/joho/godotenv"
 )
 
@@ -30,6 +30,7 @@ func init() {
 	}
 }
 
+
 func main() {
 	// Get the FCM client
 	client, err := connections.GetFCMClient()
@@ -42,10 +43,13 @@ func main() {
 		fmt.Println("Error connecting to amqp channel:", err)
 	}
 
-	notifRedis := redis.ConnectionRedis()
+	notifRedis, err := connections.ConnectionRedis()
+	if err != nil {
+		fmt.Println("Error connecting to redis:", err)
+	}
 
 	xypNotifs, err := channel.Consume(
-		"XYPNOTIFtest",
+		util.XYPNOTIFKEY,
 		"",
 		true,
 		false,
@@ -58,7 +62,7 @@ func main() {
 	}
 
 	attentionNotifs, err := channel.Consume(
-		"ATTENTIONNOTIFtest",
+		util.ATTENTIONNOTIFKEY,
 		"",
 		true,
 		false,
@@ -71,7 +75,20 @@ func main() {
 	}
 
 	regularNotifs, err := channel.Consume(
-		"REGULARNOTIFtest",
+		util.REGULARNOTIFKEY,
+		"",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	groupNotifs, err := channel.Consume(
+		util.GROUPNOTIFKEY,
 		"",
 		true,
 		false,
@@ -253,6 +270,64 @@ func main() {
 		}
 	}()
 
+	var groupModel model.GroupNotification
+	go func() {
+		for msg := range xypNotifs {
+			err := json.Unmarshal(msg.Body, &groupModel)
+			if err == nil {
+				var civilId string
+				if len(groupModel.CivilIds) == 0 {
+					for _, v := range groupModel.Regnums {
+						
+					}
+					civilId, err = notifRedis.Get(context.Background(), "getByReg:"+xypModel.Regnum).Result()
+					if err != nil {
+						panic(err)
+					}
+				} else {
+					civilId = xypModel.CivilId
+				}
+				userConf, err := notifRedis.HGetAll(context.Background(), "conf:"+civilId).Result()
+				var push1 model.PushNotificationModel
+				push1.Body = "regular notif test"
+				push1.Title = "regular notif test"
+
+				if err != nil {
+					panic(err)
+				}
+				if isPush, ok := userConf["isPush"]; ok && isPush == "true" {
+					var tmp []string
+					tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
+					for i := 0; i < 700; i++ {
+						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
+					}
+					userDeviceTokens, err := notifRedis.LRange(context.Background(), "deviceTokens:"+civilId, 0, -1).Result()
+					if err != nil {
+						panic(err)
+					} else {
+						helper.PushToTokens(push1, userDeviceTokens, client)
+					}
+
+				}
+				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
+					helper.SendNatEmail(civilId)
+				}
+				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
+					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
+						helper.SendPrivEmail(emailAddress)
+					}
+				}
+				if isSocial, ok := userConf["social"]; ok && isSocial == "true" {
+					helper.SendSocial(civilId)
+				}
+
+				fmt.Printf("Received Message: %s\n", msg.Body)
+			} else {
+				panic(err)
+			}
+
+		}
+	}()
 	fmt.Println("Waiting for messages...")
 	<-forever
 

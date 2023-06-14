@@ -21,10 +21,10 @@ type XypNotification struct {
 	ClientId    int
 }
 
-type AttentionType string
+type NotificationType string
 
 const (
-	TYPENOTSPECIFIED = iota
+	DEFAULT = iota
 	DRIVERLICENSEEXPIRE30
 	IDCARDGOINGTOEXPIRE
 	DRIVERLICENSEEXPIRED
@@ -32,7 +32,7 @@ const (
 )
 
 type AttentionNotification struct {
-	Type       AttentionType
+	Type       NotificationType
 	Regnum     string
 	CivilId    string
 	ExpireDate string

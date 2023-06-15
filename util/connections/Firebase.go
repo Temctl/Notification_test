@@ -11,7 +11,7 @@ import (
 
 func GetFCMClient() (*messaging.Client, error) {
 	// Initialize the Firebase app
-	opt := option.WithCredentialsFile("config/firebase.json")
+	opt := option.WithCredentialsFile("../config/firebase.json")
 	config := &firebase.Config{ProjectID: "mgov-12390"}
 	app, err := firebase.NewApp(context.Background(), config, opt)
 	if err != nil {

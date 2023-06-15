@@ -1,15 +1,15 @@
 package model
 
 type XypNotification struct {
-	Date        string
-	ServiceName string
-	ServiceDesc string
-	OrgName     string
-	Regnum      string
-	CivilId     string
-	RequestId   string
-	ResultCode  int
-	ClientId    int
+	Date        string `json:"date"`
+	ServiceName string `json:"serviceName"`
+	ServiceDesc string `json:"serviceDesc"`
+	OrgName     string `json:"orgName"`
+	Regnum      string `json:"regnum"`
+	CivilId     string `json:"civilId"`
+	RequestId   string `json:"requestId"`
+	ResultCode  int    `json:"resultCode"`
+	ClientId    int    `json:"clientId"`
 }
 
 type NotificationType string
@@ -23,34 +23,34 @@ const (
 )
 
 type AttentionNotification struct {
-	Type       NotificationType
-	Regnum     string
-	CivilId    string
-	ExpireDate string
-	Content    string
+	Type       NotificationType `json:"type"`
+	Regnum     string           `json:"regnum"`
+	CivilId    string           `json:"civilId"`
+	ExpireDate string           `json:"expireDate"`
+	Content    string           `json:"content"`
 }
 
 type PushNotificationModel struct {
-	Title    string
-	Body     string
-	ImageUrl string
-	Data     map[string]string
-	Regnum   string
-	CivilId  string
-	Type     NotificationType
+	Title    string            `json:"title"`
+	Body     string            `json:"body"`
+	ImageUrl string            `json:"imageUrl"`
+	Data     map[string]string `json:"data"`
+	Regnum   string            `json:"regnum"`
+	CivilId  string            `json:"civilId"`
+	Type     NotificationType  `json:"type"`
 }
 
 type RegularNotification struct {
-	Content string
-	Regnum  string
-	CivilId string
+	Content string `json:"content"`
+	Regnum  string `json:"regnum"`
+	CivilId string `json:"civilId"`
 }
 
 type GroupNotification struct {
-	IsAll    bool
-	Content  string
-	Regnums  []string
-	CivilIds []string
+	IsAll    bool     `json:"isAll"`
+	Content  string   `json:"content"`
+	Regnums  []string `json:"regnums"`
+	CivilIds []string `json:"civilIds"`
 }
 
 type UserConfigNotification struct {

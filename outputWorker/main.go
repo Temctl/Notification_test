@@ -119,19 +119,22 @@ func main() {
 		fmt.Println("FireBase started succesfully")
 	}
 
+	// get redis for config
 	notifRedis, err := connections.ConnectionRedis()
 	if err != nil {
 		fmt.Println("Error connecting to redis:", err)
 	} else {
 		fmt.Println("NotifRedis connected succesfully")
 	}
+
+	//get the four queues that will listen
 	xypNotifs, attentionNotifs, regularNotifs, groupNotifs := getQueues()
 
-	// print consumed messages from queue
+	// send the rconsumed messages
 	forever := make(chan bool)
 	var xypModel model.XypNotification
 	go func() {
-		for msg := range xypNotifs {
+		for msg := range xypNotifs { // send xyp notifs
 			err := json.Unmarshal(msg.Body, &xypModel)
 			if err == nil {
 				var civilId string
@@ -187,19 +190,24 @@ func main() {
 
 	var attentionModel model.AttentionNotification
 	go func() {
-		for msg := range attentionNotifs {
+		for msg := range attentionNotifs { // send attention notifs
 			err := json.Unmarshal(msg.Body, &attentionModel)
 			if err == nil {
-				var civilId string
 				if attentionModel.CivilId == "" {
-					civilId, err = notifRedis.Get("getByReg:" + attentionModel.Regnum).Result()
+					exists, err := notifRedis.Exists("getByReg:" + attentionModel.Regnum).Result()
 					if err != nil {
 						panic(err)
+					} else if exists == 1 {
+						civilId, err := notifRedis.Get("getByReg:" + attentionModel.Regnum).Result() // if civil id is not sent, get it using regnum from redis conf
+						if err != nil {
+							panic(err)
+						} else {
+							helper.SendAttentionNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
+						}
 					}
 				} else {
-					civilId = attentionModel.CivilId
+					helper.SendAttentionNotif(attentionModel.CivilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
 				}
-				helper.SendAttentionNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
 
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
@@ -214,17 +222,21 @@ func main() {
 		for msg := range regularNotifs {
 			err := json.Unmarshal(msg.Body, &regularModel)
 			if err == nil {
-				var civilId string
-				if regularModel.CivilId == "" {
-					civilId, err = notifRedis.Get("getByReg:" + regularModel.Regnum).Result()
+				if attentionModel.CivilId == "" {
+					exists, err := notifRedis.Exists("getByReg:" + attentionModel.Regnum).Result()
 					if err != nil {
 						panic(err)
+					} else if exists == 1 {
+						civilId, err := notifRedis.Get("getByReg:" + attentionModel.Regnum).Result() // if civil id is not sent, get it using regnum from redis conf
+						if err != nil {
+							panic(err)
+						} else {
+							helper.SendRegularNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
+						}
 					}
 				} else {
-					civilId = regularModel.CivilId
+					helper.SendRegularNotif(attentionModel.CivilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
 				}
-				var notificationType model.NotificationType
-				helper.SendRegularNotif(civilId, regularModel.Content, notificationType, notifRedis, client)
 
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {

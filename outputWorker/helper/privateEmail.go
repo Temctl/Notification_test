@@ -35,6 +35,13 @@ func AttentionPrivEmail(civilId string, content string, notificationType model.N
 	return sendPrivEmail(civilId, msg)
 }
 
+func RegularPrivEmail(civilId string, content string) int {
+
+	// TODO regular html
+
+	return sendPrivEmail(civilId, content)
+}
+
 func sendPrivEmail(emailAddress string, content string) int {
 
 	// privateEmail := "temuulen@ema.gov.mn"

@@ -13,6 +13,7 @@ import (
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/Temctl/E-Notification/util/model"
 	"github.com/joho/godotenv"
+	"github.com/streadway/amqp"
 )
 
 var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
@@ -29,21 +30,10 @@ func init() {
 	}
 }
 
-func main() {
-	// Get the FCM client
-	client, err := connections.GetFCMClient()
-	if err != nil {
-		fmt.Println("Error initializing Firebase app:", err)
-	}
-
+func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delivery) {
 	channel, err := connections.GetRabbitmqChannel()
 	if err != nil {
 		fmt.Println("Error connecting to amqp channel:", err)
-	}
-
-	notifRedis, err := connections.ConnectionRedis()
-	if err != nil {
-		fmt.Println("Error connecting to redis:", err)
 	}
 
 	xypNotifs, err := channel.Consume(
@@ -97,6 +87,21 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	return xypNotifs, attentionNotifs, regularNotifs, groupNotifs
+}
+
+func main() {
+	// Get the FCM client
+	client, err := connections.GetFCMClient()
+	if err != nil {
+		fmt.Println("Error initializing Firebase app:", err)
+	}
+
+	notifRedis, err := connections.ConnectionRedis()
+	if err != nil {
+		fmt.Println("Error connecting to redis:", err)
+	}
+	xypNotifs, attentionNotifs, regularNotifs, groupNotifs := getQueues()
 
 	// print consumed messages from queue
 	forever := make(chan bool)

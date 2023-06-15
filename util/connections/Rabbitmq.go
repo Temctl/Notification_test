@@ -8,7 +8,6 @@ import (
 )
 
 func GetRabbitmqChannel() (*amqp.Channel, error) {
-	fmt.Println("RabbitMQ in GoLang : started")
 
 	connection, err := amqp.Dial(util.RABBITMQURL)
 

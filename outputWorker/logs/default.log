@@ -11,3 +11,5 @@ INFO: 2023/06/15 10:39:31 Redis.go:39: Redis server response: PONG
 INFO: 2023/06/15 10:41:21 Redis.go:39: Redis server response: PONG
 INFO: 2023/06/15 10:44:35 Redis.go:39: Redis server response: PONG
 INFO: 2023/06/15 10:46:57 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 10:47:56 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 10:51:29 Redis.go:39: Redis server response: PONG

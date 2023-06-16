@@ -3,9 +3,9 @@ package router
 import (
 	"net/http"
 
-	"github.com/Temctl/E-Notification/inputWorker/auth"
-	"github.com/Temctl/E-Notification/inputWorker/controller"
-	"github.com/Temctl/E-Notification/inputWorker/tempController"
+	"github.com/Temctl/E-Notification/restApi/auth"
+	"github.com/Temctl/E-Notification/restApi/controller"
+	"github.com/Temctl/E-Notification/restApi/tempController"
 	"github.com/Temctl/E-Notification/util/elog"
 	"github.com/gorilla/mux"
 )
@@ -26,8 +26,7 @@ func RESTAPI() {
 
 	router.HandleFunc("/config", controller.UserConfig).Methods("POST")
 	router.HandleFunc("/devicetoken", controller.DeviceTokenConfig).Methods("POST")
-	router.HandleFunc("/pushnotif/single", controller.SinglePushNotif).Methods("POST")
-	router.HandleFunc("/pushnotif/group", controller.GroupPushNotif).Methods("POST")
+	router.HandleFunc("/pushnotif/group", controller.PushNotification).Methods("POST")
 	// router.HandleFunc("/config", controller.ConfigGet).Methods("GET")
 
 	// -----------------------------------------------------------

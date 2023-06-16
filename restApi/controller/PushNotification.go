@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Temctl/E-Notification/inputWorker/model"
+	"github.com/Temctl/E-Notification/restApi/model"
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -13,7 +13,7 @@ import (
 	"github.com/streadway/amqp"
 )
 
-func SinglePushNotif(w http.ResponseWriter, r *http.Request) {
+func PushNotification(w http.ResponseWriter, r *http.Request) {
 	// -------------------------------------------------------
 	// RESPONSE ----------------------------------------------
 	// -------------------------------------------------------

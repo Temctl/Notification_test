@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/Temctl/E-Notification/inputWorker/model"
+	"github.com/Temctl/E-Notification/restApi/model"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 )

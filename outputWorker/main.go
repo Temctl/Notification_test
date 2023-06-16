@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strconv"
 
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/messaging"
@@ -130,6 +129,8 @@ func main() {
 	//get the four queues that will listen
 	xypNotifs, attentionNotifs, regularNotifs, groupNotifs := getQueues()
 
+	notificationType := model.NotificationType(rune(0))
+
 	// send the rconsumed messages
 	forever := make(chan bool)
 	var xypModel model.XypNotification
@@ -137,50 +138,7 @@ func main() {
 		for msg := range xypNotifs { // send xyp notifs
 			err := json.Unmarshal(msg.Body, &xypModel)
 			if err == nil {
-				var civilId string
-				if xypModel.CivilId == "" {
-					civilId, err = notifRedis.Get("getByReg:" + xypModel.Regnum).Result()
-					if err != nil {
-						panic(err)
-					}
-				} else {
-					civilId = xypModel.CivilId
-				}
-				userConf, err := notifRedis.HGetAll("conf:" + civilId).Result()
-				var push1 model.PushNotificationModel
-				push1.Body = "regular notif test"
-				push1.Title = "regular notif test"
-
-				if err != nil {
-					panic(err)
-				}
-				if isPush, ok := userConf["isPush"]; ok && isPush == "true" {
-					var tmp []string
-					tmp = append(tmp, "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO")
-					for i := 0; i < 700; i++ {
-						tmp = append(tmp, strconv.FormatInt(int64(i), 10))
-					}
-					userDeviceTokens, err := notifRedis.LRange("deviceTokens:"+civilId, 0, -1).Result()
-					if err != nil {
-						panic(err)
-					} else {
-						helper.PushToTokens(push1, userDeviceTokens, client)
-					}
-
-				}
-				if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "true" {
-					// helper.SendNatEmail(civilId)
-				}
-				if isEmail, ok := userConf["isEmail"]; ok && isEmail == "true" {
-					if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
-						// helper.SendPrivEmail(emailAddress)
-					}
-				}
-				if isSocial, ok := userConf["social"]; ok && isSocial == "true" {
-					helper.SendSocial(civilId)
-				}
-
-				fmt.Printf("Received Message: %s\n", msg.Body)
+				helper.SendXypNotif(xypModel, notificationType, notifRedis, client)
 			} else {
 				panic(err)
 			}
@@ -193,21 +151,9 @@ func main() {
 		for msg := range attentionNotifs { // send attention notifs
 			err := json.Unmarshal(msg.Body, &attentionModel)
 			if err == nil {
-				if attentionModel.CivilId == "" {
-					exists, err := notifRedis.Exists("getByReg:" + attentionModel.Regnum).Result()
-					if err != nil {
-						panic(err)
-					} else if exists == 1 {
-						civilId, err := notifRedis.Get("getByReg:" + attentionModel.Regnum).Result() // if civil id is not sent, get it using regnum from redis conf
-						if err != nil {
-							panic(err)
-						} else {
-							helper.SendAttentionNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
-						}
-					}
-				} else {
-					helper.SendAttentionNotif(attentionModel.CivilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
-				}
+				go func(request model.AttentionNotification) {
+					helper.SendAttentionNotif(attentionModel.CivilId, attentionModel.Regnum, attentionModel.Content, attentionModel.Type, notifRedis, client)
+				}(attentionModel)
 
 				fmt.Printf("Received Message: %s\n", msg.Body)
 			} else {
@@ -222,23 +168,12 @@ func main() {
 		for msg := range regularNotifs {
 			err := json.Unmarshal(msg.Body, &regularModel)
 			if err == nil {
-				if attentionModel.CivilId == "" {
-					exists, err := notifRedis.Exists("getByReg:" + attentionModel.Regnum).Result()
-					if err != nil {
-						panic(err)
-					} else if exists == 1 {
-						civilId, err := notifRedis.Get("getByReg:" + attentionModel.Regnum).Result() // if civil id is not sent, get it using regnum from redis conf
-						if err != nil {
-							panic(err)
-						} else {
-							helper.SendRegularNotif(civilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
-						}
-					}
-				} else {
-					helper.SendRegularNotif(attentionModel.CivilId, attentionModel.Content, attentionModel.Type, notifRedis, client)
-				}
+				go func(request model.RegularNotification, msg amqp.Delivery) {
+					helper.SendRegularNotif(request.CivilId, request.Regnum, request.Content, notificationType, notifRedis, client)
 
-				fmt.Printf("Received Message: %s\n", msg.Body)
+					fmt.Printf("Received Message: %s\n", msg.Body)
+				}(regularModel, msg)
+
 			} else {
 				panic(err)
 			}
@@ -251,22 +186,21 @@ func main() {
 		for msg := range groupNotifs {
 			err := json.Unmarshal(msg.Body, &groupModel)
 			if err == nil {
-				var notificationType model.NotificationType
 				if len(groupModel.CivilIds) == 0 {
 					for _, regnum := range groupModel.Regnums {
-						civilId, err := notifRedis.Get("getByReg:" + regnum).Result()
-						if err != nil {
-							panic(err)
-						}
-						helper.SendRegularNotif(civilId, groupModel.Content, notificationType, notifRedis, client)
+						go func(regnum string, content string) {
+							helper.SendRegularNotif("", regnum, content, notificationType, notifRedis, client)
+						}(regnum, groupModel.Content)
 					}
-
 				} else {
 					for _, civilId := range groupModel.CivilIds {
-						helper.SendRegularNotif(civilId, groupModel.Content, notificationType, notifRedis, client)
+						go func(civilId string, content string) {
+							helper.SendRegularNotif(civilId, "", content, notificationType, notifRedis, client)
+						}(civilId, groupModel.Content)
 					}
 				}
-				fmt.Printf("Received Message: %s\n", msg.Body)
+				fmt.Printf("Received group Message: %s\n", msg.Body)
+
 			} else {
 				panic(err)
 			}

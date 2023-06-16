@@ -44,8 +44,9 @@ func RegularPrivEmail(civilId string, content string) int {
 
 func sendPrivEmail(emailAddress string, content string) int {
 
-	// privateEmail := "temuulen@ema.gov.mn"
-	privateEmail := "utemuka@gmail.com"
+	privateEmail := "bilguun@ema.gov.mn"
+	// privateEmail := emailAddress
+	fmt.Println(privateEmail)
 
 	// Compose the email message
 	msg := []byte(fmt.Sprintf("Subject: Иргэн танд мэдээлэл хүргэж байна\r\n"+
@@ -59,7 +60,8 @@ func sendPrivEmail(emailAddress string, content string) int {
 	auth := smtp.PlainAuth("", util.AWS_SES_USER, util.AWS_SES_PASSWORD, util.AWS_SMTP)
 	addr := fmt.Sprintf("%s:%d", util.AWS_SMTP, 465)
 	host, _, _ := net.SplitHostPort(addr)
-	// from := mail.Address{Name: "", Address: util.FROM_EMAIL}
+	fmt.Println(host)
+	from := mail.Address{Name: "", Address: util.FROM_EMAIL}
 	to := mail.Address{Name: "", Address: privateEmail}
 
 	// Establish a TLS connection to the SMTP server

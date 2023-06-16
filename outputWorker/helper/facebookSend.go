@@ -13,7 +13,7 @@ func SendSocial(civilId string) int {
 	// Create JSON data
 	data := map[string]interface{}{
 		"message": map[string]interface{}{
-			"text": "test",
+			"text": civilId + " test",
 		},
 		"ref":     civilId,
 		"channel": "messenger",

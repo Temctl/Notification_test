@@ -40,11 +40,18 @@ func RegularNatEmail(civilId string, content string) int {
 	return sendNatEmail(civilId, content)
 }
 
+func XypNatEmail(civilId string, content string) int {
+
+	// TODO regular email html
+
+	return sendNatEmail(civilId, content)
+}
+
 func sendNatEmail(civilId string, content string) int {
 	from := "notification@e-mongolia.mn"
 	// to := "891834062934@e-mongolia.mn"
 	to := civilId + "@e-mongolia.mn"
-	subject := "Test"
+	subject := "Иргэн танд мэдээлэл хүргэж байна"
 	body := content
 
 	// Compose the email message

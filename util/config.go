@@ -33,7 +33,7 @@ var (
 	AWS_SES_USER     = "AKIA25YVKNUDIE6WUJAP"
 	AWS_SES_PASSWORD = "BH/k4+kFhzOVLoKV8SG4bRPGrkMy1tM3cFsHunMAgFX2"
 	AWS_SMTP         = "email-smtp.ap-southeast-1.amazonaws.com"
-	FROM_EMAIL       = "Notification system <notification@e-mongolia.mn>"
+	FROM_EMAIL       = "notification@e-mongolia.mn"
 )
 
 func init() {

@@ -42,6 +42,7 @@ func batchTokens(tokens []string, batchSize int) [][]string {
 func PushToTokens(request model.PushNotificationModel, deviceTokens []string, client *messaging.Client) {
 	tokenBatches := batchTokens(deviceTokens, 500) // Split tokens into batches of 500
 
+	successSent := 0
 	var wg sync.WaitGroup
 	wg.Add(len(tokenBatches))
 
@@ -81,12 +82,18 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 			}
 			// TODO write log
 
+			successSent += response.SuccessCount
 			fmt.Printf("Successful count: %d\n", response.SuccessCount)
 			fmt.Printf("Failed count: %d\n", response.FailureCount)
 		}(tokenBatch)
 	}
 
 	wg.Wait()
+	// if (successSent == 0){
+	// 	return 0
+	// }else{
+	// 	return 1
+	// }
 }
 
 func PushToNonToken(request model.PushNotificationModel, civilId string, client *messaging.Client) {

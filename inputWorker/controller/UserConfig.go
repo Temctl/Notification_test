@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/Temctl/E-Notification/inputWorker/model"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 	umodel "github.com/Temctl/E-Notification/util/model"
@@ -13,26 +14,39 @@ import (
 // -------------------------------------------------------
 // SET REDIS ---------------------------------------------
 // -------------------------------------------------------
-func SetRedis(key string, data map[string]interface{}) bool {
+func SetRedis(regnum string, key string, data map[string]interface{}) error {
 
 	elog.Info().Println("SET REDIS...")
 
 	// -------------------------------------------------------
-	// CONNECTION REDIS CLIENT -----------------------------------
+	// CONNECTION REDIS CLIENT -------------------------------
 	// -------------------------------------------------------
 	client, err := connections.ConnectionRedis()
 	if err != nil {
 		elog.Error().Println("Failed to create Redis client")
-		return false
+		return err
 	}
 	// -------------------------------------------------------
 	// REDIS luu data oruulah --------------------------------
 	// -------------------------------------------------------
-
+	result, existErr := client.Exists("conf:" + key).Result()
+	fmt.Println("dfdsf: ", result)
+	if existErr != nil {
+		elog.Error().Println("Register shalgahad aldaa garlaa", existErr)
+		return existErr
+	} else if result == 0 {
+		regErr := client.Set("getByReg:"+regnum, key, 0).Err()
+		if regErr != nil {
+			elog.Error().Println(regErr)
+			return regErr
+		}
+		elog.Info().Println("Successful...")
+	}
+	fmt.Println("conf:" + key)
 	clientErr := client.HMSet("conf:"+key, data).Err()
 	if clientErr != nil {
 		elog.Error().Println("redis setlehed aldaa garlaa", clientErr)
-		return false
+		return clientErr
 	}
 	elog.Info().Println("Successful...")
 
@@ -43,11 +57,13 @@ func SetRedis(key string, data map[string]interface{}) bool {
 	closeErr := client.Close()
 	if closeErr != nil {
 		elog.Error().Println("Error closing Redis client:", closeErr)
-		return false
-	} else {
-		elog.Info().Println("Redis client closed successfully")
+		return closeErr
 	}
-	return true
+
+	elog.Info().Println("Redis client closed successfully")
+
+	return nil
+
 }
 
 // ----------------------------------------------------------------------------------
@@ -57,7 +73,17 @@ func SetRedis(key string, data map[string]interface{}) bool {
 // Redist medeelel hiih
 func UserConfig(w http.ResponseWriter, r *http.Request) {
 	elog.Info().Println("USERCONFIG API STARTED...")
+	// -------------------------------------------------------
+	// RESPONSE ----------------------------------------------
+	// -------------------------------------------------------
+	response := model.ApiResponse{
+		Status:  http.StatusOK,
+		Message: "Success",
+	}
 
+	// -------------------------------------------------------
+	// PROGRESS ----------------------------------------------
+	// -------------------------------------------------------
 	var redisConfigData umodel.UserConfigNotification
 	err := json.NewDecoder(r.Body).Decode(&redisConfigData)
 	if err != nil {
@@ -81,16 +107,21 @@ func UserConfig(w http.ResponseWriter, r *http.Request) {
 
 	elog.Info().Println("WRITING REDIS")
 	// Redis write heseg
-	result := SetRedis(redisConfigData.CivilId, fields)
+	resultErr := SetRedis(redisConfigData.Regnum, redisConfigData.CivilId, fields)
 
-	if !result {
-		http.Error(w, "REDIS failed", http.StatusBadRequest)
+	if resultErr != nil {
+		response.Message = "АМЖИЛТГҮЙ: " + resultErr.Error()
+		response.Status = http.StatusBadRequest
+	}
+	// -----------------------------
+	// RESPONSE SETUP
+	// -----------------------------
+	responseJson, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	// Send a response
-	fmt.Println(result)
-	fmt.Println(fields)
-
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(redisConfigData.CivilId))
+	// Set the response header content type
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(responseJson)
 }

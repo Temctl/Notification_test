@@ -22,10 +22,12 @@ func RESTAPI() {
 	// API -------------------------------------------------------
 	// -----------------------------------------------------------
 
-	router.HandleFunc("/input", controller.Input).Methods("GET")
+	// router.HandleFunc("/input", controller.Input).Methods("GET")
 
 	router.HandleFunc("/config", controller.UserConfig).Methods("POST")
 	router.HandleFunc("/devicetoken", controller.DeviceTokenConfig).Methods("POST")
+	router.HandleFunc("/pushnotif/single", controller.SinglePushNotif).Methods("POST")
+	router.HandleFunc("/pushnotif/group", controller.GroupPushNotif).Methods("POST")
 	// router.HandleFunc("/config", controller.ConfigGet).Methods("GET")
 
 	// -----------------------------------------------------------
@@ -34,7 +36,7 @@ func RESTAPI() {
 
 	router.HandleFunc("/login", auth.Login).Methods("POST")
 	router.HandleFunc("/login", tempController.LoginTemplateHandler).Methods("GET")
-	router.HandleFunc("/", tempController.HomeTemplateHandler).Methods("GET")
+	router.HandleFunc("/", auth.AuthMiddleware(tempController.HomeTemplateHandler)).Methods("GET")
 
 	// -----------------------------------------------------------
 	// LISTEN ----------------------------------------------------

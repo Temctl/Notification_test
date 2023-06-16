@@ -3,7 +3,7 @@ module github.com/Temctl/E-Notification/inputWorker
 go 1.20
 
 require (
-	github.com/Temctl/E-Notification/util v0.0.0-20230614063138-e18c71a0c027
+	github.com/Temctl/E-Notification/util v0.0.0-20230615061658-6e33ee0a2572
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gorilla/mux v1.8.0
 	github.com/streadway/amqp v1.0.0
@@ -28,6 +28,7 @@ require (
 	github.com/googleapis/gax-go/v2 v2.10.0 // indirect
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/onsi/gomega v1.27.8 // indirect
+	github.com/robfig/cron v1.2.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	golang.org/x/crypto v0.10.0 // indirect
 	golang.org/x/net v0.11.0 // indirect

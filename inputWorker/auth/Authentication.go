@@ -50,7 +50,8 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 		// Retrieve the token from the cookie
 		cookie, err := r.Cookie("token")
 		if err != nil {
-			http.Error(w, "Unauthorized", http.StatusUnauthorized)
+			// http.Error(w, "Unauthorized", http.StatusUnauthorized)
+			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
 		tokenString := cookie.Value
@@ -67,7 +68,8 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 		})
 
 		if err != nil || !token.Valid {
-			http.Error(w, "Unauthorized", http.StatusUnauthorized)
+			// http.Error(w, "Unauthorized", http.StatusUnauthorized)
+			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
 

@@ -105,3 +105,964 @@ INFO: 2023/06/14 15:30:53 RESTAPI.go:18: ROUTE STARTED...
 INFO: 2023/06/14 15:30:53 main.go:13: XYP NOTIF WORKER STARTED...
 INFO: 2023/06/14 15:30:53 main.go:29: RABBITMQ: Succesful connected...
 INFO: 2023/06/14 15:30:53 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/14 16:03:16 StartPrint.go:18: 
+INFO: 2023/06/14 16:03:16 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/14 16:03:16 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/14 16:03:16 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/14 16:03:16 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/14 16:03:16 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/14 16:03:16 StartPrint.go:24: 
+INFO: 2023/06/14 16:03:16 main.go:109: SERVER STARTED...
+INFO: 2023/06/14 16:03:16 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/14 16:03:16 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/14 16:03:16 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/14 16:03:31 UserConfig.go:59: USERCONFIG API STARTED...
+INFO: 2023/06/14 16:03:31 UserConfig.go:82: WRITING REDIS
+INFO: 2023/06/14 16:03:31 UserConfig.go:18: SET REDIS...
+INFO: 2023/06/14 16:03:31 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/14 16:03:31 UserConfig.go:37: Successful...
+INFO: 2023/06/14 16:03:31 UserConfig.go:48: Redis client closed successfully
+INFO: 2023/06/14 16:04:11 main.go:102: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/14 16:04:11 main.go:102: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/14 16:04:11 main.go:102: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/14 16:04:11 main.go:102: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/14 16:04:11 main.go:102: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/14 16:18:36 StartPrint.go:18: 
+INFO: 2023/06/14 16:18:36 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/14 16:18:36 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/14 16:18:36 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/14 16:18:36 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/14 16:18:36 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/14 16:18:36 StartPrint.go:24: 
+INFO: 2023/06/14 16:18:36 main.go:76: SERVER STARTED...
+INFO: 2023/06/14 16:18:36 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/14 16:18:36 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/14 16:18:36 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/14 16:20:08 StartPrint.go:18: 
+INFO: 2023/06/14 16:20:08 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/14 16:20:08 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/14 16:20:08 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/14 16:20:08 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/14 16:20:08 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/14 16:20:08 StartPrint.go:24: 
+INFO: 2023/06/14 16:20:08 main.go:76: SERVER STARTED...
+INFO: 2023/06/14 16:20:08 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/14 16:20:08 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/14 16:20:08 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:33:53 StartPrint.go:18: 
+INFO: 2023/06/15 11:33:53 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:33:53 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:33:53 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:33:53 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:33:53 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:33:53 StartPrint.go:24: 
+INFO: 2023/06/15 11:33:53 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:33:53 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:33:53 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:33:53 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:34:15 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:34:15 DeviceToken.go:41: Successful...
+INFO: 2023/06/15 11:34:15 DeviceToken.go:51: Redis client closed successfully
+INFO: 2023/06/15 11:37:36 StartPrint.go:18: 
+INFO: 2023/06/15 11:37:36 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:37:36 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:37:36 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:37:36 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:37:36 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:37:36 StartPrint.go:24: 
+INFO: 2023/06/15 11:37:36 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:37:36 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:37:36 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:37:36 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:37:41 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:37:41 DeviceToken.go:45: Successful...
+INFO: 2023/06/15 11:37:41 DeviceToken.go:55: Redis client closed successfully
+INFO: 2023/06/15 11:45:26 StartPrint.go:18: 
+INFO: 2023/06/15 11:45:26 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:45:26 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:45:26 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:45:26 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:45:26 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:45:26 StartPrint.go:24: 
+INFO: 2023/06/15 11:45:26 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:45:26 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:45:26 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:45:26 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:45:31 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:45:31 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:45:31 DeviceToken.go:65: Redis client closed successfully
+INFO: 2023/06/15 11:46:01 StartPrint.go:18: 
+INFO: 2023/06/15 11:46:01 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:46:01 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:46:01 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:46:01 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:46:01 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:46:01 StartPrint.go:24: 
+INFO: 2023/06/15 11:46:01 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:46:01 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:46:01 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:46:01 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:46:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:46:05 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:46:05 DeviceToken.go:65: Redis client closed successfully
+INFO: 2023/06/15 11:46:11 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:46:11 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:46:11 DeviceToken.go:65: Redis client closed successfully
+INFO: 2023/06/15 11:46:29 StartPrint.go:18: 
+INFO: 2023/06/15 11:46:29 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:46:29 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:46:29 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:46:29 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:46:29 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:46:29 StartPrint.go:24: 
+INFO: 2023/06/15 11:46:29 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:46:29 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:46:29 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:46:29 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:46:34 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:46:34 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:46:34 DeviceToken.go:65: Redis client closed successfully
+INFO: 2023/06/15 11:47:12 StartPrint.go:18: 
+INFO: 2023/06/15 11:47:12 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:47:12 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:47:12 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:47:12 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:47:12 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:47:12 StartPrint.go:24: 
+INFO: 2023/06/15 11:47:12 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:47:12 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:47:12 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:47:12 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:47:27 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:47:27 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:47:27 DeviceToken.go:65: Redis client closed successfully
+2023/06/15 11:47:27 server.go:3217: http: superfluous response.WriteHeader call from github.com/Temctl/E-Notification/inputWorker/controller.DeviceTokenConfig (DeviceToken.go:78)
+INFO: 2023/06/15 11:47:38 StartPrint.go:18: 
+INFO: 2023/06/15 11:47:38 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:47:38 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:47:38 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:47:38 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:47:38 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:47:38 StartPrint.go:24: 
+INFO: 2023/06/15 11:47:38 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:47:38 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:47:38 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:47:38 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:47:44 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:47:44 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:47:44 DeviceToken.go:65: Redis client closed successfully
+2023/06/15 11:47:44 server.go:3217: http: superfluous response.WriteHeader call from github.com/Temctl/E-Notification/inputWorker/controller.DeviceTokenConfig (DeviceToken.go:78)
+INFO: 2023/06/15 11:47:47 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:47:47 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:47:47 DeviceToken.go:65: Redis client closed successfully
+2023/06/15 11:47:47 server.go:3217: http: superfluous response.WriteHeader call from github.com/Temctl/E-Notification/inputWorker/controller.DeviceTokenConfig (DeviceToken.go:78)
+INFO: 2023/06/15 11:47:56 StartPrint.go:18: 
+INFO: 2023/06/15 11:47:56 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:47:56 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:47:56 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:47:56 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:47:56 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:47:56 StartPrint.go:24: 
+INFO: 2023/06/15 11:47:56 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:47:56 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:47:56 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:47:56 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:48:02 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:48:02 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:48:02 DeviceToken.go:65: Redis client closed successfully
+2023/06/15 11:48:02 server.go:3217: http: superfluous response.WriteHeader call from github.com/Temctl/E-Notification/inputWorker/controller.DeviceTokenConfig (DeviceToken.go:78)
+INFO: 2023/06/15 11:50:50 StartPrint.go:18: 
+INFO: 2023/06/15 11:50:50 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:50:50 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:50:50 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:50:50 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:50:50 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:50:50 StartPrint.go:24: 
+INFO: 2023/06/15 11:50:50 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:50:50 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:50:50 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:50:50 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:50:54 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:50:54 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:50:54 DeviceToken.go:65: Redis client closed successfully
+2023/06/15 11:50:54 server.go:3217: http: superfluous response.WriteHeader call from github.com/Temctl/E-Notification/inputWorker/controller.DeviceTokenConfig (DeviceToken.go:78)
+INFO: 2023/06/15 11:51:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:51:05 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:51:05 DeviceToken.go:65: Redis client closed successfully
+2023/06/15 11:51:05 server.go:3217: http: superfluous response.WriteHeader call from github.com/Temctl/E-Notification/inputWorker/controller.DeviceTokenConfig (DeviceToken.go:78)
+INFO: 2023/06/15 11:51:18 StartPrint.go:18: 
+INFO: 2023/06/15 11:51:18 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:51:18 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:51:18 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:51:18 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:51:18 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:51:18 StartPrint.go:24: 
+INFO: 2023/06/15 11:51:18 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:51:18 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:51:18 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:51:18 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:51:24 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:51:24 DeviceToken.go:55: Successful...
+INFO: 2023/06/15 11:51:24 DeviceToken.go:65: Redis client closed successfully
+INFO: 2023/06/15 11:53:46 StartPrint.go:18: 
+INFO: 2023/06/15 11:53:46 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:53:46 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:53:46 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:53:46 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:53:46 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:53:46 StartPrint.go:24: 
+INFO: 2023/06/15 11:53:46 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:53:46 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:53:46 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:53:46 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:53:51 Redis.go:39: Redis server response: PONG
+ERROR: 2023/06/15 11:53:51 DeviceToken.go:52: redis setlehed aldaa garlaa <nil>
+INFO: 2023/06/15 11:53:54 Redis.go:39: Redis server response: PONG
+ERROR: 2023/06/15 11:53:54 DeviceToken.go:52: redis setlehed aldaa garlaa <nil>
+INFO: 2023/06/15 11:54:37 StartPrint.go:18: 
+INFO: 2023/06/15 11:54:37 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:54:37 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:54:37 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:54:37 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:54:37 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:54:37 StartPrint.go:24: 
+INFO: 2023/06/15 11:54:37 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:54:37 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:54:37 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:54:38 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:54:42 Redis.go:39: Redis server response: PONG
+ERROR: 2023/06/15 11:54:42 DeviceToken.go:52: redis setlehed aldaa garlaa <nil>
+INFO: 2023/06/15 11:54:42 DeviceToken.go:56: Successful...
+INFO: 2023/06/15 11:54:42 DeviceToken.go:66: Redis client closed successfully
+INFO: 2023/06/15 11:57:08 StartPrint.go:18: 
+INFO: 2023/06/15 11:57:08 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 11:57:08 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 11:57:08 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 11:57:08 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 11:57:08 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 11:57:08 StartPrint.go:24: 
+INFO: 2023/06/15 11:57:08 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 11:57:08 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 11:57:08 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 11:57:08 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:57:13 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:57:13 DeviceToken.go:59: Successful...
+INFO: 2023/06/15 11:57:13 DeviceToken.go:70: Redis client closed successfully
+INFO: 2023/06/15 11:57:21 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:57:21 DeviceToken.go:59: Successful...
+INFO: 2023/06/15 11:57:21 DeviceToken.go:70: Redis client closed successfully
+INFO: 2023/06/15 11:57:27 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 11:57:27 DeviceToken.go:59: Successful...
+INFO: 2023/06/15 11:57:27 DeviceToken.go:70: Redis client closed successfully
+INFO: 2023/06/15 12:01:21 StartPrint.go:18: 
+INFO: 2023/06/15 12:01:21 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 12:01:21 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 12:01:21 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 12:01:21 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 12:01:21 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 12:01:21 StartPrint.go:24: 
+INFO: 2023/06/15 12:01:21 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 12:01:21 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 12:01:21 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 12:01:21 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 12:01:34 UserConfig.go:61: USERCONFIG API STARTED...
+INFO: 2023/06/15 12:01:34 UserConfig.go:94: WRITING REDIS
+INFO: 2023/06/15 12:01:34 UserConfig.go:18: SET REDIS...
+INFO: 2023/06/15 12:01:34 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 12:01:34 UserConfig.go:37: Successful...
+INFO: 2023/06/15 12:01:34 UserConfig.go:49: Redis client closed successfully
+INFO: 2023/06/15 12:04:31 StartPrint.go:18: 
+INFO: 2023/06/15 12:04:31 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 12:04:31 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 12:04:31 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 12:04:31 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 12:04:31 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 12:04:31 StartPrint.go:24: 
+INFO: 2023/06/15 12:04:31 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 12:04:31 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 12:04:31 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 12:04:31 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 12:04:43 UserConfig.go:61: USERCONFIG API STARTED...
+INFO: 2023/06/15 12:04:43 UserConfig.go:94: WRITING REDIS
+INFO: 2023/06/15 12:04:43 UserConfig.go:18: SET REDIS...
+INFO: 2023/06/15 12:04:43 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 12:04:43 UserConfig.go:37: Successful...
+INFO: 2023/06/15 12:04:43 UserConfig.go:49: Redis client closed successfully
+INFO: 2023/06/15 12:42:21 UserConfig.go:61: USERCONFIG API STARTED...
+INFO: 2023/06/15 12:42:21 UserConfig.go:94: WRITING REDIS
+INFO: 2023/06/15 12:42:21 UserConfig.go:18: SET REDIS...
+INFO: 2023/06/15 12:42:21 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 12:42:21 UserConfig.go:37: Successful...
+INFO: 2023/06/15 12:42:21 UserConfig.go:49: Redis client closed successfully
+INFO: 2023/06/15 14:09:27 StartPrint.go:18: 
+INFO: 2023/06/15 14:09:27 StartPrint.go:19:  _____      _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:09:27 StartPrint.go:20: | ____|    | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:09:27 StartPrint.go:21: |  _| _____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:09:27 StartPrint.go:22: | |__|_____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:09:27 StartPrint.go:23: |_____|    |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:09:27 StartPrint.go:24: 
+INFO: 2023/06/15 14:09:27 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:09:27 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:09:27 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:09:27 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:17:36 StartPrint.go:18: 
+INFO: 2023/06/15 14:17:36 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:17:36 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:17:36 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:17:36 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:17:36 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:17:36 StartPrint.go:24: 
+INFO: 2023/06/15 14:17:36 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:17:36 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:17:36 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:17:36 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:24:23 StartPrint.go:18: 
+INFO: 2023/06/15 14:24:23 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:24:23 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:24:23 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:24:23 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:24:23 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:24:23 StartPrint.go:24: 
+INFO: 2023/06/15 14:24:23 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:24:23 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:24:23 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:24:23 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:24:38 SinglePushNotif.go:63: RABBITMQ: Successfully Publishing message
+ERROR: 2023/06/15 14:24:55 SinglePushNotif.go:30: EOF
+2023/06/15 14:24:55 server.go:3217: http: panic serving [::1]:63048: EOF
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0xea31a0, 0xc00011a0e0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+log.(*Logger).Panic(0xc000146000?, {0xc000099838?, 0xc0001205a0?, 0xc000136000?})
+	C:/Program Files/Go/src/log/log.go:247 +0x69
+github.com/Temctl/E-Notification/inputWorker/controller.SinglePushNotif({0xfc8d30, 0xc00013a000}, 0xc00012e300)
+	D:/E-Notification/inputWorker/controller/SinglePushNotif.go:30 +0x16f
+net/http.HandlerFunc.ServeHTTP(0xc00012e200?, {0xfc8d30?, 0xc00013a000?}, 0x800?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0000000c0, {0xfc8d30, 0xc00013a000}, 0xc00012e100)
+	C:/Users/Unenbat/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0x1cf
+net/http.serverHandler.ServeHTTP({0xc0000fa2a0?}, {0xfc8d30, 0xc00013a000}, 0xc00012e100)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc00022a000, {0xfc8fb8, 0xc0000afc50})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+INFO: 2023/06/15 14:25:11 SinglePushNotif.go:63: RABBITMQ: Successfully Publishing message
+ERROR: 2023/06/15 14:25:14 SinglePushNotif.go:30: EOF
+2023/06/15 14:25:14 server.go:3217: http: panic serving [::1]:63059: EOF
+goroutine 70 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1854 +0xbf
+panic({0xea31a0, 0xc00007b3b0})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x263
+log.(*Logger).Panic(0xc00009cdc0?, {0xc000163838?, 0xc0000fa7b0?, 0xc000302580?})
+	C:/Program Files/Go/src/log/log.go:247 +0x69
+github.com/Temctl/E-Notification/inputWorker/controller.SinglePushNotif({0xfc8d30, 0xc0000e8b60}, 0xc000300400)
+	D:/E-Notification/inputWorker/controller/SinglePushNotif.go:30 +0x16f
+net/http.HandlerFunc.ServeHTTP(0xc000300300?, {0xfc8d30?, 0xc0000e8b60?}, 0xc0001639e8?)
+	C:/Program Files/Go/src/net/http/server.go:2122 +0x2f
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0000000c0, {0xfc8d30, 0xc0000e8b60}, 0xc000300200)
+	C:/Users/Unenbat/go/pkg/mod/github.com/gorilla/mux@v1.8.0/mux.go:210 +0x1cf
+net/http.serverHandler.ServeHTTP({0xc0000fa570?}, {0xfc8d30, 0xc0000e8b60}, 0xc000300200)
+	C:/Program Files/Go/src/net/http/server.go:2936 +0x316
+net/http.(*conn).serve(0xc000134090, {0xfc8fb8, 0xc0000afc50})
+	C:/Program Files/Go/src/net/http/server.go:1995 +0x612
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3089 +0x5ed
+INFO: 2023/06/15 14:25:19 SinglePushNotif.go:63: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:25:34 SinglePushNotif.go:63: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:26:33 StartPrint.go:18: 
+INFO: 2023/06/15 14:26:33 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:26:33 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:26:33 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:26:33 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:26:33 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:26:33 StartPrint.go:24: 
+INFO: 2023/06/15 14:26:33 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:26:33 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:26:33 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:26:33 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:26:41 SinglePushNotif.go:63: RABBITMQ: Successfully Publishing message
+ERROR: 2023/06/15 14:26:45 SinglePushNotif.go:30: EOF
+INFO: 2023/06/15 14:27:13 SinglePushNotif.go:63: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:27:44 StartPrint.go:18: 
+INFO: 2023/06/15 14:27:44 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:27:44 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:27:44 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:27:44 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:27:44 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:27:44 StartPrint.go:24: 
+INFO: 2023/06/15 14:27:44 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:27:44 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:27:44 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:27:44 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:27:50 SinglePushNotif.go:65: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:28:02 SinglePushNotif.go:65: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:28:55 SinglePushNotif.go:65: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:32:03 StartPrint.go:18: 
+INFO: 2023/06/15 14:32:03 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:32:03 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:32:03 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:32:03 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:32:03 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:32:03 StartPrint.go:24: 
+INFO: 2023/06/15 14:32:03 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:32:03 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:32:03 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:32:03 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:33:41 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:52:06 StartPrint.go:18: 
+INFO: 2023/06/15 14:52:06 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 14:52:06 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 14:52:06 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 14:52:06 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 14:52:06 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 14:52:06 StartPrint.go:24: 
+INFO: 2023/06/15 14:52:06 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 14:52:06 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 14:52:06 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 14:52:06 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:52:14 UserConfig.go:73: USERCONFIG API STARTED...
+INFO: 2023/06/15 14:52:14 UserConfig.go:106: WRITING REDIS
+INFO: 2023/06/15 14:52:14 UserConfig.go:18: SET REDIS...
+INFO: 2023/06/15 14:52:14 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:52:14 UserConfig.go:48: Successful...
+INFO: 2023/06/15 14:52:14 UserConfig.go:61: Redis client closed successfully
+INFO: 2023/06/15 14:54:53 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:54:53 DeviceToken.go:59: Successful...
+INFO: 2023/06/15 14:54:53 DeviceToken.go:70: Redis client closed successfully
+INFO: 2023/06/15 14:57:02 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 14:59:09 UserConfig.go:73: USERCONFIG API STARTED...
+INFO: 2023/06/15 14:59:09 UserConfig.go:106: WRITING REDIS
+INFO: 2023/06/15 14:59:09 UserConfig.go:18: SET REDIS...
+INFO: 2023/06/15 14:59:09 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 14:59:09 UserConfig.go:48: Successful...
+INFO: 2023/06/15 14:59:09 UserConfig.go:61: Redis client closed successfully
+INFO: 2023/06/15 15:00:22 StartPrint.go:18: 
+INFO: 2023/06/15 15:00:22 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 15:00:22 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 15:00:22 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 15:00:22 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 15:00:22 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 15:00:22 StartPrint.go:24: 
+INFO: 2023/06/15 15:00:22 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 15:00:22 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 15:00:22 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 15:00:22 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:00:32 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:00:32 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:00:32 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:00:32 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:00:32 UserConfig.go:50: Successful...
+INFO: 2023/06/15 15:00:32 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:01:06 StartPrint.go:18: 
+INFO: 2023/06/15 15:01:06 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 15:01:06 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 15:01:06 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 15:01:06 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 15:01:06 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 15:01:06 StartPrint.go:24: 
+INFO: 2023/06/15 15:01:06 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 15:01:06 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 15:01:06 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 15:01:06 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:01:11 UserConfig.go:76: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:01:11 UserConfig.go:109: WRITING REDIS
+INFO: 2023/06/15 15:01:11 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:01:11 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:01:11 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:01:11 UserConfig.go:64: Redis client closed successfully
+INFO: 2023/06/15 15:02:12 StartPrint.go:18: 
+INFO: 2023/06/15 15:02:12 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 15:02:12 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 15:02:12 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 15:02:12 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 15:02:12 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 15:02:12 StartPrint.go:24: 
+INFO: 2023/06/15 15:02:12 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 15:02:12 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 15:02:12 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 15:02:12 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:02:18 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:02:18 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:02:18 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:02:18 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:02:18 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:02:18 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:02:43 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:03:24 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:05:29 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:07:58 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:09:48 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:15:12 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:17:00 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:19:12 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:19:50 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:20:24 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:21:05 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:23:44 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:23:44 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:23:44 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:23:44 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:23:44 UserConfig.go:43: Successful...
+INFO: 2023/06/15 15:23:44 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:23:44 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:23:57 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:28:05 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:28:05 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:28:05 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:28:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:28:05 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:28:05 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:28:23 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:28:23 DeviceToken.go:59: Successful...
+INFO: 2023/06/15 15:28:23 DeviceToken.go:70: Redis client closed successfully
+INFO: 2023/06/15 15:29:20 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:31:57 StartPrint.go:18: 
+INFO: 2023/06/15 15:31:57 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 15:31:57 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 15:31:57 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 15:31:57 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 15:31:57 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 15:31:57 StartPrint.go:24: 
+INFO: 2023/06/15 15:31:57 main.go:76: SERVER STARTED...
+INFO: 2023/06/15 15:31:57 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 15:31:57 main.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 15:31:57 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:32:03 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:32:03 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:32:03 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:32:03 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:32:03 UserConfig.go:43: Successful...
+INFO: 2023/06/15 15:32:03 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:32:03 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:32:07 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:32:07 DeviceToken.go:59: Successful...
+INFO: 2023/06/15 15:32:07 DeviceToken.go:70: Redis client closed successfully
+INFO: 2023/06/15 15:32:12 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:42:18 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:43:04 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:43:04 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:43:04 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:43:04 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:43:04 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:43:04 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:43:17 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:45:54 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:45:54 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:45:54 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:45:54 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:45:54 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:45:54 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:46:13 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:46:13 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:46:13 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:46:13 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:46:13 UserConfig.go:43: Successful...
+INFO: 2023/06/15 15:46:13 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:46:13 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:46:29 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:48:58 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:33 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:33 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:34 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:35 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:36 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:36 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:37 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:38 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:39 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:39 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:49:40 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:50:49 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/15 15:54:53 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:54:53 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:54:53 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:54:53 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:54:53 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:54:53 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 15:55:02 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/15 15:55:02 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/15 15:55:02 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/15 15:55:02 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 15:55:02 UserConfig.go:51: Successful...
+INFO: 2023/06/15 15:55:02 UserConfig.go:63: Redis client closed successfully
+INFO: 2023/06/15 18:08:31 StartPrint.go:18: 
+INFO: 2023/06/15 18:08:31 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 18:08:31 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 18:08:31 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 18:08:31 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 18:08:31 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 18:08:31 StartPrint.go:24: 
+INFO: 2023/06/15 18:08:31 main.go:99: SERVER STARTED...
+INFO: 2023/06/15 18:08:31 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 18:08:31 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 18:08:31 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 18:09:35 StartPrint.go:18: 
+INFO: 2023/06/15 18:09:35 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 18:09:35 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 18:09:35 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 18:09:35 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 18:09:35 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 18:09:35 StartPrint.go:24: 
+INFO: 2023/06/15 18:09:35 main.go:99: SERVER STARTED...
+INFO: 2023/06/15 18:09:35 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 18:09:35 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 18:09:35 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 18:11:58 StartPrint.go:18: 
+INFO: 2023/06/15 18:11:58 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 18:11:58 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 18:11:58 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 18:11:58 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 18:11:58 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 18:11:58 StartPrint.go:24: 
+INFO: 2023/06/15 18:11:58 main.go:101: SERVER STARTED...
+INFO: 2023/06/15 18:11:58 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 18:11:58 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 18:11:58 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 18:12:16 StartPrint.go:18: 
+INFO: 2023/06/15 18:12:16 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 18:12:16 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 18:12:16 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 18:12:16 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 18:12:16 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 18:12:16 StartPrint.go:24: 
+INFO: 2023/06/15 18:12:16 main.go:101: SERVER STARTED...
+INFO: 2023/06/15 18:12:16 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/15 18:12:16 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 18:12:16 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/15 18:17:27 StartPrint.go:18: 
+INFO: 2023/06/15 18:17:27 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/15 18:17:27 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/15 18:17:27 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/15 18:17:27 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/15 18:17:27 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/15 18:17:27 StartPrint.go:24: 
+INFO: 2023/06/15 18:17:27 main.go:101: SERVER STARTED...
+INFO: 2023/06/15 18:17:27 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/15 18:17:27 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 09:07:42 StartPrint.go:18: 
+INFO: 2023/06/16 09:07:42 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 09:07:42 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 09:07:42 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 09:07:42 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 09:07:42 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 09:07:42 StartPrint.go:24: 
+INFO: 2023/06/16 09:07:42 main.go:101: SERVER STARTED...
+INFO: 2023/06/16 09:07:42 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 09:07:42 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 09:07:42 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 09:07:56 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 09:08:38 GroupPushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 09:38:42 StartPrint.go:18: 
+INFO: 2023/06/16 09:38:42 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 09:38:42 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 09:38:42 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 09:38:42 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 09:38:42 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 09:38:42 StartPrint.go:24: 
+INFO: 2023/06/16 09:38:42 main.go:93: SERVER STARTED...
+INFO: 2023/06/16 09:38:42 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 09:38:42 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 09:38:42 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 09:57:34 StartPrint.go:18: 
+INFO: 2023/06/16 09:57:34 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 09:57:34 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 09:57:34 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 09:57:34 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 09:57:34 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 09:57:34 StartPrint.go:24: 
+INFO: 2023/06/16 09:57:34 main.go:92: SERVER STARTED...
+INFO: 2023/06/16 09:57:53 StartPrint.go:18: 
+INFO: 2023/06/16 09:57:53 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 09:57:53 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 09:57:53 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 09:57:53 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 09:57:53 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 09:57:53 StartPrint.go:24: 
+INFO: 2023/06/16 09:57:53 main.go:92: SERVER STARTED...
+INFO: 2023/06/16 09:59:06 StartPrint.go:18: 
+INFO: 2023/06/16 09:59:06 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 09:59:06 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 09:59:06 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 09:59:06 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 09:59:06 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 09:59:06 StartPrint.go:24: 
+INFO: 2023/06/16 09:59:06 main.go:92: SERVER STARTED...
+INFO: 2023/06/16 10:01:49 StartPrint.go:18: 
+INFO: 2023/06/16 10:01:49 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:01:49 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:01:49 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:01:49 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:01:49 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:01:49 StartPrint.go:24: 
+INFO: 2023/06/16 10:01:49 main.go:92: SERVER STARTED...
+INFO: 2023/06/16 10:01:49 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:01:49 main.go:16: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:01:49 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:01:59 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:03:04 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:04:28 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:05:48 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:06:54 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:07:28 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:10:25 StartPrint.go:18: 
+INFO: 2023/06/16 10:10:25 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:10:25 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:10:25 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:10:25 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:10:25 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:10:25 StartPrint.go:24: 
+INFO: 2023/06/16 10:10:25 main.go:93: SERVER STARTED...
+INFO: 2023/06/16 10:10:25 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:10:25 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:10:26 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:11:02 StartPrint.go:18: 
+INFO: 2023/06/16 10:11:02 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:11:02 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:11:02 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:11:02 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:11:02 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:11:02 StartPrint.go:24: 
+INFO: 2023/06/16 10:11:02 main.go:101: SERVER STARTED...
+INFO: 2023/06/16 10:11:02 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:11:02 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:11:02 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:14:33 StartPrint.go:18: 
+INFO: 2023/06/16 10:14:33 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:14:33 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:14:33 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:14:33 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:14:33 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:14:33 StartPrint.go:24: 
+INFO: 2023/06/16 10:14:33 main.go:101: SERVER STARTED...
+INFO: 2023/06/16 10:14:33 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:14:33 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:14:33 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:15:02 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:22:09 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:24:52 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:27:52 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:38:15 StartPrint.go:18: 
+INFO: 2023/06/16 10:38:15 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:38:15 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:38:15 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:38:15 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:38:15 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:38:15 StartPrint.go:24: 
+INFO: 2023/06/16 10:38:15 main.go:109: SERVER STARTED...
+INFO: 2023/06/16 10:38:15 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:38:15 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:38:15 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:39:37 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:39:54 StartPrint.go:18: 
+INFO: 2023/06/16 10:39:54 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:39:54 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:39:54 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:39:54 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:39:54 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:39:54 StartPrint.go:24: 
+INFO: 2023/06/16 10:39:54 main.go:109: SERVER STARTED...
+INFO: 2023/06/16 10:39:54 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:39:54 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:39:54 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:42:00 StartPrint.go:18: 
+INFO: 2023/06/16 10:42:00 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:42:00 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:42:00 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:42:00 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:42:00 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:42:00 StartPrint.go:24: 
+INFO: 2023/06/16 10:42:00 main.go:109: SERVER STARTED...
+INFO: 2023/06/16 10:42:00 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:42:00 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:42:00 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:42:11 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 10:42:33 StartPrint.go:18: 
+INFO: 2023/06/16 10:42:33 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 10:42:33 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 10:42:33 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 10:42:33 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 10:42:33 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 10:42:33 StartPrint.go:24: 
+INFO: 2023/06/16 10:42:33 main.go:109: SERVER STARTED...
+INFO: 2023/06/16 10:42:33 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 10:42:33 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 10:42:33 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 10:51:25 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:00:09 StartPrint.go:18: 
+INFO: 2023/06/16 11:00:09 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:00:09 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:00:09 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:00:09 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:00:09 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:00:09 StartPrint.go:24: 
+INFO: 2023/06/16 11:00:09 main.go:111: SERVER STARTED...
+INFO: 2023/06/16 11:00:09 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:00:09 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:00:09 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:00:34 StartPrint.go:18: 
+INFO: 2023/06/16 11:00:34 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:00:34 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:00:34 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:00:34 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:00:34 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:00:34 StartPrint.go:24: 
+INFO: 2023/06/16 11:00:34 main.go:111: SERVER STARTED...
+INFO: 2023/06/16 11:00:34 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:00:34 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:00:34 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:02:18 StartPrint.go:18: 
+INFO: 2023/06/16 11:02:18 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:02:18 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:02:18 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:02:18 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:02:18 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:02:18 StartPrint.go:24: 
+INFO: 2023/06/16 11:02:18 main.go:111: SERVER STARTED...
+INFO: 2023/06/16 11:02:18 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:02:18 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:02:18 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:02:45 StartPrint.go:18: 
+INFO: 2023/06/16 11:02:45 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:02:45 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:02:45 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:02:45 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:02:45 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:02:45 StartPrint.go:24: 
+INFO: 2023/06/16 11:02:45 main.go:114: SERVER STARTED...
+INFO: 2023/06/16 11:02:45 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:02:45 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:02:45 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:10:52 StartPrint.go:18: 
+INFO: 2023/06/16 11:10:52 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:10:52 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:10:52 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:10:52 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:10:52 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:10:52 StartPrint.go:24: 
+INFO: 2023/06/16 11:10:52 main.go:120: SERVER STARTED...
+INFO: 2023/06/16 11:10:52 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:10:52 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:10:52 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:12:05 StartPrint.go:18: 
+INFO: 2023/06/16 11:12:05 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:12:05 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:12:05 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:12:05 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:12:05 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:12:05 StartPrint.go:24: 
+INFO: 2023/06/16 11:12:05 main.go:120: SERVER STARTED...
+INFO: 2023/06/16 11:12:05 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:12:05 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:12:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:14:14 StartPrint.go:18: 
+INFO: 2023/06/16 11:14:14 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:14:14 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:14:14 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:14:14 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:14:14 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:14:14 StartPrint.go:24: 
+INFO: 2023/06/16 11:14:14 main.go:120: SERVER STARTED...
+INFO: 2023/06/16 11:14:14 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:14:14 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:14:14 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:15:51 StartPrint.go:18: 
+INFO: 2023/06/16 11:15:51 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:15:51 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:15:51 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:15:51 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:15:51 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:15:51 StartPrint.go:24: 
+INFO: 2023/06/16 11:15:51 main.go:106: SERVER STARTED...
+INFO: 2023/06/16 11:15:51 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:15:51 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:15:51 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:17:49 StartPrint.go:18: 
+INFO: 2023/06/16 11:17:49 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:17:49 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:17:49 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:17:49 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:17:49 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:17:49 StartPrint.go:24: 
+INFO: 2023/06/16 11:17:49 main.go:105: SERVER STARTED...
+INFO: 2023/06/16 11:17:49 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:17:49 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:17:49 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:17:54 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:18:25 StartPrint.go:18: 
+INFO: 2023/06/16 11:18:25 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:18:25 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:18:25 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:18:25 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:18:25 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:18:25 StartPrint.go:24: 
+INFO: 2023/06/16 11:18:25 main.go:105: SERVER STARTED...
+INFO: 2023/06/16 11:18:25 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:18:25 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:18:25 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:18:42 StartPrint.go:18: 
+INFO: 2023/06/16 11:18:42 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:18:42 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:18:42 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:18:42 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:18:42 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:18:42 StartPrint.go:24: 
+INFO: 2023/06/16 11:18:42 main.go:105: SERVER STARTED...
+INFO: 2023/06/16 11:18:42 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:18:42 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:18:43 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:19:04 StartPrint.go:18: 
+INFO: 2023/06/16 11:19:04 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:19:04 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:19:04 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:19:04 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:19:04 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:19:04 StartPrint.go:24: 
+INFO: 2023/06/16 11:19:04 main.go:105: SERVER STARTED...
+INFO: 2023/06/16 11:19:04 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:19:04 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:19:04 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:24:22 StartPrint.go:18: 
+INFO: 2023/06/16 11:24:22 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 11:24:22 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 11:24:22 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 11:24:22 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 11:24:22 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 11:24:22 StartPrint.go:24: 
+INFO: 2023/06/16 11:24:22 main.go:105: SERVER STARTED...
+INFO: 2023/06/16 11:24:22 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 11:24:22 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 11:24:22 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 11:24:28 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:25:10 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:26:15 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:29:00 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:30:25 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:31:01 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 11:31:49 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 14:29:12 StartPrint.go:18: 
+INFO: 2023/06/16 14:29:12 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 14:29:12 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 14:29:12 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 14:29:12 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 14:29:12 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 14:29:12 StartPrint.go:24: 
+INFO: 2023/06/16 14:29:12 main.go:106: SERVER STARTED...
+INFO: 2023/06/16 14:29:12 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 14:29:12 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 14:29:12 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/16 14:30:07 SinglePushNotif.go:64: RABBITMQ: Successfully Publishing message
+INFO: 2023/06/16 15:45:36 StartPrint.go:18: 
+INFO: 2023/06/16 15:45:36 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/16 15:45:36 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/16 15:45:36 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/16 15:45:36 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/16 15:45:36 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/16 15:45:36 StartPrint.go:24: 
+INFO: 2023/06/16 15:45:36 main.go:106: SERVER STARTED...
+INFO: 2023/06/16 15:45:36 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/16 15:45:36 main.go:17: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/16 15:45:36 Redis.go:39: Redis server response: PONG

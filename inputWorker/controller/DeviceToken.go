@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/Temctl/E-Notification/inputWorker/model"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 )
@@ -14,6 +15,16 @@ type DeviceTokens struct {
 }
 
 func DeviceTokenConfig(w http.ResponseWriter, r *http.Request) {
+	// -------------------------------------------------------
+	// RESPONSE ----------------------------------------------
+	// -------------------------------------------------------
+	response := model.ApiResponse{
+		Status:  http.StatusOK,
+		Message: "Success",
+	}
+	// -------------------------------------------------------
+	// PROGRESS ----------------------------------------------
+	// -------------------------------------------------------
 	var devicetokens DeviceTokens
 
 	err := json.NewDecoder(r.Body).Decode(&devicetokens)
@@ -21,26 +32,31 @@ func DeviceTokenConfig(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to parse request body", http.StatusBadRequest)
 		return
 	}
-
 	// -------------------------------------------------------
 	// CONNECTION REDIS CLIENT -------------------------------
 	// -------------------------------------------------------
 	client, err := connections.ConnectionRedis()
 	if err != nil {
 		elog.Error().Panic(err)
-		return
+		response.Message = err.Error()
+		response.Status = 400
 	}
 	// -------------------------------------------------------
 	// REDIS luu data oruulah --------------------------------
 	// -------------------------------------------------------
-
-	clientErr := client.RPush("deviceTokens:"+devicetokens.CivilId, devicetokens.DeviceTokens).Err()
+	jsonData, err := json.Marshal(devicetokens.DeviceTokens)
+	if err != nil {
+		elog.Error().Panic(err)
+		response.Message = err.Error()
+		response.Status = 400
+	}
+	clientErr := client.Set("deviceTokens:"+devicetokens.CivilId, jsonData, 0).Err()
 	if clientErr != nil {
 		elog.Error().Println("redis setlehed aldaa garlaa", clientErr)
-		return
-	} else {
-		elog.Info().Println("Successful...")
+		response.Message = "redis setlehed aldaa garlaa"
+		response.Status = 400
 	}
+	elog.Info().Println("Successful...")
 
 	// -------------------------------------------------------
 	// Close the Redis client --------------------------------
@@ -48,11 +64,18 @@ func DeviceTokenConfig(w http.ResponseWriter, r *http.Request) {
 	closeErr := client.Close()
 	if closeErr != nil {
 		elog.Error().Println("Error closing Redis client:", closeErr)
-		return
-	} else {
-		elog.Info().Println("Redis client closed successfully")
+		response.Message = "Error closing Redis client:" + closeErr.Error()
+		response.Status = 400
 	}
-
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(devicetokens.CivilId))
+	elog.Info().Println("Redis client closed successfully")
+	// RESPONSE SETUP
+	responseJson, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	// Set the response header content type
+	w.Header().Set("Content-Type", "application/json")
+	// w.WriteHeader(http.StatusBadRequest)
+	w.Write(responseJson)
 }

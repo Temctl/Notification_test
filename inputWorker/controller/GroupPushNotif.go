@@ -24,7 +24,7 @@ func GroupPushNotif(w http.ResponseWriter, r *http.Request) {
 	// -------------------------------------------------------
 	// PROGRESS ----------------------------------------------
 	// -------------------------------------------------------
-	var configData umodel.GroupNotification
+	var configData umodel.RegularNotification
 	err := json.NewDecoder(r.Body).Decode(&configData)
 	if err != nil {
 		elog.Error().Println(err)
@@ -50,7 +50,7 @@ func GroupPushNotif(w http.ResponseWriter, r *http.Request) {
 	}
 	err = queue.Publish(
 		"",
-		util.GROUPNOTIFKEY,
+		util.NATEMAILKEY,
 		false,
 		false,
 		amqp.Publishing{

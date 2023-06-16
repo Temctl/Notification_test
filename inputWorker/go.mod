@@ -3,7 +3,7 @@ module github.com/Temctl/E-Notification/inputWorker
 go 1.20
 
 require (
-	github.com/Temctl/E-Notification/util v0.0.0-20230615061658-6e33ee0a2572
+	github.com/Temctl/E-Notification/util v0.0.0-20230616075214-86721722f10c
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gorilla/mux v1.8.0
 	github.com/streadway/amqp v1.0.0

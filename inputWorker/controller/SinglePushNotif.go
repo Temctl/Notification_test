@@ -50,7 +50,7 @@ func SinglePushNotif(w http.ResponseWriter, r *http.Request) {
 	}
 	err = queue.Publish(
 		"",
-		util.REGULARNOTIFKEY,
+		util.NATEMAILKEY,
 		false,
 		false,
 		amqp.Publishing{

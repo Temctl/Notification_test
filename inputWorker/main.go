@@ -59,7 +59,7 @@ func XypWorker() {
 			// --------------------------------------------------------
 			err = queue.Publish(
 				"",
-				util.XYPNOTIFKEY,
+				util.PUSHNOTIFICATIONKEY,
 				false,
 				false,
 				amqp.Publishing{

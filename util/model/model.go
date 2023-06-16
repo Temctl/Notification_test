@@ -56,16 +56,9 @@ type MessengerModel struct {
 }
 
 type RegularNotification struct {
-	Content string `json:"content"`
-	Regnum  string `json:"regnum"`
-	CivilId string `json:"civilId"`
-}
-
-type GroupNotification struct {
-	IsAll    bool     `json:"isAll"`
 	Content  string   `json:"content"`
-	Regnums  []string `json:"regnums"`
-	CivilIds []string `json:"civilIds"`
+	Regnums  []string `json:"regnum"`
+	CivilIds []string `json:"civilId"`
 }
 
 type UserConfigNotification struct {

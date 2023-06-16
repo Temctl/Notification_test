@@ -2,7 +2,6 @@ package helper
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"sync"
 
@@ -10,19 +9,10 @@ import (
 	"github.com/Temctl/E-Notification/util/model"
 )
 
-func getPushTokenRegnum(regnum string) string {
-	return "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO"
-}
-func getPushTokenCivilId(civilId string) string {
-	return "dIMtXp4UUkdZoj1D4M8wwD:APA91bFzD_WEW2cvd6QaXRk9cllEbr_ECrREZ2KzlbjbbWpW-7I5gNYgpgZOLGUu4HpNtc_hjyPG6YYceUbjhniqQmafV-DXV5__ezlMo07-Wq1m0trdJ5H7UWPe9SgxeFmjwN8HwmBO"
-}
-
-func PushToAll(request model.PushNotificationModel) {
-	//TODO send all with async
-}
-
-func PushToGroupRegnum(request model.PushNotificationModel, regnums []string, client *messaging.Client) {
-	//TODO
+func getTokensFromCivilIds(civilIds []string) []string {
+	//TODO return tokens from redis
+	var tokens []string
+	return tokens
 }
 
 func batchTokens(tokens []string, batchSize int) [][]string {
@@ -37,17 +27,17 @@ func batchTokens(tokens []string, batchSize int) [][]string {
 	return batches
 }
 
-func PushToTokens(request model.PushNotificationModel, deviceTokens []string, client *messaging.Client) {
-	tokenBatches := batchTokens(deviceTokens, 500) // Split tokens into batches of 500
+func PushToTokens(request model.RegularNotificationModel, client *messaging.Client) {
+	tokenBatches := batchTokens(request.Tokens, 500) // Split tokens into batches of 500
 
-	successSent := 0
+	var successCount int
+	var notSuccessCount int
 	var wg sync.WaitGroup
 	wg.Add(len(tokenBatches))
 
 	for _, tokenBatch := range tokenBatches {
 		fmt.Println(tokenBatch)
-		go func(tokens []string) {
-			defer wg.Done()
+		go func(tokens []string, successCount int, notSuccessCount int) {
 
 			message := &messaging.MulticastMessage{
 				Notification: &messaging.Notification{
@@ -76,46 +66,24 @@ func PushToTokens(request model.PushNotificationModel, deviceTokens []string, cl
 			response, err := client.SendMulticast(context.Background(), message)
 			if err != nil {
 				fmt.Println("Error sending push notification:", err)
-				return
 			}
-			// TODO write log
 
-			successSent += response.SuccessCount
-			fmt.Printf("Successful count: %d\n", response.SuccessCount)
-			fmt.Printf("Failed count: %d\n", response.FailureCount)
-		}(tokenBatch)
+			successCount += response.SuccessCount
+			notSuccessCount += response.FailureCount
+			defer wg.Done()
+		}(tokenBatch, successCount, notSuccessCount)
 	}
 
 	wg.Wait()
-	// if (successSent == 0){
-	// 	return 0
-	// }else{
-	// 	return 1
-	// }
-}
-
-func PushToNonToken(request model.PushNotificationModel, civilId string, client *messaging.Client) {
-	//TODO
-	PushToToken(request, getPushTokenCivilId(civilId), client)
+	fmt.Printf("Successful count: %d\n", successCount)
+	fmt.Printf("Failed count: %d\n", notSuccessCount)
+	// TODO write log
+	if successCount == 0 {
+		//TODO when nothing is sent
+	}
 }
 
 func PushToToken(request model.PushNotificationModel, deviceToken string, client *messaging.Client) {
-	// Initialize the Firebase app
-	// opt := option.WithCredentialsFile("../config/firebase.json")
-	// config := &firebase.Config{ProjectID: "mgov-12390"}
-	// app, err := firebase.NewApp(context.Background(), config, opt)
-	// if err != nil {
-	// 	fmt.Println("Error initializing Firebase app:", err)
-	// 	return
-	// }
-
-	// // Get the FCM client
-	// client, err := app.Messaging(context.Background())
-	// if err != nil {
-	// 	fmt.Println("Error getting FCM client:", err)
-	// 	return
-	// }
-
 	// Create a new notification message
 	message := &messaging.Message{
 		Notification: &messaging.Notification{

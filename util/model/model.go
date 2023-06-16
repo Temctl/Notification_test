@@ -55,12 +55,15 @@ type MessengerModel struct {
 	CivilId string `json:"civilId"`
 }
 
-type RegularNotification struct {
-	IsAll    bool     `json:"isAll"`
-	Content  string   `json:"content"`
-	Regnums  []string `json:"regnum"`
-	CivilIds []string `json:"civilId"`
-	Tokens   []string `json:"tokens"`
+type RegularNotificationModel struct {
+	IsAll    bool              `json:"isAll"`
+	Title    string            `json:"title"`
+	Body     string            `json:"body"`
+	ImageUrl string            `json:"imageUrl"`
+	Data     map[string]string `json:"data"`
+	Regnums  []string          `json:"regnum"`
+	CivilIds []string          `json:"civilId"`
+	Tokens   []string          `json:"tokens"`
 }
 
 type UserConfigNotification struct {

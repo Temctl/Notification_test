@@ -56,6 +56,7 @@ type MessengerModel struct {
 }
 
 type RegularNotification struct {
+	IsAll    bool     `json:"isAll"`
 	Content  string   `json:"content"`
 	Regnums  []string `json:"regnum"`
 	CivilIds []string `json:"civilId"`

@@ -1,6 +1,10 @@
 package util
 
-import "os"
+import (
+	"fmt"
+	"os"
+	"time"
+)
 
 var (
 	PRIVATE_EMAIL_NUM  = "private_email_number"
@@ -71,6 +75,14 @@ func init() {
 
 		RABBITMQURL = "amqp://guest:guest@localhost:5672/"
 	}
+}
+
+func GetTZ() (*time.Location, error) {
+	location, err := time.LoadLocation("Asia/Ulaanbaatar")
+	if err != nil {
+		fmt.Println("Error loading time zone:", err)
+	}
+	return location, err
 }
 
 func WriteDbLog() bool {

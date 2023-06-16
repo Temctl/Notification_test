@@ -133,16 +133,14 @@ func main() {
 	//get the four queues that will listen
 	pushNotif, natEmail, privEmail, messegeNotif := getQueues()
 
-	notificationType := model.NotificationType(rune(0))
-
 	// send the rconsumed messages
 	forever := make(chan bool)
-	var pushRequest model.PushNotificationModel
+	var pushRequest model.RegularNotificationModel
 	go func() {
 		for msg := range pushNotif { // send xyp notifs
 			err := json.Unmarshal(msg.Body, &pushRequest)
 			if err == nil {
-				helper.PushToTokens(pushRequest, notificationType, notifRedis, client)
+				helper.PushToTokens(pushRequest, client)
 			} else {
 				panic(err)
 			}

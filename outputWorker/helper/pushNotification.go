@@ -2,6 +2,7 @@ package helper
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"sync"
 
@@ -20,9 +21,6 @@ func PushToAll(request model.PushNotificationModel) {
 	//TODO send all with async
 }
 
-func PushToGroupCivilId(request model.PushNotificationModel, civilIds []string, client *messaging.Client) {
-	//TODO
-}
 func PushToGroupRegnum(request model.PushNotificationModel, regnums []string, client *messaging.Client) {
 	//TODO
 }

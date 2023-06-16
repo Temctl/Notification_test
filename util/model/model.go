@@ -60,6 +60,7 @@ type RegularNotification struct {
 	Content  string   `json:"content"`
 	Regnums  []string `json:"regnum"`
 	CivilIds []string `json:"civilId"`
+	Tokens   []string `json:"tokens"`
 }
 
 type UserConfigNotification struct {

@@ -21,6 +21,8 @@ import (
 
 var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
 
+var currentWorker string
+
 func init() {
 	file, _ := os.Create("./log/output.log")
 	log.SetOutput(file)
@@ -31,6 +33,8 @@ func init() {
 	if err != nil {
 		elog.ErrorLogger.Println(err)
 	}
+
+	currentWorker = os.Getenv("worker")
 }
 
 func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delivery) {
@@ -41,8 +45,8 @@ func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delive
 		fmt.Println("RabbitMQ started succesfully")
 	}
 
-	xypNotifs, err := channel.Consume(
-		util.XYPNOTIFKEY,
+	pushNotif, err := channel.Consume(
+		util.PUSHNOTIFICATIONKEY,
 		"",
 		true,
 		false,
@@ -54,8 +58,8 @@ func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delive
 		panic(err)
 	}
 
-	attentionNotifs, err := channel.Consume(
-		util.ATTENTIONNOTIFKEY,
+	natEmail, err := channel.Consume(
+		util.NATEMAILKEY,
 		"",
 		true,
 		false,
@@ -67,8 +71,8 @@ func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delive
 		panic(err)
 	}
 
-	regularNotifs, err := channel.Consume(
-		util.REGULARNOTIFKEY,
+	privEmail, err := channel.Consume(
+		util.PRIVEMAILKEY,
 		"",
 		true,
 		false,
@@ -80,8 +84,8 @@ func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delive
 		panic(err)
 	}
 
-	groupNotifs, err := channel.Consume(
-		util.GROUPNOTIFKEY,
+	messegeNotif, err := channel.Consume(
+		util.MESSENGERKEY,
 		"",
 		true,
 		false,
@@ -92,7 +96,7 @@ func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delive
 	if err != nil {
 		panic(err)
 	}
-	return xypNotifs, attentionNotifs, regularNotifs, groupNotifs
+	return pushNotif, natEmail, privEmail, messegeNotif
 }
 
 func GetFCMClient() (*messaging.Client, error) {
@@ -127,18 +131,18 @@ func main() {
 	}
 
 	//get the four queues that will listen
-	xypNotifs, attentionNotifs, regularNotifs, groupNotifs := getQueues()
+	pushNotif, natEmail, privEmail, messegeNotif := getQueues()
 
 	notificationType := model.NotificationType(rune(0))
 
 	// send the rconsumed messages
 	forever := make(chan bool)
-	var xypModel model.XypNotification
+	var pushRequest model.PushNotificationModel
 	go func() {
-		for msg := range xypNotifs { // send xyp notifs
-			err := json.Unmarshal(msg.Body, &xypModel)
+		for msg := range pushNotif { // send xyp notifs
+			err := json.Unmarshal(msg.Body, &pushRequest)
 			if err == nil {
-				helper.SendXypNotif(xypModel, notificationType, notifRedis, client)
+				helper.PushToTokens(pushRequest, notificationType, notifRedis, client)
 			} else {
 				panic(err)
 			}

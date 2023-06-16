@@ -40,6 +40,21 @@ type PushNotificationModel struct {
 	Type     NotificationType  `json:"type"`
 }
 
+type EmailModel struct {
+	Subject     string `json:"subject"`
+	Body        string `json:"body"`
+	Destination string `json:"destination"`
+	From        string `json:"from"`
+	Regnum      string `json:"regnum"`
+	CivilId     string `json:"civilId"`
+}
+
+type MessengerModel struct {
+	Body    string `json:"body"`
+	Regnum  string `json:"regnum"`
+	CivilId string `json:"civilId"`
+}
+
 type RegularNotification struct {
 	Content string `json:"content"`
 	Regnum  string `json:"regnum"`

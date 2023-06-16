@@ -3,11 +3,10 @@ package helper
 import (
 	"crypto/tls"
 	"fmt"
-	"net"
-	"net/mail"
-	"net/smtp"
 	"os"
 	"strings"
+
+	gomail "gopkg.in/mail.v2"
 
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/model"
@@ -44,70 +43,33 @@ func RegularPrivEmail(civilId string, content string) int {
 
 func sendPrivEmail(emailAddress string, content string) int {
 
-	privateEmail := "bilguun@ema.gov.mn"
-	// privateEmail := emailAddress
-	fmt.Println(privateEmail)
+	m := gomail.NewMessage()
 
-	// Compose the email message
-	msg := []byte(fmt.Sprintf("Subject: Иргэн танд мэдээлэл хүргэж байна\r\n"+
-		"To: %s\r\n"+
-		"Content-Type: text/html; charset=utf-8\r\n"+
-		"Content-Transfer-Encoding: quoted-printable\r\n"+
-		"\r\n"+
-		"%s\r\n", privateEmail, content))
+	// Set E-Mail sender
+	m.SetHeader("From", "notification@e-mongolia.mn")
 
-	// Create the SMTP client
-	auth := smtp.PlainAuth("", util.AWS_SES_USER, util.AWS_SES_PASSWORD, util.AWS_SMTP)
-	addr := fmt.Sprintf("%s:%d", util.AWS_SMTP, 465)
-	host, _, _ := net.SplitHostPort(addr)
-	fmt.Println(host)
-	from := mail.Address{Name: "", Address: util.FROM_EMAIL}
-	to := mail.Address{Name: "", Address: privateEmail}
+	// Set E-Mail receivers
+	m.SetHeader("To", "bilguunee10@yahoo.com")
 
-	// Establish a TLS connection to the SMTP server
-	conn, err := tls.Dial("tcp", addr, &tls.Config{ServerName: host})
-	if err != nil {
+	// Set E-Mail subject
+	m.SetHeader("Subject", "Gomail test subject")
+
+	// Set E-Mail body. You can set plain text or html with text/html
+	m.SetBody("text/html", "<p>"+content+"</p>")
+
+	// Settings for SMTP server
+	d := gomail.NewDialer(util.AWS_SMTP, 465, util.AWS_SES_USER, util.AWS_SES_PASSWORD)
+
+	// This is only needed when SSL/TLS certificate is not valid on server.
+	// In production this should be set to false.
+	d.TLSConfig = &tls.Config{InsecureSkipVerify: true, ServerName: util.AWS_SMTP}
+
+	// Now send E-Mail
+	if err := d.DialAndSend(m); err != nil {
 		fmt.Println(err)
-		return 0
-	}
-	defer conn.Close()
-
-	// Create the SMTP client and send the email
-	client, err := smtp.NewClient(conn, host)
-	if err != nil {
-		fmt.Println(err)
-		return 0
-	}
-	defer client.Quit()
-
-	if err = client.Auth(auth); err != nil {
-		fmt.Println(err)
-		return 0
+		panic(err)
 	}
 
-	if err = client.Mail("notification@e-mongolia.mn"); err != nil {
-		fmt.Println(err)
-		return 0
-	}
-
-	if err = client.Rcpt(to.Address); err != nil {
-		fmt.Println(err)
-		return 0
-	}
-
-	w, err := client.Data()
-	if err != nil {
-		fmt.Println(err)
-		return 0
-	}
-	defer w.Close()
-
-	_, err = w.Write(msg)
-	if err != nil {
-		fmt.Println(err)
-		return 0
-	}
-
-	fmt.Println("Private email sent successfully.")
+	fmt.Println("private email sent success")
 	return 1
 }

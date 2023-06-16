@@ -22,7 +22,7 @@ func GetRabbitmqChannel() (*amqp.Channel, error) {
 		panic(err)
 	} else {
 		_, err = channel.QueueDeclare(
-			util.XYPNOTIFKEY,
+			util.PUSHNOTIFICATIONKEY,
 			false,
 			false,
 			false,
@@ -33,7 +33,7 @@ func GetRabbitmqChannel() (*amqp.Channel, error) {
 			panic(err)
 		}
 		_, err = channel.QueueDeclare(
-			util.ATTENTIONNOTIFKEY,
+			util.NATEMAILKEY,
 			false,
 			false,
 			false,
@@ -44,7 +44,7 @@ func GetRabbitmqChannel() (*amqp.Channel, error) {
 			panic(err)
 		}
 		_, err = channel.QueueDeclare(
-			util.REGULARNOTIFKEY,
+			util.PRIVEMAILKEY,
 			false,
 			false,
 			false,
@@ -55,7 +55,7 @@ func GetRabbitmqChannel() (*amqp.Channel, error) {
 			panic(err)
 		}
 		_, err = channel.QueueDeclare(
-			util.GROUPNOTIFKEY,
+			util.MESSENGERKEY,
 			false,
 			false,
 			false,

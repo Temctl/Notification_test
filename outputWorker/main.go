@@ -9,7 +9,6 @@ import (
 
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/messaging"
-	"github.com/Temctl/E-Notification/outputWorker/helper"
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -18,8 +17,6 @@ import (
 	"github.com/streadway/amqp"
 	"google.golang.org/api/option"
 )
-
-var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
 
 var currentWorker string
 
@@ -34,7 +31,7 @@ func init() {
 		elog.ErrorLogger.Println(err)
 	}
 
-	currentWorker = os.Getenv("worker")
+	currentWorker = os.Getenv("workername")
 }
 
 func getQueues() (<-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delivery, <-chan amqp.Delivery) {
@@ -115,100 +112,85 @@ func GetFCMClient() (*messaging.Client, error) {
 
 func main() {
 	// Get the FCM client
-	client, err := GetFCMClient()
-	if err != nil {
-		fmt.Println("Error initializing Firebase app:", err)
-	} else {
-		fmt.Println("FireBase started succesfully")
-	}
-
-	// get redis for config
-	notifRedis, err := connections.ConnectionRedis()
-	if err != nil {
-		fmt.Println("Error connecting to redis:", err)
-	} else {
-		fmt.Println("NotifRedis connected succesfully")
-	}
+	// client, err := GetFCMClient()
+	// if err != nil {
+	// 	fmt.Println("Error initializing Firebase app:", err)
+	// } else {
+	// 	fmt.Println("FireBase started succesfully")
+	// }
 
 	//get the four queues that will listen
 	pushNotif, natEmail, privEmail, messegeNotif := getQueues()
-
 	// send the rconsumed messages
 	forever := make(chan bool)
-	var pushRequest model.RegularNotificationModel
-	go func() {
-		for msg := range pushNotif { // send xyp notifs
-			err := json.Unmarshal(msg.Body, &pushRequest)
-			if err == nil {
-				helper.PushToTokens(pushRequest, client)
-			} else {
-				panic(err)
+	if currentWorker == "pushNotif" {
+		var pushRequest model.RegularNotificationModel
+		go func() {
+			for msg := range pushNotif { // send xyp notifs
+				err := json.Unmarshal(msg.Body, &pushRequest)
+				if err == nil {
+					// helper.PushToTokens(pushRequest, client)
+					fmt.Println("push")
+				} else {
+					panic(err)
+				}
+
 			}
-
-		}
-	}()
-
-	var attentionModel model.AttentionNotification
-	go func() {
-		for msg := range attentionNotifs { // send attention notifs
-			err := json.Unmarshal(msg.Body, &attentionModel)
-			if err == nil {
-				go func(request model.AttentionNotification) {
-					helper.SendAttentionNotif(attentionModel.CivilId, attentionModel.Regnum, attentionModel.Content, attentionModel.Type, notifRedis, client)
-				}(attentionModel)
-
-				fmt.Printf("Received Message: %s\n", msg.Body)
-			} else {
-				panic(err)
-			}
-
-		}
-	}()
-
-	var regularModel model.RegularNotification
-	go func() {
-		for msg := range regularNotifs {
-			err := json.Unmarshal(msg.Body, &regularModel)
-			if err == nil {
-				go func(request model.RegularNotification, msg amqp.Delivery) {
-					helper.SendRegularNotif(request.CivilId, request.Regnum, request.Content, notificationType, notifRedis, client)
+		}()
+	} else if currentWorker == "natEmail" {
+		var natEmailRequest model.EmailModel
+		go func() {
+			for msg := range natEmail {
+				err := json.Unmarshal(msg.Body, &natEmailRequest)
+				if err == nil {
+					go func(request model.EmailModel) {
+						// helper.SendNatEmail(request.CivilId, request.Body)
+						fmt.Println("natemail")
+					}(natEmailRequest)
 
 					fmt.Printf("Received Message: %s\n", msg.Body)
-				}(regularModel, msg)
-
-			} else {
-				panic(err)
-			}
-
-		}
-	}()
-
-	var groupModel model.GroupNotification
-	go func() {
-		for msg := range groupNotifs {
-			err := json.Unmarshal(msg.Body, &groupModel)
-			if err == nil {
-				if len(groupModel.CivilIds) == 0 {
-					for _, regnum := range groupModel.Regnums {
-						go func(regnum string, content string) {
-							helper.SendRegularNotif("", regnum, content, notificationType, notifRedis, client)
-						}(regnum, groupModel.Content)
-					}
 				} else {
-					for _, civilId := range groupModel.CivilIds {
-						go func(civilId string, content string) {
-							helper.SendRegularNotif(civilId, "", content, notificationType, notifRedis, client)
-						}(civilId, groupModel.Content)
-					}
+					panic(err)
 				}
-				fmt.Printf("Received group Message: %s\n", msg.Body)
 
-			} else {
-				panic(err)
 			}
+		}()
+	} else if currentWorker == "privEmail" {
+		var privEmailRequest model.EmailModel
+		go func() {
+			for msg := range privEmail {
+				err := json.Unmarshal(msg.Body, &privEmailRequest)
+				if err == nil {
+					go func(request model.EmailModel) {
+						// helper.SendPrivEmail(request.CivilId, request.Body)
+						fmt.Println("privemail")
+					}(privEmailRequest)
+					fmt.Printf("Received Message: %s\n", msg.Body)
+				} else {
+					panic(err)
+				}
+			}
+		}()
+	} else if currentWorker == "messenger" {
+		var messengerRequest model.MessengerModel
+		go func() {
+			for msg := range messegeNotif {
+				err := json.Unmarshal(msg.Body, &messengerRequest)
+				if err == nil {
+					go func(request model.MessengerModel) {
+						// helper.SendMessenger(request.CivilId, request.Body)
+						fmt.Println("messenger")
+					}(messengerRequest)
+					fmt.Printf("Received Message: %s\n", msg.Body)
+				} else {
+					panic(err)
+				}
+			}
+		}()
+	} else {
+		fmt.Println("re wokrer")
+	}
 
-		}
-	}()
 	fmt.Println("Waiting for messages...")
 	<-forever
 

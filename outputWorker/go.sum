@@ -81,6 +81,8 @@ github.com/Temctl/E-Notification/util v0.0.0-20230616084035-d7ef24c32a35 h1:VgCj
 github.com/Temctl/E-Notification/util v0.0.0-20230616084035-d7ef24c32a35/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/Temctl/E-Notification/util v0.0.0-20230616084901-93008280c3d2 h1:sRWBoOkwd1a+tw5Sy6FQ6Kd4OYIqlYfnzxX+87IDvy4=
 github.com/Temctl/E-Notification/util v0.0.0-20230616084901-93008280c3d2/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
+github.com/Temctl/E-Notification/util v0.0.0-20230616085517-45ce0a124080 h1:qdmTtG8TKS1/drJZr18o2cTandW48kooec7KCkpkArk=
+github.com/Temctl/E-Notification/util v0.0.0-20230616085517-45ce0a124080/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/aws/aws-sdk-go v1.44.283 h1:ObMaIvdhHJM2sIrbcljd7muHBaFb+Kp/QsX6iflGDg4=
 github.com/aws/aws-sdk-go v1.44.283/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=

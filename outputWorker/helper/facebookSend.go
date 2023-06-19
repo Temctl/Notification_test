@@ -9,11 +9,11 @@ import (
 
 var SOCIAL_URL = "https://enterprise.chatbot.mn/api/bots/fb2120ef7cb32a80270409d9f97978fd/user/notification/sendNotification?token=c875809bbef0d18801032b21fe5140ad4128322c99b03ec6f10453c89ea2cbfb"
 
-func SendSocial(civilId string) int {
+func SendMessenger(civilId string, body string) int {
 	// Create JSON data
 	data := map[string]interface{}{
 		"message": map[string]interface{}{
-			"text": civilId + " test",
+			"text": civilId + " : " + body,
 		},
 		"ref":     civilId,
 		"channel": "messenger",

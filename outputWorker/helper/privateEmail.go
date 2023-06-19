@@ -31,17 +31,17 @@ func AttentionPrivEmail(civilId string, content string, notificationType model.N
 	msg := strings.ReplaceAll(baseHTML, "{TEXT_REPLACE}", content)
 	msg = strings.ReplaceAll(msg, "{IMG_ELEMENT}", imgElem)
 
-	return sendPrivEmail(civilId, msg)
+	return SendPrivEmail(civilId, msg)
 }
 
-func RegularPrivEmail(civilId string, content string) int {
+// func RegularPrivEmail(civilId string, content string) int {
 
-	// TODO regular html
+// 	// TODO regular html
 
-	return sendPrivEmail(civilId, content)
-}
+// 	return sendPrivEmail(civilId, content)
+// }
 
-func sendPrivEmail(emailAddress string, content string) int {
+func SendPrivEmail(emailAddress string, content string) int {
 
 	m := gomail.NewMessage()
 

@@ -30,24 +30,24 @@ func AttentionNatEmail(civilId string, content string, notificationType model.No
 	msg := strings.ReplaceAll(baseHTML, "{TEXT_REPLACE}", content)
 	msg = strings.ReplaceAll(msg, "{IMG_ELEMENT}", imgElem)
 
-	return sendNatEmail(civilId, msg)
+	return SendNatEmail(civilId, msg)
 }
 
-func RegularNatEmail(civilId string, content string) int {
+// func RegularNatEmail(civilId string, content string) int {
 
-	// TODO regular email html
+// 	// TODO regular email html
 
-	return sendNatEmail(civilId, content)
-}
+// 	return sendNatEmail(civilId, content)
+// }
 
-func XypNatEmail(civilId string, content string) int {
+// func XypNatEmail(civilId string, content string) int {
 
-	// TODO regular email html
+// 	// TODO regular email html
 
-	return sendNatEmail(civilId, content)
-}
+// 	return sendNatEmail(civilId, content)
+// }
 
-func sendNatEmail(civilId string, content string) int {
+func SendNatEmail(civilId string, content string) int {
 	from := "notification@e-mongolia.mn"
 	// to := "891834062934@e-mongolia.mn"
 	to := civilId + "@e-mongolia.mn"

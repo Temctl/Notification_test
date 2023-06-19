@@ -40,3 +40,29 @@ func ConnectionRedis() (*redis.Client, error) {
 
 	return client, err
 }
+
+func IsWorkerOn(client *redis.Client, workerName string) int {
+	working, err := client.Get(workerName).Result()
+	if err != nil {
+		return 0
+	}
+	conv, err := strconv.Atoi(working)
+	if err != nil {
+		return 0
+	}
+	return conv
+}
+
+func TurnWorkerOn(client *redis.Client, workerName string) {
+	_, err := client.Set(workerName, 1, 0).Result()
+	if err != nil {
+		panic(err)
+	}
+}
+
+func TurnWorkerOff(client *redis.Client, workerName string) {
+	_, err := client.Set(workerName, 0, 0).Result()
+	if err != nil {
+		panic(err)
+	}
+}

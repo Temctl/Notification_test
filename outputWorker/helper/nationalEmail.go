@@ -7,6 +7,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Temctl/E-Notification/util"
+	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/model"
 	"gopkg.in/gomail.v2"
 )
@@ -80,6 +82,7 @@ func SendNatEmail(civilId string, content string) int {
 	// Send the email
 	if err := sender.DialAndSend(msg); err != nil {
 		fmt.Println(err)
+		connections.TurnWorkerOff(util.NATEMAILWORKER)
 		return 0
 	}
 

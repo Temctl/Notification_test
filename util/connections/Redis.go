@@ -41,8 +41,12 @@ func ConnectionRedis() (*redis.Client, error) {
 	return client, err
 }
 
-func IsWorkerOn(client *redis.Client, workerName string) int {
-	working, err := client.Get(workerName).Result()
+func IsWorkerOn(workerName string) int {
+	redis, err := ConnectionRedis()
+	if err != nil {
+		return 0
+	}
+	working, err := redis.Get(workerName).Result()
 	if err != nil {
 		return 0
 	}
@@ -53,15 +57,23 @@ func IsWorkerOn(client *redis.Client, workerName string) int {
 	return conv
 }
 
-func TurnWorkerOn(client *redis.Client, workerName string) {
-	_, err := client.Set(workerName, 1, 0).Result()
+func TurnWorkerOn(workerName string) {
+	redis, err := ConnectionRedis()
+	if err != nil {
+		panic(err)
+	}
+	_, err = redis.Set(workerName, 1, 0).Result()
 	if err != nil {
 		panic(err)
 	}
 }
 
-func TurnWorkerOff(client *redis.Client, workerName string) {
-	_, err := client.Set(workerName, 0, 0).Result()
+func TurnWorkerOff(workerName string) {
+	redis, err := ConnectionRedis()
+	if err != nil {
+		panic(err)
+	}
+	_, err = redis.Set(workerName, 0, 0).Result()
 	if err != nil {
 		panic(err)
 	}

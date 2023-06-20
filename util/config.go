@@ -41,6 +41,12 @@ var (
 
 	RABBITMQURL string
 
+	DB_HOST     string
+	DB_PORT     string
+	DB_USERNAME string
+	DB_PASSWORD string
+	DB_DBNAME   string
+
 	AWS_SES_USER     = "AKIA25YVKNUDIE6WUJAP"
 	AWS_SES_PASSWORD = "BH/k4+kFhzOVLoKV8SG4bRPGrkMy1tM3cFsHunMAgFX2"
 	AWS_SMTP         = "email-smtp.ap-southeast-1.amazonaws.com"
@@ -64,6 +70,12 @@ func init() {
 		ELOG_MAXAGE = 30
 
 		RABBITMQURL = "amqp://guest:guest@172.72.0.11:5672/"
+
+		DB_HOST = "172.72.0.11"
+		DB_PORT = "5432"
+		DB_USERNAME = "postgres"
+		DB_PASSWORD = "changeme"
+		DB_DBNAME = "postgres"
 	} else if ENV == "prod" {
 		PORT = 8085
 
@@ -80,6 +92,12 @@ func init() {
 		ELOG_MAXAGE = 30
 
 		RABBITMQURL = "amqp://guest:guest@localhost:5672/"
+
+		DB_HOST = "172.72.0.11"
+		DB_PORT = "5432"
+		DB_USERNAME = "postgres"
+		DB_PASSWORD = "changeme"
+		DB_DBNAME = "postgres"
 	}
 }
 

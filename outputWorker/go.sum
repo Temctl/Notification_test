@@ -85,6 +85,10 @@ github.com/Temctl/E-Notification/util v0.0.0-20230616085517-45ce0a124080 h1:qdmT
 github.com/Temctl/E-Notification/util v0.0.0-20230616085517-45ce0a124080/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/Temctl/E-Notification/util v0.0.0-20230619092558-0b6be093aee1 h1:7p5tMYn54O/wdSACXb4bhWHlGU3WK7+R9HEt1M0NUIY=
 github.com/Temctl/E-Notification/util v0.0.0-20230619092558-0b6be093aee1/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
+github.com/Temctl/E-Notification/util v0.0.0-20230619093310-3cea102f86a4 h1:lKQst/1MgcT5OLrLXOvoH+uRQ5tWoGZHwgQkvTB8ZbY=
+github.com/Temctl/E-Notification/util v0.0.0-20230619093310-3cea102f86a4/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
+github.com/Temctl/E-Notification/util v0.0.0-20230620081759-1946aeb59c84 h1:jK7vJfrm3lZeitSy3AHlI5+AJS7RRlN8F+ptFPbLncs=
+github.com/Temctl/E-Notification/util v0.0.0-20230620081759-1946aeb59c84/go.mod h1:M10wf9QIyD37HmMCsKnWJ1WW1bGZ5xD1aJISSqOF094=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/aws/aws-sdk-go v1.44.283 h1:ObMaIvdhHJM2sIrbcljd7muHBaFb+Kp/QsX6iflGDg4=
 github.com/aws/aws-sdk-go v1.44.283/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
@@ -159,6 +163,8 @@ github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHW
 github.com/jmespath/go-jmespath/internal/testify v1.5.1/go.mod h1:L3OGu8Wl2/fWfCI6z80xFu9LTZmf1ZRjMHUOPmWr69U=
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
 github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
+github.com/lib/pq v1.10.9 h1:YXG7RB+JIjhP29X+OtkiDnYaXQwpS4JEWq7dtCCRUEw=
+github.com/lib/pq v1.10.9/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=

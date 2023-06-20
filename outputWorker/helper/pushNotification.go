@@ -6,6 +6,8 @@ import (
 	"sync"
 
 	"firebase.google.com/go/messaging"
+	"github.com/Temctl/E-Notification/util"
+	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/model"
 )
 
@@ -78,6 +80,9 @@ func PushToTokens(request model.RegularNotificationModel, client *messaging.Clie
 	fmt.Printf("Successful count: %d\n", successCount)
 	fmt.Printf("Failed count: %d\n", notSuccessCount)
 	// TODO write log
+	if len(request.Tokens) == notSuccessCount {
+		connections.TurnWorkerOff(util.PUSHWORKER)
+	}
 	if successCount == 0 {
 		//TODO when nothing is sent
 	}

@@ -123,67 +123,81 @@ func main() {
 	pushNotif, natEmail, privEmail, messegeNotif := getQueues()
 	// send the rconsumed messages
 	forever := make(chan bool)
-	if currentWorker == "pushNotif" {
+	if currentWorker == util.PUSHWORKER {
 		var pushRequest model.RegularNotificationModel
 		go func() {
 			for msg := range pushNotif { // send xyp notifs
-				err := json.Unmarshal(msg.Body, &pushRequest)
-				if err == nil {
-					// helper.PushToTokens(pushRequest, client)
-					fmt.Println("push")
+				if connections.IsWorkerOn(util.PUSHWORKER) == 1 {
+					err := json.Unmarshal(msg.Body, &pushRequest)
+					if err == nil {
+						// helper.PushToTokens(pushRequest, client)
+						fmt.Println("push")
+					} else {
+						panic(err)
+					}
 				} else {
-					panic(err)
+					fmt.Println("worker is turned off")
 				}
-
 			}
 		}()
-	} else if currentWorker == "natEmail" {
+	} else if currentWorker == util.NATEMAILWORKER {
 		var natEmailRequest model.EmailModel
 		go func() {
 			for msg := range natEmail {
-				err := json.Unmarshal(msg.Body, &natEmailRequest)
-				if err == nil {
-					go func(request model.EmailModel) {
-						// helper.SendNatEmail(request.CivilId, request.Body)
-						fmt.Println("natemail")
-					}(natEmailRequest)
+				if connections.IsWorkerOn(util.NATEMAILWORKER) == 1 {
+					err := json.Unmarshal(msg.Body, &natEmailRequest)
+					if err == nil {
+						go func(request model.EmailModel) {
+							// helper.SendNatEmail(request.CivilId, request.Body)
+							fmt.Println("natemail")
+						}(natEmailRequest)
 
-					fmt.Printf("Received Message: %s\n", msg.Body)
+						fmt.Printf("Received Message: %s\n", msg.Body)
+					} else {
+						panic(err)
+					}
 				} else {
-					panic(err)
+					fmt.Println("worker is turned off")
 				}
-
 			}
 		}()
-	} else if currentWorker == "privEmail" {
+	} else if currentWorker == util.PRIVEMAILWORKER {
 		var privEmailRequest model.EmailModel
 		go func() {
 			for msg := range privEmail {
-				err := json.Unmarshal(msg.Body, &privEmailRequest)
-				if err == nil {
-					go func(request model.EmailModel) {
-						// helper.SendPrivEmail(request.CivilId, request.Body)
-						fmt.Println("privemail")
-					}(privEmailRequest)
-					fmt.Printf("Received Message: %s\n", msg.Body)
+				if connections.IsWorkerOn(util.PRIVEMAILWORKER) == 1 {
+					err := json.Unmarshal(msg.Body, &privEmailRequest)
+					if err == nil {
+						go func(request model.EmailModel) {
+							// helper.SendPrivEmail(request.CivilId, request.Body)
+							fmt.Println("privemail")
+						}(privEmailRequest)
+						fmt.Printf("Received Message: %s\n", msg.Body)
+					} else {
+						panic(err)
+					}
 				} else {
-					panic(err)
+					fmt.Println("worker is turned off")
 				}
 			}
 		}()
-	} else if currentWorker == "messenger" {
+	} else if currentWorker == util.MESSENGERWORKER {
 		var messengerRequest model.MessengerModel
 		go func() {
 			for msg := range messegeNotif {
-				err := json.Unmarshal(msg.Body, &messengerRequest)
-				if err == nil {
-					go func(request model.MessengerModel) {
-						// helper.SendMessenger(request.CivilId, request.Body)
-						fmt.Println("messenger")
-					}(messengerRequest)
-					fmt.Printf("Received Message: %s\n", msg.Body)
+				if connections.IsWorkerOn(util.MESSENGERWORKER) == 1 {
+					err := json.Unmarshal(msg.Body, &messengerRequest)
+					if err == nil {
+						go func(request model.MessengerModel) {
+							// helper.SendMessenger(request.CivilId, request.Body)
+							fmt.Println("messenger")
+						}(messengerRequest)
+						fmt.Printf("Received Message: %s\n", msg.Body)
+					} else {
+						panic(err)
+					}
 				} else {
-					panic(err)
+					fmt.Println("worker is turned off")
 				}
 			}
 		}()

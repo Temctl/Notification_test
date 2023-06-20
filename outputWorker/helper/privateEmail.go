@@ -9,6 +9,7 @@ import (
 	gomail "gopkg.in/mail.v2"
 
 	"github.com/Temctl/E-Notification/util"
+	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/model"
 )
 
@@ -67,6 +68,7 @@ func SendPrivEmail(emailAddress string, content string) int {
 	// Now send E-Mail
 	if err := d.DialAndSend(m); err != nil {
 		fmt.Println(err)
+		connections.TurnWorkerOff(util.PRIVEMAILWORKER)
 		panic(err)
 	}
 

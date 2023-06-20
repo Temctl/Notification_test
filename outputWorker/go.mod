@@ -12,6 +12,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/lib/pq v1.10.9 // indirect
 	github.com/redis/go-redis/v9 v9.0.5 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 )
@@ -24,7 +25,7 @@ require (
 	cloud.google.com/go/iam v0.13.0 // indirect
 	cloud.google.com/go/longrunning v0.4.2 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
-	github.com/Temctl/E-Notification/util v0.0.0-20230619092558-0b6be093aee1 // indirect
+	github.com/Temctl/E-Notification/util v0.0.0-20230620081759-1946aeb59c84 // indirect
 	github.com/aws/aws-sdk-go v1.44.283
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect

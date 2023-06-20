@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 
-	"github.com/Temctl/E-Notification/inputWorker/database"
 	"github.com/Temctl/E-Notification/inputWorker/middleware"
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
@@ -77,6 +77,7 @@ func XypWorker() {
 }
 
 func AsyncCronJob() {
+	fmt.Println("Fsdf")
 	location, err := time.LoadLocation("Asia/Ulaanbaatar")
 	if err != nil {
 		fmt.Println("Error loading time zone:", err)
@@ -92,14 +93,13 @@ func AsyncCronJob() {
 	// ----------------------------------------------------------------------
 	// Add the cron job to the cron scheduler -------------------------------
 	// ----------------------------------------------------------------------
-	c.AddFunc("0 30 10 * *", cronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 7 13 * *", cronJob) // Runs the job at 10:18 AM in GMT+8
 	// Start the cron scheduler
 	c.Start()
 
 	// Block the program from exiting
 	// Use a channel to prevent the main goroutine from exiting
-	done := make(chan bool)
-	<-done
+	select {}
 }
 
 func main() {
@@ -109,11 +109,26 @@ func main() {
 	// ----------------------------------------------------------------------
 	// WORKER START ---------------------------------------------------------
 	// ----------------------------------------------------------------------
+	var wg sync.WaitGroup
+	wg.Add(2)
 
-	database.ConnectPostgreSQL()
+	// ----------------------------------------------------------------------
+	// CRON JOB -------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	go func() {
+		defer wg.Done()
+		AsyncCronJob()
+	}()
 
-	// go XypWorker()
+	// ----------------------------------------------------------------------
+	// XYP WORKER -----------------------------------------------------------
+	// ----------------------------------------------------------------------
+	go func() {
+		defer wg.Done()
+		XypWorker()
+	}()
 
-	// go AsyncCronJob()
+	// Wait for all goroutines to complete
+	wg.Wait()
 
 }

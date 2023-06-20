@@ -2,23 +2,21 @@ package database
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/Temctl/E-Notification/util/connections"
-	_ "github.com/lib/pq"
+	"github.com/Temctl/E-Notification/util/elog"
 )
 
 func ConnectPostgreSQL() {
 	db, err := connections.ConnectPostgreSQL()
 	if err != nil {
-		fmt.Println("Dasd")
+		elog.Error().Panic(err)
 	}
 	// Perform database operations...
 	// Execute a query
 	rows, err := db.Query("select email, username from users")
 	if err != nil {
-		fmt.Println("zxc")
-		log.Fatal(err)
+		elog.Error().Panic(err)
 	}
 	defer rows.Close()
 
@@ -28,8 +26,7 @@ func ConnectPostgreSQL() {
 		var username string
 		err := rows.Scan(&email, &username)
 		if err != nil {
-			fmt.Println(err)
-			log.Fatal(err)
+			elog.Error().Panic(err)
 		}
 		fmt.Println("ID:", email, "Name:", username)
 	}

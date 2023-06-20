@@ -14,11 +14,11 @@ func ConnectPostgreSQL() (*sql.DB, error) {
 		elog.Error().Println(err)
 		return nil, err
 	}
-	defer db.Close()
 
 	// Test the database connection
 	err = db.Ping()
 	if err != nil {
+		db.Close()
 		elog.Error().Println(err)
 		return nil, err
 	}

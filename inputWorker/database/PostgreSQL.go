@@ -1,30 +1,18 @@
 package database
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 
+	"github.com/Temctl/E-Notification/util/connections"
 	_ "github.com/lib/pq"
 )
 
 func ConnectPostgreSQL() {
-	fmt.Println("Dsfdsf")
-	// Define the database connection string
-	db, err := sql.Open("postgres", "host=172.72.0.11 user=postgres password=changeme dbname=postgres sslmode=disable")
+	db, err := connections.ConnectPostgreSQL()
 	if err != nil {
-		fmt.Println("SDfsdf")
-		log.Fatal(err)
+		fmt.Println("Dasd")
 	}
-	defer db.Close()
-
-	// Test the database connection
-	err = db.Ping()
-	if err != nil {
-		fmt.Println("123")
-		log.Fatal(err)
-	}
-
 	// Perform database operations...
 	// Execute a query
 	rows, err := db.Query("select email, username from users")
@@ -45,4 +33,5 @@ func ConnectPostgreSQL() {
 		}
 		fmt.Println("ID:", email, "Name:", username)
 	}
+	db.Close()
 }

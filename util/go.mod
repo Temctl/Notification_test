@@ -20,6 +20,7 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.10.0 // indirect
+	github.com/lib/pq v1.10.9 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	golang.org/x/crypto v0.10.0 // indirect
 	golang.org/x/net v0.11.0 // indirect

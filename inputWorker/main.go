@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Temctl/E-Notification/inputWorker/database"
 	"github.com/Temctl/E-Notification/inputWorker/middleware"
-	"github.com/Temctl/E-Notification/inputWorker/router"
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -14,6 +14,7 @@ import (
 )
 
 func XypWorker() {
+	fmt.Println("Fsdfds")
 	elog.Info().Println("XYP NOTIF WORKER STARTED...")
 	// ----------------------------------------------------------------------
 	// RABBITMQ CONNECTION --------------------------------------------------
@@ -109,13 +110,10 @@ func main() {
 	// WORKER START ---------------------------------------------------------
 	// ----------------------------------------------------------------------
 
-	go XypWorker()
+	database.ConnectPostgreSQL()
 
-	go AsyncCronJob()
+	// go XypWorker()
 
-	// ----------------------------------------------------------------------
-	// REST API START -------------------------------------------------------
-	// ----------------------------------------------------------------------
+	// go AsyncCronJob()
 
-	router.RESTAPI()
 }

@@ -27,6 +27,8 @@ github.com/Temctl/E-Notification/util v0.0.0-20230616074955-ebfaeb72ea4a h1:28hb
 github.com/Temctl/E-Notification/util v0.0.0-20230616074955-ebfaeb72ea4a/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/Temctl/E-Notification/util v0.0.0-20230616075214-86721722f10c h1:3hRMdZiOwimqjBfpHi8T9OlITSZUjJ74JyRMAUCy1I8=
 github.com/Temctl/E-Notification/util v0.0.0-20230616075214-86721722f10c/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
+github.com/Temctl/E-Notification/util v0.0.0-20230619093310-3cea102f86a4 h1:lKQst/1MgcT5OLrLXOvoH+uRQ5tWoGZHwgQkvTB8ZbY=
+github.com/Temctl/E-Notification/util v0.0.0-20230619093310-3cea102f86a4/go.mod h1:ZvzKYQHTBw1hZi1Vl1OPeY4H3WWR4asdN9wXVgYZ2/w=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
@@ -98,6 +100,8 @@ github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
 github.com/grpc-ecosystem/grpc-gateway v1.16.0/go.mod h1:BDjrQk3hbvj6Nolgz8mAMFbcEtjT1g+wF4CSlocrBnw=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
+github.com/lib/pq v1.10.9 h1:YXG7RB+JIjhP29X+OtkiDnYaXQwpS4JEWq7dtCCRUEw=
+github.com/lib/pq v1.10.9/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=
 github.com/nxadm/tail v1.4.8/go.mod h1:+ncqLTQzXmGhMZNUePPaPqPvBxHAIsmXswZKocGu+AU=

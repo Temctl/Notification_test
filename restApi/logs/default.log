@@ -32,3 +32,17 @@ INFO: 2023/06/16 16:30:56 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | 
 INFO: 2023/06/16 16:30:56 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
 INFO: 2023/06/16 16:30:56 StartPrint.go:24: 
 INFO: 2023/06/16 16:30:56 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/20 10:51:07 StartPrint.go:18: 
+INFO: 2023/06/20 10:51:07 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/20 10:51:07 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/20 10:51:07 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/20 10:51:07 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/20 10:51:07 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/20 10:51:07 StartPrint.go:24: 
+INFO: 2023/06/20 10:51:07 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/20 10:51:16 UserConfig.go:75: USERCONFIG API STARTED...
+INFO: 2023/06/20 10:51:16 UserConfig.go:108: WRITING REDIS
+INFO: 2023/06/20 10:51:16 UserConfig.go:19: SET REDIS...
+INFO: 2023/06/20 10:51:16 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/20 10:51:16 UserConfig.go:51: Successful...
+INFO: 2023/06/20 10:51:16 UserConfig.go:63: Redis client closed successfully

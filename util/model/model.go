@@ -1,15 +1,16 @@
 package model
 
 type XypNotification struct {
-	Date        string `json:"date"`
-	ServiceName string `json:"serviceName"`
-	ServiceDesc string `json:"serviceDesc"`
-	OrgName     string `json:"orgName"`
-	Regnum      string `json:"regnum"`
-	CivilId     string `json:"civilId"`
-	RequestId   string `json:"requestId"`
-	ResultCode  int    `json:"resultCode"`
-	ClientId    int    `json:"clientId"`
+	Date           string `json:"date"`
+	ServiceName    string `json:"serviceName"`
+	ServiceDesc    string `json:"serviceDesc"`
+	OrgName        string `json:"orgName"`
+	Regnum         string `json:"regnum"`
+	OperatorRegnum string `json:"operatorRegnum"`
+	CivilId        string `json:"civilId"`
+	RequestId      string `json:"requestId"`
+	ResultCode     int    `json:"resultCode"`
+	ClientId       int    `json:"clientId"`
 }
 
 type NotificationType string

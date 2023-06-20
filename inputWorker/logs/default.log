@@ -1543,3 +1543,29 @@ INFO: 2023/06/20 15:56:48 StartPrint.go:20:
 INFO: 2023/06/20 15:56:48 main.go:14: SERVER STARTED...
 ERROR: 2023/06/20 15:56:48 Postgre.go:24: dial tcp: lookup tcp/172.72.0.11: getaddrinfow: The specified class was not found.
 ERROR: 2023/06/20 15:56:48 PostgreSQL.go:13: dial tcp: lookup tcp/172.72.0.11: getaddrinfow: The specified class was not found.
+INFO: 2023/06/20 15:59:16 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/20 15:59:16 StartPrint.go:20: 
+INFO: 2023/06/20 15:59:16 main.go:14: SERVER STARTED...
+INFO: 2023/06/20 15:59:16 XypWorker.go:11: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/20 15:59:16 AttentionNotificationEveryday.go:13: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/20 15:59:16 SocialSend.go:13: SocialSend CRON JOB STARTED...
+INFO: 2023/06/20 15:59:16 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/20 16:12:48 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/20 16:12:48 StartPrint.go:20: 
+INFO: 2023/06/20 16:12:48 main.go:14: SERVER STARTED...
+INFO: 2023/06/20 16:12:48 XypWorker.go:13: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/20 16:12:48 SocialSend.go:13: SocialSend CRON JOB STARTED...
+INFO: 2023/06/20 16:12:48 AttentionNotificationEveryday.go:13: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/20 16:12:48 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/20 16:13:20 XypWorker.go:54: {"regnum":"аю88092213","operatorRegnum":"","date":"2023-06-15 16:39:52","serviceName":"WS100101_getCitizenIDCardInfo","serviceDesc":"Иргэний үнэмлэхний мэдээлэл дамжуулах сервис","orgName":"Сангийн яам","requestId":"a43b49c3-ba1e-4eb0-883e-bf04b2ecacfc","resultCode":0,"resultMessage":"амжилттай","clientId":126,"retryCount":0,"civilId":"650187850617"}
+INFO: 2023/06/20 16:15:37 XypWorker.go:54: {"regnum":"аю88092213","operatorRegnum":"","date":"2023-06-15 16:39:52","serviceName":"WS100101_getCitizenIDCardInfo","serviceDesc":"Иргэний үнэмлэхний мэдээлэл дамжуулах сервис","orgName":"Сангийн яам","requestId":"a43b49c3-ba1e-4eb0-883e-bf04b2ecacfc","resultCode":0,"resultMessage":"амжилттай","clientId":126,"retryCount":0,"civilId":"650187850617"}

@@ -1,22 +1,16 @@
 package worker
 
 import (
-	"github.com/Temctl/E-Notification/util"
+	"encoding/json"
+	"fmt"
+
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
-	"github.com/streadway/amqp"
+	"github.com/Temctl/E-Notification/util/model"
 )
 
 func XypWorker() {
 	elog.Info().Println("XYP NOTIF WORKER STARTED...")
-	// ----------------------------------------------------------------------
-	// RABBITMQ CONNECTION --------------------------------------------------
-	// ----------------------------------------------------------------------
-
-	queue, rErr := connections.GetRabbitmqChannel()
-	if rErr != nil {
-		elog.Error().Panic(rErr)
-	}
 	// ----------------------------------------------------------------------
 	// REDIS ----------------------------------------------------------------
 	// ----------------------------------------------------------------------
@@ -46,25 +40,28 @@ func XypWorker() {
 		// [queue:queue, value] len 2 bol zuv gesen ug
 		// [queue:queue, value1]
 		// [queue:queue, value2]
+
+		xypNotif := model.XypNotification{}
+
 		if len(result) == 2 {
 			value := result[1]
-			// --------------------------------------------------------
-			// RABBITMQ QUEUE DEE PUBLISH HIIH ------------------------
-			// --------------------------------------------------------
-			err = queue.Publish(
-				"",
-				util.PUSHNOTIFICATIONKEY,
-				false,
-				false,
-				amqp.Publishing{
-					ContentType: "text/plain",
-					Body:        []byte(value),
-				},
-			)
+			err := json.Unmarshal([]byte(value), &xypNotif)
 			if err != nil {
-				elog.Error().Println("Publish error", err)
+				fmt.Println("Error:", err)
+				return
 			}
-			elog.Info().Println("RABBITMQ: Successfully Publishing message")
+			fmt.Println(xypNotif.CivilId)
+			fmt.Println(xypNotif.ClientId)
+			fmt.Println(xypNotif.Date)
+			fmt.Println(xypNotif.OrgName)
+			fmt.Println(xypNotif.Regnum)
+			fmt.Println(xypNotif.RequestId)
+			fmt.Println(xypNotif.ResultCode)
+			fmt.Println(xypNotif.ServiceDesc)
+			fmt.Println(xypNotif.ServiceName)
+			elog.Info().Println(value)
 		}
 	}
 }
+
+// ('queue:notification', '{"regnum":"аю88092213","operatorRegnum":"","date":"2023-06-15 16:39:52","serviceName":"WS100101_getCitizenIDCardInfo","serviceDesc":"Иргэний үнэмлэхний мэдээлэл дамжуулах сервис","orgName":"Сангийн яам","requestId":"a43b49c3-ba1e-4eb0-883e-bf04b2ecacfc","resultCode":0,"resultMessage":"амжилттай","clientId":126,"retryCount":0,"civilId":"650187850617"}')

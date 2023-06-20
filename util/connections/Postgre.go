@@ -10,7 +10,7 @@ import (
 
 func ConnectPostgreSQL() (*sql.DB, error) {
 	// Define the database connection string
-	url := "host=" + util.DB_HOST + " port=" + util.DB_HOST + " user=" + util.DB_USERNAME + " password=" + util.DB_PASSWORD + " dbname=" + util.DB_DBNAME + " sslmode=disable"
+	url := "host=" + util.DB_HOST + " port=" + util.DB_PORT + " user=" + util.DB_USERNAME + " password=" + util.DB_PASSWORD + " dbname=" + util.DB_DBNAME + " sslmode=disable"
 	db, err := sql.Open("postgres", url)
 	if err != nil {
 		elog.Error().Println(err)

@@ -1533,3 +1533,13 @@ INFO: 2023/06/20 13:45:05 XypWorker.go:11: XYP NOTIF WORKER STARTED...
 INFO: 2023/06/20 13:45:05 SocialSend.go:13: SocialSend CRON JOB STARTED...
 INFO: 2023/06/20 13:45:05 AttentionNotificationEveryday.go:13: AttentionNotificationEveryday CRON JOB STARTED...
 INFO: 2023/06/20 13:45:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/20 15:56:48 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/20 15:56:48 StartPrint.go:20: 
+INFO: 2023/06/20 15:56:48 main.go:14: SERVER STARTED...
+ERROR: 2023/06/20 15:56:48 Postgre.go:24: dial tcp: lookup tcp/172.72.0.11: getaddrinfow: The specified class was not found.
+ERROR: 2023/06/20 15:56:48 PostgreSQL.go:13: dial tcp: lookup tcp/172.72.0.11: getaddrinfow: The specified class was not found.

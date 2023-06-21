@@ -28,7 +28,7 @@ type AttentionNotification struct {
 	Regnum     string           `json:"regnum"`
 	CivilId    string           `json:"civilId"`
 	ExpireDate string           `json:"expireDate"`
-	Content    string           `json:"content"`
+	Passport   string           `json:"passport"`
 }
 
 type PushNotificationModel struct {

@@ -1,9 +1,9 @@
 package worker
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"log"
 
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -24,16 +24,12 @@ func XypWorker() {
 	// ----------------------------------------------------------------------
 	// DB CONNECTION --------------------------------------------------------
 	// ----------------------------------------------------------------------
-	db, err := connections.ConnectPostgreSQL()
+	client, err := connections.ConnectMongoDB()
 	if err != nil {
 		elog.Error().Fatal(err)
 	}
-	stmt, err := db.Prepare("INSERT INTO xypnotification (regnum, operatorregnum,date, servicename, servicedesc,orgname, requestid, resultcode, civilid, clientid) " +
-		"VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer stmt.Close()
+
+	collection := client.Database("notification").Collection("xypnotification")
 	// ------------------------------------------------------------
 	// Infinite loop to continuously pop items from the list ------
 	// ------------------------------------------------------------
@@ -64,22 +60,12 @@ func XypWorker() {
 				elog.Error().Println("Error:", err)
 				continue
 			}
-			_, err = stmt.Exec(
-				xypNotif.Regnum,
-				xypNotif.OperatorRegnum,
-				xypNotif.Date,
-				xypNotif.ServiceName,
-				xypNotif.ServiceDesc,
-				xypNotif.OrgName,
-				xypNotif.RequestId,
-				xypNotif.ResultCode,
-				xypNotif.CivilId,
-				xypNotif.ClientId)
-			if err != nil {
-				elog.Error().Println("Error:", err)
+			// Insert the document
+			_, insertErr := collection.InsertOne(context.Background(), xypNotif)
+			if insertErr != nil {
+				elog.Error().Panic(insertErr)
 				continue
 			}
-
 			fmt.Println(xypNotif)
 		}
 	}

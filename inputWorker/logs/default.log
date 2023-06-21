@@ -1790,3 +1790,124 @@ INFO: 2023/06/21 11:05:31 main.go:13: SERVER STARTED...
 INFO: 2023/06/21 11:05:31 XypWorker.go:14: XYP NOTIF WORKER STARTED...
 INFO: 2023/06/21 11:05:31 AttentionNotificationEveryday.go:88: AttentionNotificationEveryday CRON JOB STARTED...
 INFO: 2023/06/21 11:05:31 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 13:35:52 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 13:35:52 StartPrint.go:20: 
+INFO: 2023/06/21 13:35:52 main.go:47: SERVER STARTED...
+INFO: 2023/06/21 13:35:52 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 13:35:52 AttentionNotificationEveryday.go:151: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 13:35:52 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 13:42:07 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 13:42:07 StartPrint.go:20: 
+INFO: 2023/06/21 13:42:07 main.go:47: SERVER STARTED...
+INFO: 2023/06/21 13:42:07 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 13:42:07 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 13:42:07 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 13:47:34 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 13:47:34 StartPrint.go:20: 
+INFO: 2023/06/21 13:47:34 main.go:47: SERVER STARTED...
+INFO: 2023/06/21 13:47:34 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 13:47:34 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 13:47:34 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:02:42 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:02:42 StartPrint.go:20: 
+INFO: 2023/06/21 14:02:42 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:02:42 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:02:42 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:02:42 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:03:45 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:03:45 StartPrint.go:20: 
+INFO: 2023/06/21 14:03:45 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:03:45 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:03:45 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:03:45 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:04:04 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:04:04 StartPrint.go:20: 
+INFO: 2023/06/21 14:04:04 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:04:05 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:04:05 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:04:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:04:19 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:04:19 StartPrint.go:20: 
+INFO: 2023/06/21 14:04:19 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:04:19 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:04:19 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:04:19 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:07:30 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:07:30 StartPrint.go:20: 
+INFO: 2023/06/21 14:07:30 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:07:30 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:07:30 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:07:30 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:08:09 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:08:09 StartPrint.go:20: 
+INFO: 2023/06/21 14:08:09 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:08:09 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:08:09 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:08:09 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:09:48 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:09:48 StartPrint.go:20: 
+INFO: 2023/06/21 14:09:48 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:09:48 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:09:48 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:09:48 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/21 14:10:20 StartPrint.go:19: 
+ _____ __  __    _         _   _  ___ _____ ___ _____ ___ ____    _  _____ ___ ___  _   _ 
+| ____|  \/  |  / \       | \ | |/ _ \_   _|_ _|  ___|_ _/ ___|  / \|_   _|_ _/ _ \| \ | |
+|  _| | |\/| | / _ \ _____|  \| | | | || |  | || |_   | | |     / _ \ | |  | | | | |  \| |
+| |___| |  | |/ ___ \_____| |\  | |_| || |  | ||  _|  | | |___ / ___ \| |  | | |_| | |\  |
+|_____|_|  |_/_/   \_\    |_| \_|\___/ |_| |___|_|   |___\____/_/   \_\_| |___\___/|_| \_|
+INFO: 2023/06/21 14:10:20 StartPrint.go:20: 
+INFO: 2023/06/21 14:10:20 main.go:60: SERVER STARTED...
+INFO: 2023/06/21 14:10:20 XypWorker.go:14: XYP NOTIF WORKER STARTED...
+INFO: 2023/06/21 14:10:20 AttentionNotificationEveryday.go:144: AttentionNotificationEveryday CRON JOB STARTED...
+INFO: 2023/06/21 14:10:20 Redis.go:39: Redis server response: PONG

@@ -2,6 +2,7 @@ package worker
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -56,25 +57,17 @@ func IdcardExpire() {
 		fmt.Println("Error:", err)
 		return
 	}
-	db, err := connections.ConnectPostgreSQL()
+	client, err := connections.ConnectMongoDB()
 	if err != nil {
 		elog.Error().Panic(err)
 	}
-	stmt, err := db.Prepare("INSERT INTO attentionnotification (type, regnum, civilid, expiredate) " +
-		"VALUES($1, $2, $3, $4)")
-	if err != nil {
-		log.Fatal(err)
+	collection := client.Database("notification").Collection("xypnotification")
+
+	// Insert the document
+	_, insertErr := collection.InsertOne(context.Background(), responseData)
+	if insertErr != nil {
+		elog.Error().Panic(insertErr)
 	}
-	defer stmt.Close()
-	for _, value := range responseData.Data.Listdata {
-		_, err := stmt.Exec("IDCARDGOINGTOEXPIRE", "", value.CivilId, responseData.Data.DateOfExpiry)
-		if err != nil {
-			elog.Error().Println("Error:", err)
-			continue
-		}
-	}
-	stmt.Close()
-	db.Close()
 
 	fmt.Println("POST request succeeded")
 }
@@ -159,7 +152,7 @@ func AttentionNotificationEveryday() {
 	// ----------------------------------------------------------------------
 	// Add the cron job to the cron scheduler -------------------------------
 	// ----------------------------------------------------------------------
-	c.AddFunc("0 6 11 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 48 13 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
 	// Start the cron scheduler
 	c.Start()
 

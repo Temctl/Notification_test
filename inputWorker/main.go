@@ -3,7 +3,6 @@ package main
 import (
 	"sync"
 
-	"github.com/Temctl/E-Notification/inputWorker/database"
 	"github.com/Temctl/E-Notification/inputWorker/middleware"
 	"github.com/Temctl/E-Notification/inputWorker/worker"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -13,7 +12,6 @@ func main() {
 	middleware.PrintZ()
 	elog.Info().Println("SERVER STARTED...")
 
-	database.ConnectPostgreSQL()
 	// ----------------------------------------------------------------------
 	// WORKER START ---------------------------------------------------------
 	// ----------------------------------------------------------------------
@@ -25,10 +23,6 @@ func main() {
 	go func() {
 		defer wg.Done()
 		worker.AttentionNotificationEveryday()
-	}()
-	go func() {
-		defer wg.Done()
-		worker.SocialSend()
 	}()
 	// ----------------------------------------------------------------------
 	// XYP WORKER -----------------------------------------------------------

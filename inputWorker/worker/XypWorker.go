@@ -3,6 +3,7 @@ package worker
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -20,6 +21,19 @@ func XypWorker() {
 		elog.Error().Panic(err)
 	}
 
+	// ----------------------------------------------------------------------
+	// DB CONNECTION --------------------------------------------------------
+	// ----------------------------------------------------------------------
+	db, err := connections.ConnectPostgreSQL()
+	if err != nil {
+		elog.Error().Fatal(err)
+	}
+	stmt, err := db.Prepare("INSERT INTO xypnotification (regnum, operatorregnum,date, servicename, servicedesc,orgname, requestid, resultcode, civilid, clientid) " +
+		"VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close()
 	// ------------------------------------------------------------
 	// Infinite loop to continuously pop items from the list ------
 	// ------------------------------------------------------------
@@ -47,21 +61,28 @@ func XypWorker() {
 			value := result[1]
 			err := json.Unmarshal([]byte(value), &xypNotif)
 			if err != nil {
-				fmt.Println("Error:", err)
-				return
+				elog.Error().Println("Error:", err)
+				continue
 			}
-			fmt.Println(xypNotif.CivilId)
-			fmt.Println(xypNotif.ClientId)
-			fmt.Println(xypNotif.Date)
-			fmt.Println(xypNotif.OrgName)
-			fmt.Println(xypNotif.Regnum)
-			fmt.Println(xypNotif.RequestId)
-			fmt.Println(xypNotif.ResultCode)
-			fmt.Println(xypNotif.ServiceDesc)
-			fmt.Println(xypNotif.ServiceName)
-			elog.Info().Println(value)
+			_, err = stmt.Exec(
+				xypNotif.Regnum,
+				xypNotif.OperatorRegnum,
+				xypNotif.Date,
+				xypNotif.ServiceName,
+				xypNotif.ServiceDesc,
+				xypNotif.OrgName,
+				xypNotif.RequestId,
+				xypNotif.ResultCode,
+				xypNotif.CivilId,
+				xypNotif.ClientId)
+			if err != nil {
+				elog.Error().Println("Error:", err)
+				continue
+			}
+
+			fmt.Println(xypNotif)
 		}
 	}
 }
 
-// ('queue:notification', '{"regnum":"аю88092213","operatorRegnum":"","date":"2023-06-15 16:39:52","serviceName":"WS100101_getCitizenIDCardInfo","serviceDesc":"Иргэний үнэмлэхний мэдээлэл дамжуулах сервис","orgName":"Сангийн яам","requestId":"a43b49c3-ba1e-4eb0-883e-bf04b2ecacfc","resultCode":0,"resultMessage":"амжилттай","clientId":126,"retryCount":0,"civilId":"650187850617"}')
+// ('queue:notification', '{"regnum":"уц03211011","operatorRegnum":"","date":"2023-06-15 16:39:52","serviceName":"WS100101_getCitizenIDCardInfo","serviceDesc":"Иргэний үнэмлэхний мэдээлэл дамжуулах сервис","orgName":"Сангийн яам","requestId":"a43b49c3-ba1e-4eb0-883e-bf04b2ecacfc","resultCode":0,"resultMessage":"амжилттай","clientId":126,"retryCount":0,"civilId":"891834062934"}')

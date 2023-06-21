@@ -49,6 +49,15 @@ var (
 
 	MONGO_URL string
 
+	ATTENTION_URL          string
+	ATTENTION_SERVICENAME  string
+	ATTENTION_SERVICENAME2 string
+	OBJECTCODE             string
+	ORGCODE                string
+	ORGNAME                string
+	ORGPASSWORD            string
+	ORGTOKEN               string
+
 	AWS_SES_USER     = "AKIA25YVKNUDIE6WUJAP"
 	AWS_SES_PASSWORD = "BH/k4+kFhzOVLoKV8SG4bRPGrkMy1tM3cFsHunMAgFX2"
 	AWS_SMTP         = "email-smtp.ap-southeast-1.amazonaws.com"
@@ -81,6 +90,15 @@ func init() {
 
 		MONGO_URL = "mongodb://admin:VRuAd2Nvmp4ELHh5@172.72.0.11:27017"
 
+		ATTENTION_URL = "https://st-sso.e-mongolia.mn/xyp-api/api/xyp/get-data-no-auth"
+		OBJECTCODE = "GET_IDCARD_DATE_OF_EXPIRY_LIST"
+		ORGCODE = "10001001"
+		ORGNAME = "E-mongolia"
+		ORGPASSWORD = "aaa1"
+		ORGTOKEN = "aaaaa"
+		ATTENTION_SERVICENAME = "WS101137_citizenInfoLogByDate"
+		ATTENTION_SERVICENAME2 = "WS100443_driverLicenseExpiredLog"
+
 	} else if ENV == "prod" {
 		PORT = 8085
 
@@ -103,6 +121,13 @@ func init() {
 		DB_USERNAME = "postgres"
 		DB_PASSWORD = "changeme"
 		DB_DBNAME = "postgres"
+
+		ATTENTION_URL = "https://st-sso.e-mongolia.mn/xyp-api/api/xyp/get-data-no-auth"
+		OBJECTCODE = "GET_IDCARD_DATE_OF_EXPIRY_LIST"
+		ORGCODE = "10001001"
+		ORGNAME = "E-mongolia"
+		ORGPASSWORD = "aaa1"
+		ORGTOKEN = "aaaaa"
 
 		MONGO_URL = "mongodb://admin:VRuAd2Nvmp4ELHh5@172.72.0.11:27017"
 	}

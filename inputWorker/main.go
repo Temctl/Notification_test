@@ -46,7 +46,7 @@ func Cre() {
 	defer client.Disconnect(context.Background())
 
 	// Create a new collection
-	err = CreateCollection(client, "notification", "attentionnotification")
+	err = CreateCollection(client, "notification", "inlog")
 	if err != nil {
 		fmt.Println("Error creating collection:", err)
 		return

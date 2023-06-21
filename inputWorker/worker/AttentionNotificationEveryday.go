@@ -12,6 +12,7 @@ import (
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
+	"github.com/Temctl/E-Notification/util/model"
 	"github.com/robfig/cron"
 )
 
@@ -61,14 +62,23 @@ func IdcardExpire() {
 	if err != nil {
 		elog.Error().Panic(err)
 	}
-	collection := client.Database("notification").Collection("xypnotification")
-
-	// Insert the document
-	_, insertErr := collection.InsertOne(context.Background(), responseData)
-	if insertErr != nil {
-		elog.Error().Panic(insertErr)
+	collection := client.Database("notification").Collection("attentionnotification")
+	for _, value := range responseData.Data.Listdata {
+		data := model.AttentionNotification{
+			Regnum:     "",
+			CivilId:    value.CivilId,
+			ExpireDate: responseData.Data.DateOfExpiry,
+			Type:       "IDCARDGOINGTOEXPIRE",
+			Passport:   value.Passport,
+		}
+		// Insert the document
+		_, insertErr := collection.InsertOne(context.Background(), data)
+		if insertErr != nil {
+			elog.Error().Panic(insertErr)
+		}
 	}
 
+	client.Disconnect(context.Background())
 	fmt.Println("POST request succeeded")
 }
 func PassportExpire() {
@@ -113,31 +123,92 @@ func PassportExpire() {
 		fmt.Println("Error:", err)
 		return
 	}
-	db, err := connections.ConnectPostgreSQL()
+	client, err := connections.ConnectMongoDB()
 	if err != nil {
 		elog.Error().Panic(err)
 	}
-	stmt, err := db.Prepare("INSERT INTO attentionnotification (type, regnum, civilid, expiredate) " +
-		"VALUES($1, $2, $3, $4)")
+	collection := client.Database("notification").Collection("attentionnotification")
+	for _, value := range responseData.Data.Listdata {
+		data := model.AttentionNotification{
+			Regnum:     "",
+			CivilId:    value.CivilId,
+			ExpireDate: responseData.Data.DateOfExpiry,
+			Type:       "INTPASSPORTGOINGTOEXPIRE",
+			Passport:   value.Passport,
+		}
+		// Insert the document
+		_, insertErr := collection.InsertOne(context.Background(), data)
+		if insertErr != nil {
+			elog.Error().Panic(insertErr)
+		}
+	}
+	client.Disconnect(context.Background())
+	fmt.Println("POST request succeeded")
+}
+
+func DriverLicenseExpire() {
+	// Create the request body
+	requestBody := middleware.RequestBody{
+		ServiceCode: "WS100443_driverLicenseExpiredLog",
+		CitizenAuthData: middleware.CitizenAuthData{
+			Otp: "",
+		},
+		CustomFields: middleware.CustomFields{},
+		AuthData:     middleware.AuthData{},
+		SignData:     middleware.SignData{},
+	}
+
+	// Convert the request body to JSON
+	jsonBody, err := json.Marshal(requestBody)
+	if err != nil {
+		elog.Error().Panic(err)
+	}
+	// Make the POST request
+	resp, err := http.Post("https://st-sso.e-mongolia.mn/xyp-api/api/xyp/get-data-no-auth", "application/json", bytes.NewBuffer(jsonBody))
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer stmt.Close()
+	defer resp.Body.Close()
+
+	// Check the response status code
+	if resp.StatusCode != http.StatusOK {
+		log.Fatalf("Request failed with status code: %d", resp.StatusCode)
+		return
+	}
+
+	var responseData middleware.DResponseBody
+	err = json.NewDecoder(resp.Body).Decode(&responseData)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	client, err := connections.ConnectMongoDB()
+	if err != nil {
+		elog.Error().Panic(err)
+	}
+	collection := client.Database("notification").Collection("attentionnotification")
 	for _, value := range responseData.Data.Listdata {
-		_, err := stmt.Exec("IDCARDGOINGTOEXPIRE", "", value.CivilId, responseData.Data.DateOfExpiry)
-		if err != nil {
-			elog.Error().Println("Error:", err)
-			continue
+		data := model.AttentionNotification{
+			Regnum:     value.Regnum,
+			CivilId:    "",
+			ExpireDate: value.ExpirationDate,
+			Type:       "DRIVERLICENSEEXPIRED",
+			Passport:   "",
+		}
+		// Insert the document
+		_, insertErr := collection.InsertOne(context.Background(), data)
+		if insertErr != nil {
+			elog.Error().Panic(insertErr)
 		}
 	}
-	stmt.Close()
-	db.Close()
 
+	client.Disconnect(context.Background())
 	fmt.Println("POST request succeeded")
 }
 
 func CronJob() {
 	go IdcardExpire()
+	go PassportExpire()
 }
 
 func AttentionNotificationEveryday() {
@@ -152,7 +223,8 @@ func AttentionNotificationEveryday() {
 	// ----------------------------------------------------------------------
 	// Add the cron job to the cron scheduler -------------------------------
 	// ----------------------------------------------------------------------
-	c.AddFunc("0 48 13 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 31 14 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 42 14 21 *", DriverLicenseExpire)
 	// Start the cron scheduler
 	c.Start()
 

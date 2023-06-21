@@ -47,6 +47,8 @@ var (
 	DB_PASSWORD string
 	DB_DBNAME   string
 
+	MONGO_URL string
+
 	AWS_SES_USER     = "AKIA25YVKNUDIE6WUJAP"
 	AWS_SES_PASSWORD = "BH/k4+kFhzOVLoKV8SG4bRPGrkMy1tM3cFsHunMAgFX2"
 	AWS_SMTP         = "email-smtp.ap-southeast-1.amazonaws.com"
@@ -76,6 +78,9 @@ func init() {
 		DB_USERNAME = "postgres"
 		DB_PASSWORD = "changeme"
 		DB_DBNAME = "postgres"
+
+		MONGO_URL = "mongodb://admin:VRuAd2Nvmp4ELHh5@172.72.0.11:27017"
+
 	} else if ENV == "prod" {
 		PORT = 8085
 
@@ -98,6 +103,8 @@ func init() {
 		DB_USERNAME = "postgres"
 		DB_PASSWORD = "changeme"
 		DB_DBNAME = "postgres"
+
+		MONGO_URL = "mongodb://admin:VRuAd2Nvmp4ELHh5@172.72.0.11:27017"
 	}
 }
 

@@ -24,7 +24,7 @@ func PushNotification(w http.ResponseWriter, r *http.Request) {
 	// -------------------------------------------------------
 	// PROGRESS ----------------------------------------------
 	// -------------------------------------------------------
-	var configData umodel.RegularNotification
+	var configData umodel.RegularNotificationModel
 	err := json.NewDecoder(r.Body).Decode(&configData)
 	if err != nil {
 		elog.Error().Println(err)

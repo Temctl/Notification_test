@@ -3,7 +3,7 @@ module github.com/Temctl/E-Notification/inputWorker
 go 1.20
 
 require (
-	github.com/Temctl/E-Notification/util v0.0.0-20230621061823-f70f81aab5b3
+	github.com/Temctl/E-Notification/util v0.0.0-20230621065000-4dbc851bb17e
 	github.com/robfig/cron v1.2.0
 )
 

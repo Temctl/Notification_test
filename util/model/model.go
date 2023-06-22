@@ -13,6 +13,15 @@ type XypNotification struct {
 	ClientId       int    `json:"clientId"`
 }
 
+type Collections string
+
+const (
+	XYPNOTIFICATION       = "xypnotification"
+	ATTENTIONNOTIFICATION = "attentionnotification"
+	OUTLOG                = "outlog"
+	INLOG                 = "inlog"
+)
+
 type NotificationType string
 
 const (

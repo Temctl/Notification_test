@@ -19,16 +19,16 @@ import (
 func IdcardExpire() {
 	// Create the request body
 	requestBody := middleware.RequestBody{
-		ServiceCode: "WS101137_citizenInfoLogByDate",
+		ServiceCode: util.ATTENTION_SERVICENAME,
 		CitizenAuthData: middleware.CitizenAuthData{
 			Otp: "",
 		},
 		CustomFields: middleware.CustomFields{
-			ObjectCode:  "GET_IDCARD_DATE_OF_EXPIRY_LIST",
-			OrgCode:     "10001001",
-			OrgName:     "E-mongolia",
-			OrgPassword: "aaa1",
-			OrgToken:    "aaaaa",
+			ObjectCode:  util.OBJECTCODE,
+			OrgCode:     util.ORGCODE,
+			OrgName:     util.ORGNAME,
+			OrgPassword: util.ORGPASSWORD,
+			OrgToken:    util.ORGTOKEN,
 		},
 		AuthData: middleware.AuthData{},
 		SignData: middleware.SignData{},
@@ -40,7 +40,7 @@ func IdcardExpire() {
 		elog.Error().Panic(err)
 	}
 	// Make the POST request
-	resp, err := http.Post("https://st-sso.e-mongolia.mn/xyp-api/api/xyp/get-data-no-auth", "application/json", bytes.NewBuffer(jsonBody))
+	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -84,16 +84,16 @@ func IdcardExpire() {
 func PassportExpire() {
 	// Create the request body
 	requestBody := middleware.RequestBody{
-		ServiceCode: "WS101137_citizenInfoLogByDate",
+		ServiceCode: util.ATTENTION_SERVICENAME,
 		CitizenAuthData: middleware.CitizenAuthData{
 			Otp: "",
 		},
 		CustomFields: middleware.CustomFields{
-			ObjectCode:  "GET_PASSPORT_DATE_OF_EXPIRY_LIST",
-			OrgCode:     "10001001",
-			OrgName:     "E-mongolia",
-			OrgPassword: "aaa1",
-			OrgToken:    "aaaaa",
+			ObjectCode:  util.OBJECTCODE,
+			OrgCode:     util.ORGCODE,
+			OrgName:     util.ORGNAME,
+			OrgPassword: util.ORGPASSWORD,
+			OrgToken:    util.ORGTOKEN,
 		},
 		AuthData: middleware.AuthData{},
 		SignData: middleware.SignData{},
@@ -105,7 +105,7 @@ func PassportExpire() {
 		elog.Error().Panic(err)
 	}
 	// Make the POST request
-	resp, err := http.Post("https://st-sso.e-mongolia.mn/xyp-api/api/xyp/get-data-no-auth", "application/json", bytes.NewBuffer(jsonBody))
+	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -148,8 +148,9 @@ func PassportExpire() {
 
 func DriverLicenseExpire() {
 	// Create the request body
+	// Create the request body
 	requestBody := middleware.RequestBody{
-		ServiceCode: "WS100443_driverLicenseExpiredLog",
+		ServiceCode: util.ATTENTION_SERVICENAME2,
 		CitizenAuthData: middleware.CitizenAuthData{
 			Otp: "",
 		},
@@ -164,7 +165,7 @@ func DriverLicenseExpire() {
 		elog.Error().Panic(err)
 	}
 	// Make the POST request
-	resp, err := http.Post("https://st-sso.e-mongolia.mn/xyp-api/api/xyp/get-data-no-auth", "application/json", bytes.NewBuffer(jsonBody))
+	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
 	if err != nil {
 		log.Fatal(err)
 	}

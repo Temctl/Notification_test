@@ -71,8 +71,8 @@ type RegularNotificationModel struct {
 	Body     string            `json:"body"`
 	ImageUrl string            `json:"imageUrl"`
 	Data     map[string]string `json:"data"`
-	Regnums  []string          `json:"regnum"`
-	CivilIds []string          `json:"civilId"`
+	Regnums  []string          `json:"regnums"`
+	CivilIds []string          `json:"civilIds"`
 	Tokens   []string          `json:"tokens"`
 	Type     NotificationType  `json:"type"`
 }

@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>EMA-NOTIFICATION</title>
+        
+        <link rel="icon" type="image/x-icon" href="../static/image/favicon.ico">
         <link rel="stylesheet" type="text/css" href="../static/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -73,56 +75,35 @@
             <div class="home-content">
                 <div class="overview-boxes">
                     {{range .Workers}}
-                        <div class="box">
-                            <i class='bx bx-cart-alt cart'></i>
-                            <div class="right-side">
-                                <div class="box-topic">{{.WorkerName}}</div>
-                                <div class="number">{{.Status}}</div>
-                                <div class="indicator">
-                                    <i class='bx bx-up-arrow-alt'></i>
-                                    <span class="text">Up from yesterday</span>
+                        {{if eq .Status "1"}}
+                            <div class="box">
+                                <i class='bx bx-cart-alt cart'></i>
+                                <div class="right-side">
+                                    <div class="box-topic">{{.WorkerName}}</div>
+                                    <div class="number">{{.Status}}</div>
+                                    <div class="indicator">
+                                        <i class='bx bx-up-arrow-alt'></i>
+                                        <span class="text">Up from yesterday</span>
+                                    </div>
                                 </div>
+                                <div></div>
                             </div>
-                            <div></div>
-                        </div>
+                        {{else}}
+                            <div class="box">
+                                <i class='bx bx-cart-alt cart downBox'></i>
+                                <div class="right-side">
+                                    <div class="box-topic">{{.WorkerName}}</div>
+                                    <div class="number">{{.Status}}</div>
+                                    <div class="indicator">
+                                        <i class='bx bx-up-arrow-alt down'></i>
+                                        <span class="text">Down from yesterday</span>
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                        {{end}}
                     {{end}}
 
-                    <!-- <div class="box">
-                        <i class='bx bxs-cart-add cart two'></i>
-                        <div class="right-side">
-                            <div class="box-topic">NATEMAILWORKER</div>
-                            <div class="number">ON</div>
-                            <div class="indicator">
-                                <i class='bx bx-up-arrow-alt'></i>
-                                <span class="text">Up from yesterday</span>
-                            </div>
-                        </div>
-                        <div></div>
-                    </div>
-                    <div class="box">
-                        <i class='bx bx-cart cart three'></i>
-                        <div class="right-side">
-                            <div class="box-topic">PRIVEMAILWORKER</div>
-                            <div class="number">ON</div>
-                            <div class="indicator">
-                                <i class='bx bx-up-arrow-alt'></i>
-                                <span class="text">Up from yesterday</span>
-                            </div>
-                        </div>
-                        <div></div>
-                    </div>
-                    <div class="box">
-                        <i class='bx bxs-cart-download cart four'></i>
-                        <div class="right-side">
-                            <div class="box-topic">MESSENGERWORKER</div>
-                            <div class="number">OFF</div>
-                            <div class="indicator">
-                                <i class='bx bx-down-arrow-alt down'></i>
-                                <span class="text">Down From Today</span>
-                            </div>
-                        </div>
-                        <div></div>
-                    </div> -->
                 </div>
 
                 <div class="sales-boxes">

@@ -6,11 +6,8 @@ import (
 	"net/http"
 
 	"github.com/Temctl/E-Notification/restApi/model"
-	"github.com/Temctl/E-Notification/util"
-	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 	umodel "github.com/Temctl/E-Notification/util/model"
-	"github.com/streadway/amqp"
 )
 
 func PushNotification(w http.ResponseWriter, r *http.Request) {
@@ -35,33 +32,33 @@ func PushNotification(w http.ResponseWriter, r *http.Request) {
 	// Close the request body to prevent resource leaks
 	defer r.Body.Close()
 
-	configDataJson, err := json.Marshal(configData)
-	if err != nil {
-		elog.Error().Println(err)
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	// ----------------------------------------------------------------------
-	// RABBITMQ CONNECTION --------------------------------------------------
-	// ----------------------------------------------------------------------
-	queue, rErr := connections.GetRabbitmqChannel()
-	if rErr != nil {
-		elog.Error().Println(rErr)
-	}
-	err = queue.Publish(
-		"",
-		util.NATEMAILKEY,
-		false,
-		false,
-		amqp.Publishing{
-			ContentType: "text/plain",
-			Body:        []byte(configDataJson),
-		},
-	)
-	if err != nil {
-		elog.Error().Println("Publish error", err)
-	}
-	elog.Info().Println("RABBITMQ: Successfully Publishing message")
+	// configDataJson, err := json.Marshal(configData)
+	// if err != nil {
+	// 	elog.Error().Println(err)
+	// 	http.Error(w, err.Error(), http.StatusInternalServerError)
+	// 	return
+	// }
+	// // ----------------------------------------------------------------------
+	// // RABBITMQ CONNECTION --------------------------------------------------
+	// // ----------------------------------------------------------------------
+	// queue, rErr := connections.GetRabbitmqChannel()
+	// if rErr != nil {
+	// 	elog.Error().Println(rErr)
+	// }
+	// err = queue.Publish(
+	// 	"",
+	// 	util.NATEMAILKEY,
+	// 	false,
+	// 	false,
+	// 	amqp.Publishing{
+	// 		ContentType: "text/plain",
+	// 		Body:        []byte(configDataJson),
+	// 	},
+	// )
+	// if err != nil {
+	// 	elog.Error().Println("Publish error", err)
+	// }
+	// elog.Info().Println("RABBITMQ: Successfully Publishing message")
 
 	// RESPONSE SETUP
 	responseJson, err := json.Marshal(response)

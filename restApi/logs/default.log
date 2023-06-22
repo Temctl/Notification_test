@@ -124,3 +124,122 @@ INFO: 2023/06/22 09:30:00 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | 
 INFO: 2023/06/22 09:30:00 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
 INFO: 2023/06/22 09:30:00 StartPrint.go:24: 
 INFO: 2023/06/22 09:30:00 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 13:40:20 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:40:39 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:50:12 StartPrint.go:18: 
+INFO: 2023/06/22 13:50:12 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 13:50:12 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 13:50:12 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 13:50:12 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 13:50:12 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 13:50:12 StartPrint.go:24: 
+INFO: 2023/06/22 13:50:12 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 13:53:58 StartPrint.go:18: 
+INFO: 2023/06/22 13:53:58 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 13:53:58 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 13:53:58 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 13:53:58 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 13:53:58 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 13:53:58 StartPrint.go:24: 
+INFO: 2023/06/22 13:53:58 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 13:54:05 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:54:37 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:54:39 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:54:41 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:54:45 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:55:28 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:57:09 StartPrint.go:18: 
+INFO: 2023/06/22 13:57:09 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 13:57:09 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 13:57:09 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 13:57:09 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 13:57:09 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 13:57:09 StartPrint.go:24: 
+INFO: 2023/06/22 13:57:09 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 13:57:18 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:57:19 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:57:20 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 13:57:53 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:01:11 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:02:39 StartPrint.go:18: 
+INFO: 2023/06/22 14:02:39 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:02:39 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:02:39 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:02:39 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:02:39 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:02:39 StartPrint.go:24: 
+INFO: 2023/06/22 14:02:39 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:02:50 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:02:52 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:02:55 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:03:01 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:05:41 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:06:11 StartPrint.go:18: 
+INFO: 2023/06/22 14:06:11 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:06:11 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:06:11 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:06:11 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:06:11 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:06:11 StartPrint.go:24: 
+INFO: 2023/06/22 14:06:11 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:06:16 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:06:56 StartPrint.go:18: 
+INFO: 2023/06/22 14:06:56 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:06:56 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:06:56 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:06:56 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:06:56 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:06:56 StartPrint.go:24: 
+INFO: 2023/06/22 14:06:56 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:07:02 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:07:03 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:07:04 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:07:22 StartPrint.go:18: 
+INFO: 2023/06/22 14:07:22 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:07:22 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:07:22 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:07:22 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:07:22 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:07:22 StartPrint.go:24: 
+INFO: 2023/06/22 14:07:22 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:08:44 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:10:00 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:10:01 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:16:08 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:16:09 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:16:10 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:16:35 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:18:18 StartPrint.go:18: 
+INFO: 2023/06/22 14:18:18 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:18:18 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:18:18 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:18:18 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:18:18 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:18:18 StartPrint.go:24: 
+INFO: 2023/06/22 14:18:18 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:18:26 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:18:39 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:20:34 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:23:26 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:23:53 StartPrint.go:18: 
+INFO: 2023/06/22 14:23:53 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:23:53 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:23:53 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:23:53 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:23:53 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:23:53 StartPrint.go:24: 
+INFO: 2023/06/22 14:23:53 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:23:57 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:24:07 StartPrint.go:18: 
+INFO: 2023/06/22 14:24:07 StartPrint.go:19:  _____     _   _       _   _  __ _           _   _             
+INFO: 2023/06/22 14:24:07 StartPrint.go:20: | ____|   | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  
+INFO: 2023/06/22 14:24:07 StartPrint.go:21: |  _| ____|  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \ 
+INFO: 2023/06/22 14:24:07 StartPrint.go:22: | |__|____| |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | |
+INFO: 2023/06/22 14:24:07 StartPrint.go:23: |_____|   |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|
+INFO: 2023/06/22 14:24:07 StartPrint.go:24: 
+INFO: 2023/06/22 14:24:07 RESTAPI.go:18: ROUTE STARTED...
+INFO: 2023/06/22 14:24:41 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:24:58 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:26:25 Redis.go:39: Redis server response: PONG
+INFO: 2023/06/22 14:26:25 DeviceToken.go:59: Successful...
+INFO: 2023/06/22 14:26:25 DeviceToken.go:70: Redis client closed successfully

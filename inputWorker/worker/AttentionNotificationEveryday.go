@@ -58,11 +58,10 @@ func IdcardExpire() {
 		fmt.Println("Error:", err)
 		return
 	}
-	client, err := connections.ConnectMongoDB()
+	collection, client, err := connections.ConnectMongoDB(model.ATTENTIONNOTIFICATION)
 	if err != nil {
 		elog.Error().Panic(err)
 	}
-	collection := client.Database("notification").Collection("attentionnotification")
 	for _, value := range responseData.Data.Listdata {
 		data := model.AttentionNotification{
 			Regnum:     "",
@@ -123,11 +122,10 @@ func PassportExpire() {
 		fmt.Println("Error:", err)
 		return
 	}
-	client, err := connections.ConnectMongoDB()
+	collection, client, err := connections.ConnectMongoDB(model.ATTENTIONNOTIFICATION)
 	if err != nil {
 		elog.Error().Panic(err)
 	}
-	collection := client.Database("notification").Collection("attentionnotification")
 	for _, value := range responseData.Data.Listdata {
 		data := model.AttentionNotification{
 			Regnum:     "",
@@ -183,11 +181,10 @@ func DriverLicenseExpire() {
 		fmt.Println("Error:", err)
 		return
 	}
-	client, err := connections.ConnectMongoDB()
+	collection, client, err := connections.ConnectMongoDB(model.ATTENTIONNOTIFICATION)
 	if err != nil {
 		elog.Error().Panic(err)
 	}
-	collection := client.Database("notification").Collection("attentionnotification")
 	for _, value := range responseData.Data.Listdata {
 		data := model.AttentionNotification{
 			Regnum:     value.Regnum,
@@ -224,7 +221,7 @@ func AttentionNotificationEveryday() {
 	// ----------------------------------------------------------------------
 	// Add the cron job to the cron scheduler -------------------------------
 	// ----------------------------------------------------------------------
-	c.AddFunc("0 31 14 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 29 13 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
 	c.AddFunc("0 42 14 21 *", DriverLicenseExpire)
 	// Start the cron scheduler
 	c.Start()

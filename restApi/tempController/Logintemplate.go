@@ -1,13 +1,12 @@
 package tempController
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
 
 func LoginTemplateHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Fsdfsdfsdf")
+
 	// Load and parse the template file
 	tmpl, err := template.ParseFiles("./template/Login.html")
 	if err != nil {

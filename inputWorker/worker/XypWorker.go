@@ -24,12 +24,11 @@ func XypWorker() {
 	// ----------------------------------------------------------------------
 	// DB CONNECTION --------------------------------------------------------
 	// ----------------------------------------------------------------------
-	client, err := connections.ConnectMongoDB()
+	collection, client, err := connections.ConnectMongoDB(model.XYPNOTIFICATION)
 	if err != nil {
-		elog.Error().Fatal(err)
+		elog.Error().Panic(err)
 	}
-
-	collection := client.Database("notification").Collection("xypnotification")
+	defer client.Disconnect(context.Background())
 	// ------------------------------------------------------------
 	// Infinite loop to continuously pop items from the list ------
 	// ------------------------------------------------------------

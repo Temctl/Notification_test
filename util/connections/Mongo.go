@@ -5,11 +5,12 @@ import (
 
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/elog"
+	"github.com/Temctl/E-Notification/util/model"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func ConnectMongoDB(collectionName string) (*mongo.Collection, *mongo.Client, error) {
+func ConnectMongoDB(collectionName model.Collections) (*mongo.Collection, *mongo.Client, error) {
 	// Set connection options
 	clientOptions := options.Client().ApplyURI(util.MONGO_URL)
 
@@ -27,6 +28,6 @@ func ConnectMongoDB(collectionName string) (*mongo.Collection, *mongo.Client, er
 		return nil, nil, err
 	}
 
-	collection := client.Database("notification").Collection(collectionName)
+	collection := client.Database("notification").Collection(string(collectionName))
 	return collection, client, nil
 }

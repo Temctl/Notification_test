@@ -2,7 +2,6 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/Temctl/E-Notification/inputWorker/model"
@@ -30,7 +29,6 @@ func SetRedis(regnum string, key string, data map[string]interface{}) error {
 	// REDIS luu data oruulah --------------------------------
 	// -------------------------------------------------------
 	result, existErr := client.Exists("conf:" + key).Result()
-	fmt.Println("dfdsf: ", result)
 	if existErr != nil {
 		elog.Error().Println("Register shalgahad aldaa garlaa", existErr)
 		return existErr
@@ -42,7 +40,6 @@ func SetRedis(regnum string, key string, data map[string]interface{}) error {
 		}
 		elog.Info().Println("Successful...")
 	}
-	fmt.Println("conf:" + key)
 	clientErr := client.HMSet("conf:"+key, data).Err()
 	if clientErr != nil {
 		elog.Error().Println("redis setlehed aldaa garlaa", clientErr)

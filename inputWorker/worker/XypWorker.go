@@ -10,6 +10,20 @@ import (
 	"github.com/Temctl/E-Notification/util/model"
 )
 
+type XypNotifMarshal struct {
+	Regnum         string `json:"regnum"`
+	OperatorRegnum string `json:"operatorRegnum"`
+	Date           string `json:"date"`
+	ServiceName    string `json:"serviceName"`
+	ServiceDesc    string `json:"serviceDesc"`
+	OrgName        string `json:"orgName"`
+	RequestId      string `json:"requestId"`
+	ResultCode     int    `json:"resultCode"`
+	ResultMessage  string `json:"resultMessage"`
+	ClientId       int    `json:"clientId"`
+	CivilId        string `json:"civilId"`
+}
+
 func XypWorker() {
 	elog.Info().Println("XYP NOTIF WORKER STARTED...")
 	// ----------------------------------------------------------------------
@@ -24,7 +38,7 @@ func XypWorker() {
 	// ----------------------------------------------------------------------
 	// DB CONNECTION --------------------------------------------------------
 	// ----------------------------------------------------------------------
-	collection, client, err := connections.ConnectMongoDB(model.XYPNOTIFICATION)
+	collection, client, err := connections.GetMongoCollection(model.XYPNOTIFICATION)
 	if err != nil {
 		elog.Error().Panic(err)
 	}
@@ -50,15 +64,30 @@ func XypWorker() {
 		// [queue:queue, value1]
 		// [queue:queue, value2]
 
-		xypNotif := model.XypNotification{}
+		xypNotifMarshal := XypNotifMarshal{}
 
 		if len(result) == 2 {
 			value := result[1]
-			err := json.Unmarshal([]byte(value), &xypNotif)
+			err := json.Unmarshal([]byte(value), &xypNotifMarshal)
 			if err != nil {
 				elog.Error().Println("Error:", err)
 				continue
 			}
+			xypNotif := model.XypNotification{
+				Regnum:         xypNotifMarshal.Regnum,
+				OperatorRegnum: xypNotifMarshal.OperatorRegnum,
+				CivilId:        xypNotifMarshal.CivilId,
+				ClientId:       xypNotifMarshal.ClientId,
+				ContentData: model.XypContent{
+					OrgName:     xypNotifMarshal.OrgName,
+					ServiceDesc: xypNotifMarshal.ServiceDesc,
+					Date:        xypNotifMarshal.Date,
+					ServiceName: xypNotifMarshal.ServiceName,
+					RequestId:   xypNotifMarshal.RequestId,
+					ResultCode:  xypNotifMarshal.ResultCode,
+				},
+			}
+
 			// Insert the document
 			_, insertErr := collection.InsertOne(context.Background(), xypNotif)
 			if insertErr != nil {

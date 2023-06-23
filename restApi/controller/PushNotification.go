@@ -2,7 +2,6 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/Temctl/E-Notification/restApi/model"
@@ -28,7 +27,6 @@ func PushNotification(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to parse request body", http.StatusBadRequest)
 		return
 	}
-	fmt.Println(configData)
 	// Close the request body to prevent resource leaks
 	defer r.Body.Close()
 

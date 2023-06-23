@@ -2,6 +2,8 @@ github.com/Temctl/E-Notification/inputWorker v0.0.0-20230616075337-2612745fb402 
 github.com/Temctl/E-Notification/inputWorker v0.0.0-20230616075337-2612745fb402/go.mod h1:R14LDALJChSpgtCQ18MTRqoLapXdyalnDrkwu3oqkQ0=
 github.com/Temctl/E-Notification/util v0.0.0-20230621065000-4dbc851bb17e h1:Jj1yQgd6MWCOe7EmlcHB7HxxXR2A7OP28Dodwb8OWdc=
 github.com/Temctl/E-Notification/util v0.0.0-20230621065000-4dbc851bb17e/go.mod h1:zfaVXvYCiS3n0hyeiOQ/nsm/biiddxXhiPoUb/Vht10=
+github.com/Temctl/E-Notification/util v0.0.0-20230623070329-ed4a4f6d44bd h1:BNceanYh9xe0+kP3yuAyKkUztjg2P+Zex15oyg3c9KQ=
+github.com/Temctl/E-Notification/util v0.0.0-20230623070329-ed4a4f6d44bd/go.mod h1:zfaVXvYCiS3n0hyeiOQ/nsm/biiddxXhiPoUb/Vht10=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/Temctl/E-Notification/inputWorker v0.0.0-20230616075337-2612745fb402
-	github.com/Temctl/E-Notification/util v0.0.0-20230621065000-4dbc851bb17e
+	github.com/Temctl/E-Notification/util v0.0.0-20230623070329-ed4a4f6d44bd
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gorilla/mux v1.8.0
 	github.com/streadway/amqp v1.0.0

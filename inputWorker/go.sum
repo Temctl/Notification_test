@@ -6,6 +6,8 @@ github.com/Temctl/E-Notification/util v0.0.0-20230621065000-4dbc851bb17e h1:Jj1y
 github.com/Temctl/E-Notification/util v0.0.0-20230621065000-4dbc851bb17e/go.mod h1:zfaVXvYCiS3n0hyeiOQ/nsm/biiddxXhiPoUb/Vht10=
 github.com/Temctl/E-Notification/util v0.0.0-20230622015802-6a69b0f8e5a5 h1:UIiM2Tgo0tdrepETPm0roo5s7tdDG88RoPg4Qtx4u8Y=
 github.com/Temctl/E-Notification/util v0.0.0-20230622015802-6a69b0f8e5a5/go.mod h1:zfaVXvYCiS3n0hyeiOQ/nsm/biiddxXhiPoUb/Vht10=
+github.com/Temctl/E-Notification/util v0.0.0-20230623070329-ed4a4f6d44bd h1:BNceanYh9xe0+kP3yuAyKkUztjg2P+Zex15oyg3c9KQ=
+github.com/Temctl/E-Notification/util v0.0.0-20230623070329-ed4a4f6d44bd/go.mod h1:zfaVXvYCiS3n0hyeiOQ/nsm/biiddxXhiPoUb/Vht10=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

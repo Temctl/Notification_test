@@ -2,45 +2,59 @@ package sender
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
+	"net/http"
+	"strings"
 	"sync"
 
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/model"
 	"github.com/go-redis/redis"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func XypFromDb(mongoClient *mongo.Client, redis *redis.Client) {
+type GroupResult struct {
+	ID          XypUserInfo        `bson:"_id"`
+	Count       int                `bson:"count"`
+	ContentData []model.XypContent `bson:"data"`
+}
+
+type XypUserInfo struct {
+	Regnum         string `json:"regnum"`
+	OperatorRegnum string `json:"operatorRegnum"`
+	CivilId        string `json:"civilId"`
+	ClientId       int    `json:"clientId"`
+}
+
+func XypFromDb(mongoClient *mongo.Client, redis *redis.Client, emailsFile []byte) {
 	var collectionName model.Collections
 	collectionName = model.XYPNOTIFICATION
-	collection, client, err := connections.GetMongoCollection(collectionName)
+	collection, _, err := connections.GetMongoCollection(collectionName)
 	if err != nil {
 		//error log
 	}
 	// Construct the aggregation pipeline
-	// pipeline := mongo.Pipeline{
-	// 	{{Key: "$group", Value: bson.D{
-	// 		{"_id", bson.D{
-	// 			{"regnum", "$regnum"},
-	// 			{"civilId", "$civilId"},
-	// 			{"clientid", "$clientid"},
-	// 		}},
-	// 		{"dt", bson.D{
-	// 			{"$push", bson.D{
-	// 				{"$concat", bson.A{
-	// 					"$orgName", "|", "$serviceDesc", "|", "$date", "|", "$serviceName", "|", "$requestId",
-	// 				}},
-	// 			}},
-	// 		}},
-	// 		{"max_id", bson.D{
-	// 			{"$max", "$id"},
-	// 		}},
-	// 	}}},
-	// }
+	// MongoDB aggregation pipeline
+	pipeline := []bson.M{
+		{"$limit": 500},
+		{
+			"$group": bson.M{
+				"_id": bson.M{
+					"regnum":   "$regnum",
+					"civilId":  "$civilId",
+					"clientId": "$clientId",
+				},
+				"count":       bson.M{"$sum": 1},
+				"contentData": bson.M{"$push": "$contentData"},
+			},
+		},
+	}
 
-	for{
+	for {
 		// Execute the aggregation query
 		cursor, err := collection.Aggregate(context.Background(), pipeline)
 		if err != nil {
@@ -49,41 +63,42 @@ func XypFromDb(mongoClient *mongo.Client, redis *redis.Client) {
 
 		// Iterate over the cursor and delete each document
 		for cursor.Next(context.Background()) {
-			var request model.XypNotification
+			var wg sync.WaitGroup
+			var request GroupResult
 			if err := cursor.Decode(&request); err != nil {
 				log.Fatal(err)
-			}else {
+			} else {
 				wg.Add(1)
-				go func(notif model.XypNotification) {
+				go func(notif GroupResult, wg *sync.WaitGroup) {
 					defer wg.Done()
-					if notif.CivilId == "" && notif.Regnum == "" {
+					if notif.ID.CivilId == "" && notif.ID.Regnum == "" {
 
 					} else {
-						if notif.CivilId == "" {
-							exists, err := redis.Exists("getByReg:" + notif.Regnum).Result()
+						if notif.ID.CivilId == "" {
+							exists, err := redis.Exists("getByReg:" + notif.ID.Regnum).Result()
 							if err != nil {
 								panic(err)
 							} else if exists == 1 {
-								notif.CivilId, err = redis.Get("getByReg:" + notif.Regnum).Result() // if civil id is not sent, get it using regnum from redis conf
+								notif.ID.CivilId, err = redis.Get("getByReg:" + notif.ID.Regnum).Result() // if civil id is not sent, get it using regnum from redis conf
 								if err != nil {
 									panic(err)
 								}
 							}
 						}
-						userConf, err := redis.HGetAll("conf:" + request.CivilId).Result()
+						userConf, err := redis.HGetAll("conf:" + notif.ID.CivilId).Result()
 						if err != nil {
 							panic(err)
 						}
-						sendMq(notif, userConf)
+						sendMq(notif, userConf, redis, emailsFile)
 					}
-				}(request)
+				}(request, &wg)
 			}
 
 			// Define the delete filter
 			filter := bson.M{
-				"regnum":   request.Regnum,
-				"civilId":  request.CivilId,
-				"clientid": request.ClientId,
+				"regnum":   request.ID.Regnum,
+				"civilId":  request.ID.CivilId,
+				"clientid": request.ID.ClientId,
 			}
 
 			// Delete the document
@@ -91,24 +106,22 @@ func XypFromDb(mongoClient *mongo.Client, redis *redis.Client) {
 			if err != nil {
 				log.Fatal(err)
 			}
+			// Wait for all goroutines to complete
+			wg.Wait()
 		}
-		// Wait for all goroutines to complete
-		wg.Wait()
-		
+
 		cursor.Close(context.Background())
 	}
-	
 
 }
 
-
-func sendMq(request model.XypNotification, userConf map[string]string) {
+func sendMq(request GroupResult, userConf map[string]string, redis *redis.Client, emailsFile []byte) {
 	if isPush, ok := userConf["isPush"]; ok && isPush == "1" {
-		deviceTokensExists, err := redis.Exists("deviceTokens:" + civilId).Result()
+		deviceTokensExists, err := redis.Exists("deviceTokens:" + request.ID.CivilId).Result()
 		if err != nil {
 			panic(err)
 		} else if deviceTokensExists == 1 { //if it exists
-			data, err := redis.Get("deviceTokens:" + civilId).Result() //get device token from redis
+			data, err := redis.Get("deviceTokens:" + request.ID.CivilId).Result() //get device token from redis
 			fmt.Println(data)
 			if err != nil {
 				panic(err)
@@ -118,13 +131,13 @@ func sendMq(request model.XypNotification, userConf map[string]string) {
 				if err != nil {
 					panic(err)
 				}
-				request := generatePushRequest("regular notif test", "medeeleld haldsan baina", notifificationType)
-				PushToTokens(request, deviceTokens, client)
+				request := generatePushRequest("regular notif test", "medeeleld haldsan baina", request.ID.CivilId, request.ID.Regnum, deviceTokens)
+				MqPush(request)
 			}
 		} // TODO when is push is open but no device token found
 	}
 	if isNationalEmail, ok := userConf["isNationalEmail"]; ok && isNationalEmail == "1" {
-		result += XypNatEmail(civilId, content)
+		XypNatEmail(civilId, content)
 	}
 	if isEmail, ok := userConf["isEmail"]; ok && isEmail == "1" {
 		if emailAddress, ok := userConf["emailAddress"]; ok || emailAddress != "" {
@@ -133,42 +146,51 @@ func sendMq(request model.XypNotification, userConf map[string]string) {
 	}
 	if isSocial, ok := userConf["social"]; ok && isSocial == "1" {
 		SendSocial(civilId)
-	}
 	} else {
-	deviceTokensExists, err := redis.Exists("deviceTokens:" + civilId).Result()
-	if err != nil {
-		panic(err)
-	} else if deviceTokensExists == 1 {
-		userDeviceTokens, err := redis.LRange("deviceTokens:"+civilId, 0, -1).Result()
+		deviceTokensExists, err := redis.Exists("deviceTokens:" + civilId).Result()
 		if err != nil {
 			panic(err)
-		} else {
-			request := generatePushRequest("regular notif test", "medeeleld haldsan baina", notifificationType)
-			PushToTokens(request, userDeviceTokens, client)
+		} else if deviceTokensExists == 1 {
+			userDeviceTokens, err := redis.LRange("deviceTokens:"+civilId, 0, -1).Result()
+			if err != nil {
+				panic(err)
+			} else {
+				request := generatePushRequest("regular notif test", "medeeleld haldsan baina", notifificationType)
+				PushToTokens(request, userDeviceTokens, client)
+			}
 		}
 	}
 }
 
-func getOrgInfo(clientId int, redis *redis.Client){
+func generatePushRequest(title string, body string, civilId string, regnum string, deviceTokens []string) model.RegularNotificationModel {
+	var request model.RegularNotificationModel
+	request.Body = body
+	request.Title = title
+	request.Type = model.NotificationType(0)
+	request.CivilIds = append(request.CivilIds, civilId)
+	request.Regnums = append(request.Regnums, regnum)
+	request.Tokens = deviceTokens
+	return request
+}
+
+func getOrgInfo(clientId int, redis *redis.Client) (map[string]interface{}, string) {
 	orgType := "GOVERNMENT_COMPANY"
-	companyName := strings.Split(dataArr[0], "|")[0]
-	isDefault := true
 	url := "https://10.10.18.28/api/service/notifications"
 	var orgInfo map[string]interface{}
 
-	if redisClient.Get(clientID) != nil {
+	if redis.Get("orgInfo:"+string(clientId)) != nil {
 		log.Println("already in redis")
-		orgInfo = json.loads(redisClient.Get(clientID))
+		orgInfo = json.loads(redis.Get("orgInfo:" + string(clientId)))
 		if orgInfo["client_is_soap"] == "0" {
 			orgType = "USER"
 		} else if orgInfo["organization"]["org_type_id"] != "1" {
 			orgType = "PRIVATE_COMPANY"
 		}
-		if !checkNull(org_info){
+		if !checkNull(org_info) {
 			isDefault = false
 		}
 	} else {
-		payload := fmt.Sprintf("client_id=%d", clientID)
+		payload := fmt.Sprintf("client_id=%d", clientId)
 		headers := map[string]string{
 			"Authorization": "Bearer 101|rCb9yOIYDxUooLyuaPL1VrdgEnbcUA2AMUoCuOXo",
 			"Content-Type":  "application/x-www-form-urlencoded",
@@ -201,9 +223,9 @@ func getOrgInfo(clientId int, redis *redis.Client){
 				log.Fatal(err)
 			}
 
-			isDefault = checkNull(orgInfo)
+			isDefault = checkNullEmpty(orgInfo)
 			if orgInfo["success"] {
-				redisLocal.Set(clientID, json.dumps(orgInfo))
+				redisLocal.Set(clientId, json.dumps(orgInfo))
 				if orgInfo["client_is_soap"] == "0" {
 					orgType = "USER"
 				} else if orgInfo["organization"]["org_type_id"] != "1" {
@@ -213,13 +235,14 @@ func getOrgInfo(clientId int, redis *redis.Client){
 			}
 		}
 	}
-	if clientID == 61 {
+	if clientId == 61 {
 		orgType = "KIOSK"
 	}
+	return orgInfo, orgType
 }
 
-func generateXypHtml(request model.XypNotification){
-	
+func generateXypHtml(request model.XypNotification) {
+
 }
 
 func emailNationalDefault(pool *Pool, dataArr []string, civilID, baseHTML, regNumber, seqID, clientID string) (bool, error) {
@@ -273,7 +296,6 @@ func emailNationalDefault(pool *Pool, dataArr []string, civilID, baseHTML, regNu
 
 	return result, nil
 }
-
 
 func emailNational(pool *Pool, dataArr []string, civilID, baseHTML, regNumber, seqID, clientID string, orgInfo map[string]interface{}, isDefault bool, redisClient *RedisClient) (bool, error) {
 	isDAN := false
@@ -378,29 +400,39 @@ func emailNational(pool *Pool, dataArr []string, civilID, baseHTML, regNumber, s
 	return result, nil
 }
 
-func checkNull(data map[string]interface{}) bool {
-	for _, value := range data {
-		switch val := value.(type) {
-		case string:
-			if val == "" {
+func checkNullEmpty(data interface{}) bool {
+	if data == nil {
+		return true
+	}
+	switch value := data.(type) {
+	case nil:
+		return true
+	case string:
+		return value == ""
+	case []interface{}:
+		if len(value) == 0 {
+			return true
+		}
+		for _, item := range value {
+			if checkNullEmpty(item) {
 				return true
 			}
-		case map[string]interface{}:
-			isNull := checkNull(val)
-			if isNull {
+		}
+	case map[string]interface{}:
+		if len(value) == 0 {
+			return true
+		}
+		for _, v := range value {
+			if checkNullEmpty(v) {
 				return true
 			}
-		case []interface{}:
-			if len(val) > 0 {
-				for _, v := range val {
-					isNull := checkNull(v.(map[string]interface{}))
-					if isNull {
-						return true
-					}
-				}
-			} else {
-				return true
-			}
+		}
+	case []string:
+		if len(value) == 0 {
+			return true
+		}
+		for _, item := range value {
+			return item == ""
 		}
 	}
 	return false

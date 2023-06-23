@@ -3,7 +3,7 @@ module github.com/Temctl/E-Notification/sendWorker
 go 1.20
 
 require (
-	github.com/Temctl/E-Notification/util v0.0.0-20230622072137-055d1f898457
+	github.com/Temctl/E-Notification/util v0.0.0-20230623035818-bb8f5d5433d3
 	github.com/streadway/amqp v1.1.0
 )
 

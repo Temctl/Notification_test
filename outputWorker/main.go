@@ -9,6 +9,7 @@ import (
 
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/messaging"
+	"github.com/Temctl/E-Notification/outputWorker/helper"
 	"github.com/Temctl/E-Notification/util"
 	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
@@ -112,12 +113,12 @@ func GetFCMClient() (*messaging.Client, error) {
 
 func main() {
 	// Get the FCM client
-	// client, err := GetFCMClient()
-	// if err != nil {
-	// 	fmt.Println("Error initializing Firebase app:", err)
-	// } else {
-	// 	fmt.Println("FireBase started succesfully")
-	// }
+	client, err := GetFCMClient()
+	if err != nil {
+		fmt.Println("Error initializing Firebase app:", err)
+	} else {
+		fmt.Println("FireBase started succesfully")
+	}
 
 	//get the four queues that will listen
 	pushNotif, natEmail, privEmail, messegeNotif := getQueues()
@@ -130,7 +131,7 @@ func main() {
 				if connections.IsWorkerOn(util.PUSHWORKER) == 1 {
 					err := json.Unmarshal(msg.Body, &pushRequest)
 					if err == nil {
-						// helper.PushToTokens(pushRequest, client)
+						helper.PushToTokens(pushRequest, client)
 						fmt.Println("push")
 					} else {
 						panic(err)

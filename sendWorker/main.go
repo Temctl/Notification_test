@@ -19,6 +19,10 @@ func init() {
 
 func main() {
 
+	emailsFile, err := os.ReadFile("/emails/accounts.txt")
+	if err != nil {
+		log.Fatalf("unable to read file: %v", err)
+	}
 	redis, err := connections.ConnectionRedis()
 	if err != nil {
 		//log error
@@ -43,7 +47,7 @@ func main() {
 	// ----------------------------------------------------------------------
 	go func() {
 		defer wg.Done()
-		sender.XypFromDb(mongoClient, redis)
+		sender.XypFromDb(mongoClient, redis, emailsFile)
 	}()
 
 	// Wait for all goroutines to complete

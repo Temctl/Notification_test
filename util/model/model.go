@@ -91,3 +91,30 @@ type UserConfigNotification struct {
 	IsNationalEmail bool   `json:"isNationalEmail"`
 	Social          bool   `json:"social"`
 }
+
+type Notifs struct {
+	Id                int    `json:"id"`
+	Org_id            string `json:"org_id"`
+	Ws_operation_name string `json:"ws_operation_name"`
+	Description       string `json:"description"`
+	Created_at        string `json:"created_at"`
+	Updated_at        string `json:"updated_at"`
+	Reason            string `json:"reason"`
+}
+
+type OrginizationJson struct {
+	Org_id        string   `json:"org_id"`
+	Org_phone     string   `json:"org_phone"`
+	Contact_phone string   `json:"contact_phone"`
+	Contact_email string   `json:"contact_email"`
+	Contact_web   string   `json:"contact_web"`
+	Contract_id   string   `json:"contract_id"`
+	Org_type_id   string   `json:"org_type_id"`
+	Notifs        []Notifs `json:"notifs"`
+}
+
+type OrgInfoModel struct {
+	Success        bool             `json:"success"`
+	Client_is_soap string           `json:"client_is_soap"`
+	Organization   OrginizationJson `json:"organization"`
+}

@@ -44,14 +44,14 @@ func DriverLicenseExpire() {
 
 	// Check the response status code
 	if resp.StatusCode != http.StatusOK {
-		elog.Error().Fatalf("Request failed with status code: %d", resp.StatusCode)
+		elog.Error().Printf("Request failed with status code: %d", resp.StatusCode)
 		return
 	}
 
 	var responseData middleware.DResponseBody
 	err = json.NewDecoder(resp.Body).Decode(&responseData)
 	if err != nil {
-		elog.Error().Println("Error:", err)
+		elog.Error().Panic(err)
 		return
 	}
 	collection, client, err := connections.GetMongoCollection(model.ATTENTIONNOTIFICATION)
@@ -73,15 +73,12 @@ func DriverLicenseExpire() {
 			elog.Error().Panic(insertErr)
 		}
 	}
-
 	client.Disconnect(context.Background())
-
-	fmt.Println("END DriverLicenseExpire...")
-	elog.Info().Println("END DriverLicenseExpire...")
+	fmt.Println("end DriverLicenseExpire...")
+	elog.Info().Println("end DriverLicenseExpire...")
 }
-
 func ScheduledWorker(objectCode string, typeName model.NotificationType) {
-	elog.Info().Println("STARTED ScheduledWorker...")
+	elog.Info().Println("STARTED SCHEDULEDWORKER...")
 	// Create the request body
 	requestBody := middleware.RequestBody{
 		ServiceCode: util.ATTENTION_SERVICENAME,
@@ -122,7 +119,7 @@ func ScheduledWorker(objectCode string, typeName model.NotificationType) {
 	var responseData middleware.ResponseBody
 	err = json.NewDecoder(resp.Body).Decode(&responseData)
 	if err != nil {
-		elog.Error().Println("Error:", err)
+		elog.Error().Panic(err)
 		return
 	}
 	collection, client, err := connections.GetMongoCollection(model.ATTENTIONNOTIFICATION)
@@ -144,15 +141,13 @@ func ScheduledWorker(objectCode string, typeName model.NotificationType) {
 			elog.Error().Panic(insertErr)
 		}
 	}
-
 	client.Disconnect(context.Background())
-	fmt.Println("END ScheduledWorker...")
-	elog.Info().Println("END ScheduledWorker...")
+	elog.Info().Println("END SCHEDULEDWORKER...")
+	fmt.Println("END SCHEDULEDWORKER...")
 }
-
 func CronJob() {
-	go ScheduledWorker("GET_PASSPORT_DATE_OF_EXPIRY_LIST", "INTPASSPORTGOINGTOEXPIRE")
 	go ScheduledWorker("GET_IDCARD_DATE_OF_EXPIRY_LIST", "IDCARDGOINGTOEXPIRE")
+	go ScheduledWorker("GET_PASSPORT_DATE_OF_EXPIRY_LIST", "INTPASSPORTGOINGTOEXPIRE")
 }
 
 func AttentionNotificationEveryday() {
@@ -164,9 +159,9 @@ func AttentionNotificationEveryday() {
 	c := cron.NewWithLocation(location)
 	// Define the cron job function
 	// ----------------------------------------------------------------------
-	// Add the cron job to the cron scheduler -------------------------------``
+	// Add the cron job to the cron scheduler -------------------------------
 	// ----------------------------------------------------------------------
-	c.AddFunc("0 47 13 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 57 14 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
 	c.AddFunc("0 42 14 21 *", DriverLicenseExpire)
 	// Start the cron scheduler
 	c.Start()

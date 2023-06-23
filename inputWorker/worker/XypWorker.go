@@ -87,6 +87,7 @@ func XypWorker() {
 					ResultCode:  xypNotifMarshal.ResultCode,
 				},
 			}
+
 			// Insert the document
 			_, insertErr := collection.InsertOne(context.Background(), xypNotif)
 			if insertErr != nil {

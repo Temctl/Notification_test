@@ -7,7 +7,6 @@ import (
 
 	"github.com/Temctl/E-Notification/inputWorker/middleware"
 	"github.com/Temctl/E-Notification/inputWorker/worker"
-	"github.com/Temctl/E-Notification/util/connections"
 	"github.com/Temctl/E-Notification/util/elog"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -37,19 +36,20 @@ func DeleteCollection(client *mongo.Client, dbName, collectionName string) error
 }
 
 func Cre() {
-	// Connect to MongoDB
-	client, err := connections.ConnectMongoDB()
-	if err != nil {
-		fmt.Println("Error connecting to MongoDB:", err)
-		return
-	}
-	defer client.Disconnect(context.Background())
+	// // Connect to MongoDB
+	// client, err := connections.ConnectMongoDB()
+	// if err != nil {
+	// 	fmt.Println("Error connecting to MongoDB:", err)
+	// 	return
+	// }
+	// defer client.Disconnect(context.Background())
 
-	err = CreateCollection(client, "notification", "attentionnotification")
-	if err != nil {
-		fmt.Println("Error creating collection:", err)
-		return
-	}
+	// Create a new collection
+	// err = CreateCollection(client, "notification", "inlog")
+	// if err != nil {
+	// 	fmt.Println("Error creating collection:", err)
+	// 	return
+	// }
 
 	fmt.Println("Database and collection created successfully!")
 }
@@ -58,7 +58,6 @@ func main() {
 	middleware.PrintZ()
 	elog.Info().Println("SERVER STARTED...")
 
-	// Cre()
 	// ----------------------------------------------------------------------
 	// WORKER START ---------------------------------------------------------
 	// ----------------------------------------------------------------------

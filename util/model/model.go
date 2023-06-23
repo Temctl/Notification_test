@@ -10,11 +10,11 @@ type XypContent struct {
 }
 
 type XypNotification struct {
-	ContentData    []XypContent `json:"contentData"`
-	Regnum         string       `json:"regnum"`
-	OperatorRegnum string       `json:"operatorRegnum"`
-	CivilId        string       `json:"civilId"`
-	ClientId       int          `json:"clientId"`
+	ContentData    XypContent `json:"contentData"`
+	Regnum         string     `json:"regnum"`
+	OperatorRegnum string     `json:"operatorRegnum"`
+	CivilId        string     `json:"civilId"`
+	ClientId       int        `json:"clientId"`
 }
 
 type Collections string

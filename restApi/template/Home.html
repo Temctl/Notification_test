@@ -11,6 +11,7 @@
     </head>
 
     <body>
+
         <div class="sidebar">
             <div class="logo-details">
                 <i class='bx bxl-c-plus-plus'></i>
@@ -61,10 +62,10 @@
                     <i class='bx bx-menu sidebarBtn'></i>
                     <span class="dashboard">Dashboard</span>
                 </div>
-                <div class="search-box">
+                <form accept="" class="search-box">
                     <input type="text" placeholder="Search...">
-                    <i class='bx bx-search'></i>
-                </div>
+                    <i class='bx bx-search'><input type="submit" value="RESET"></i>
+                </form>
                 <div class="profile-details">
                     <img src="../static/image/user.jpg" alt="">
                     <span class="admin_name">DODOBEST</span>
@@ -114,8 +115,24 @@
                     <div class="top-sales box">
                         <div class="title">Send message</div>
                         <form action="">
-                            <input type="text" placeholder="register">
+                            <input type="text" placeholder="title">
                             <input type="text" placeholder="message">
+                            <label for="cars">Upload image</label>
+                            <input type="file" placeholder="img">
+                            <label for="cars">Regnums</label>
+                            <input type="file" placeholder="regnums">
+                            <label for="cars">CivilId</label>
+                            <input type="file" placeholder="civilId">
+                            <label for="cars">Tokens</label>
+                            <input type="file" placeholder="tokens">
+                            <label for="cars">Choose a type:</label>
+                            <select name="cars" id="cars">
+                                <option selected value="DEFAULT">DEFAULT</option>
+                                <option value="XYPNOTIFICATION">XYPNOTIFICATION</option>
+                                <option value="NATNOTIFICATION">NATNOTIFICATION</option>
+                                <option value="PRINOTIFICATION">PRINOTIFICATION</option>
+                                <option value="XYPNOTIFICATION">XYPNOTIFICATION</option>
+                            </select>
                             <input type="submit" value="send">
                         </form>
                     </div>

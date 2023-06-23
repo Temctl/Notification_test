@@ -1,16 +1,20 @@
 package model
 
+type XypContent struct {
+	OrgName     string `json:"orgName"`
+	ServiceDesc string `json:"serviceDesc"`
+	Date        string `json:"date"`
+	ServiceName string `json:"serviceName"`
+	RequestId   string `json:"requestId"`
+	ResultCode  int    `json:"resultCode"`
+}
+
 type XypNotification struct {
-	Date           string `json:"date"`
-	ServiceName    string `json:"serviceName"`
-	ServiceDesc    string `json:"serviceDesc"`
-	OrgName        string `json:"orgName"`
-	Regnum         string `json:"regnum"`
-	OperatorRegnum string `json:"operatorRegnum"`
-	CivilId        string `json:"civilId"`
-	RequestId      string `json:"requestId"`
-	ResultCode     int    `json:"resultCode"`
-	ClientId       int    `json:"clientId"`
+	ContentData    []XypContent `json:"contentData"`
+	Regnum         string       `json:"regnum"`
+	OperatorRegnum string       `json:"operatorRegnum"`
+	CivilId        string       `json:"civilId"`
+	ClientId       int          `json:"clientId"`
 }
 
 type Collections string

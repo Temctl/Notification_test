@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/Temctl/E-Notification/inputWorker/middleware"
@@ -15,8 +16,136 @@ import (
 	"github.com/robfig/cron"
 )
 
+func IdcardExpire() {
+	// Create the request body
+	requestBody := middleware.RequestBody{
+		ServiceCode: util.ATTENTION_SERVICENAME,
+		CitizenAuthData: middleware.CitizenAuthData{
+			Otp: "",
+		},
+		CustomFields: middleware.CustomFields{
+			ObjectCode:  util.OBJECTCODE,
+			OrgCode:     util.ORGCODE,
+			OrgName:     util.ORGNAME,
+			OrgPassword: util.ORGPASSWORD,
+			OrgToken:    util.ORGTOKEN,
+		},
+		AuthData: middleware.AuthData{},
+		SignData: middleware.SignData{},
+	}
+
+	// Convert the request body to JSON
+	jsonBody, err := json.Marshal(requestBody)
+	if err != nil {
+		elog.Error().Panic(err)
+	}
+	// Make the POST request
+	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	// Check the response status code
+	if resp.StatusCode != http.StatusOK {
+		log.Fatalf("Request failed with status code: %d", resp.StatusCode)
+		return
+	}
+
+	var responseData middleware.ResponseBody
+	err = json.NewDecoder(resp.Body).Decode(&responseData)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	collection, client, err := connections.ConnectMongoDB(model.ATTENTIONNOTIFICATION)
+	if err != nil {
+		elog.Error().Panic(err)
+	}
+	for _, value := range responseData.Data.Listdata {
+		data := model.AttentionNotification{
+			Regnum:     "",
+			CivilId:    value.CivilId,
+			ExpireDate: responseData.Data.DateOfExpiry,
+			Type:       "IDCARDGOINGTOEXPIRE",
+			Passport:   value.Passport,
+		}
+		// Insert the document
+		_, insertErr := collection.InsertOne(context.Background(), data)
+		if insertErr != nil {
+			elog.Error().Panic(insertErr)
+		}
+	}
+
+	client.Disconnect(context.Background())
+	fmt.Println("POST request succeeded")
+}
+func PassportExpire() {
+	// Create the request body
+	requestBody := middleware.RequestBody{
+		ServiceCode: util.ATTENTION_SERVICENAME,
+		CitizenAuthData: middleware.CitizenAuthData{
+			Otp: "",
+		},
+		CustomFields: middleware.CustomFields{
+			ObjectCode:  util.OBJECTCODE,
+			OrgCode:     util.ORGCODE,
+			OrgName:     util.ORGNAME,
+			OrgPassword: util.ORGPASSWORD,
+			OrgToken:    util.ORGTOKEN,
+		},
+		AuthData: middleware.AuthData{},
+		SignData: middleware.SignData{},
+	}
+
+	// Convert the request body to JSON
+	jsonBody, err := json.Marshal(requestBody)
+	if err != nil {
+		elog.Error().Panic(err)
+	}
+	// Make the POST request
+	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	// Check the response status code
+	if resp.StatusCode != http.StatusOK {
+		log.Fatalf("Request failed with status code: %d", resp.StatusCode)
+		return
+	}
+
+	var responseData middleware.ResponseBody
+	err = json.NewDecoder(resp.Body).Decode(&responseData)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	collection, client, err := connections.ConnectMongoDB(model.ATTENTIONNOTIFICATION)
+	if err != nil {
+		elog.Error().Panic(err)
+	}
+	for _, value := range responseData.Data.Listdata {
+		data := model.AttentionNotification{
+			Regnum:     "",
+			CivilId:    value.CivilId,
+			ExpireDate: responseData.Data.DateOfExpiry,
+			Type:       "INTPASSPORTGOINGTOEXPIRE",
+			Passport:   value.Passport,
+		}
+		// Insert the document
+		_, insertErr := collection.InsertOne(context.Background(), data)
+		if insertErr != nil {
+			elog.Error().Panic(insertErr)
+		}
+	}
+	client.Disconnect(context.Background())
+	fmt.Println("POST request succeeded")
+}
+
 func DriverLicenseExpire() {
-	elog.Info().Println("STARTED DriverLicenseExpire...")
+	// Create the request body
 	// Create the request body
 	requestBody := middleware.RequestBody{
 		ServiceCode: util.ATTENTION_SERVICENAME2,
@@ -32,32 +161,29 @@ func DriverLicenseExpire() {
 	jsonBody, err := json.Marshal(requestBody)
 	if err != nil {
 		elog.Error().Panic(err)
-		return
 	}
 	// Make the POST request
 	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
 	if err != nil {
-		elog.Error().Panic(err)
-		return
+		log.Fatal(err)
 	}
 	defer resp.Body.Close()
 
 	// Check the response status code
 	if resp.StatusCode != http.StatusOK {
-		elog.Error().Printf("Request failed with status code: %d", resp.StatusCode)
+		log.Fatalf("Request failed with status code: %d", resp.StatusCode)
 		return
 	}
 
 	var responseData middleware.DResponseBody
 	err = json.NewDecoder(resp.Body).Decode(&responseData)
 	if err != nil {
-		elog.Error().Panic(err)
+		fmt.Println("Error:", err)
 		return
 	}
-	collection, client, err := connections.GetMongoCollection(model.ATTENTIONNOTIFICATION)
+	collection, client, err := connections.ConnectMongoDB(model.ATTENTIONNOTIFICATION)
 	if err != nil {
 		elog.Error().Panic(err)
-		return
 	}
 	for _, value := range responseData.Data.Listdata {
 		data := model.AttentionNotification{
@@ -73,81 +199,14 @@ func DriverLicenseExpire() {
 			elog.Error().Panic(insertErr)
 		}
 	}
+
 	client.Disconnect(context.Background())
-	fmt.Println("end DriverLicenseExpire...")
-	elog.Info().Println("end DriverLicenseExpire...")
+	fmt.Println("POST request succeeded")
 }
-func ScheduledWorker(objectCode string, typeName model.NotificationType) {
-	elog.Info().Println("STARTED SCHEDULEDWORKER...")
-	// Create the request body
-	requestBody := middleware.RequestBody{
-		ServiceCode: util.ATTENTION_SERVICENAME,
-		CitizenAuthData: middleware.CitizenAuthData{
-			Otp: "",
-		},
-		CustomFields: middleware.CustomFields{
-			ObjectCode:  objectCode,
-			OrgCode:     util.ORGCODE,
-			OrgName:     util.ORGNAME,
-			OrgPassword: util.ORGPASSWORD,
-			OrgToken:    util.ORGTOKEN,
-		},
-		AuthData: middleware.AuthData{},
-		SignData: middleware.SignData{},
-	}
 
-	// Convert the request body to JSON
-	jsonBody, err := json.Marshal(requestBody)
-	if err != nil {
-		elog.Error().Panic(err)
-		return
-	}
-	// Make the POST request
-	resp, err := http.Post(util.ATTENTION_URL, "application/json", bytes.NewBuffer(jsonBody))
-	if err != nil {
-		elog.Error().Panic(err)
-		return
-	}
-	defer resp.Body.Close()
-
-	// Check the response status code
-	if resp.StatusCode != http.StatusOK {
-		elog.Error().Printf("Request failed with status code: %d", resp.StatusCode)
-		return
-	}
-
-	var responseData middleware.ResponseBody
-	err = json.NewDecoder(resp.Body).Decode(&responseData)
-	if err != nil {
-		elog.Error().Panic(err)
-		return
-	}
-	collection, client, err := connections.GetMongoCollection(model.ATTENTIONNOTIFICATION)
-	if err != nil {
-		elog.Error().Panic(err)
-		return
-	}
-	for _, value := range responseData.Data.Listdata {
-		data := model.AttentionNotification{
-			Regnum:     "",
-			CivilId:    value.CivilId,
-			ExpireDate: responseData.Data.DateOfExpiry,
-			Type:       typeName,
-			Passport:   value.Passport,
-		}
-		// Insert the document
-		_, insertErr := collection.InsertOne(context.Background(), data)
-		if insertErr != nil {
-			elog.Error().Panic(insertErr)
-		}
-	}
-	client.Disconnect(context.Background())
-	elog.Info().Println("END SCHEDULEDWORKER...")
-	fmt.Println("END SCHEDULEDWORKER...")
-}
 func CronJob() {
-	go ScheduledWorker("GET_IDCARD_DATE_OF_EXPIRY_LIST", "IDCARDGOINGTOEXPIRE")
-	go ScheduledWorker("GET_PASSPORT_DATE_OF_EXPIRY_LIST", "INTPASSPORTGOINGTOEXPIRE")
+	go IdcardExpire()
+	go PassportExpire()
 }
 
 func AttentionNotificationEveryday() {
@@ -157,11 +216,12 @@ func AttentionNotificationEveryday() {
 		elog.Error().Panic(err)
 	}
 	c := cron.NewWithLocation(location)
+
 	// Define the cron job function
 	// ----------------------------------------------------------------------
 	// Add the cron job to the cron scheduler -------------------------------
 	// ----------------------------------------------------------------------
-	c.AddFunc("0 57 14 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
+	c.AddFunc("0 29 13 * *", CronJob) // Runs the job at 10:18 AM in GMT+8
 	c.AddFunc("0 42 14 21 *", DriverLicenseExpire)
 	// Start the cron scheduler
 	c.Start()

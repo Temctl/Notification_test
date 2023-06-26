@@ -1,212 +1,403 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>EMA-NOTIFICATION</title>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EMA | DASHBOARD</title>
         <link rel="icon" type="image/x-icon" href="../static/image/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link rel="stylesheet" type="text/css" href="../static/dashboard.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </head>
-
     <body>
-        <div class="sidebar">
-            <div class="logo-details">
-                <i class='bx bxl-c-plus-plus'></i>
-                <span class="logo_name">EMA-NOTIF</span>
+        <nav>
+            <div class="logo">
+                <h3>EMA-NOTIFICATION</h3>
             </div>
-            <ul class="nav-links">
+            <ul>
                 <li>
-                    <a href="#" class="active">
-                        <i class='bx bx-grid-alt'></i>
-                        <span class="links_name">Dashboard</span>
-                    </a>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Dashboard</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
                 </li>
                 <li>
-                    <a href="#">
-                        <i class='bx bx-box'></i>
-                        <span class="links_name">Send message</span>
-                    </a>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Settings</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
                 </li>
                 <li>
-                    <a href="#">
-                        <i class='bx bx-list-ul'></i>
-                        <span class="links_name">Send notification</span>
-                    </a>
+                    <div>
+                        <img src="../static/image/user.png" alt="dashboard">
+                        <a href="#">Profile</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
                 </li>
                 <li>
-                    <a href="#">
-                        <i class='bx bx-pie-chart-alt-2'></i>
-                        <span class="links_name">Send group notif</span>
-                    </a>
+                    <div>
+                        <img src="../static/image/logout.png" alt="dashboard">
+                        <a href="#">Exit</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
                 </li>
                 <li>
-                    <a href="#">
-                        <i class='bx bx-coin-stack'></i>
-                        <span class="links_name">Settings</span>
-                    </a>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Dashboard</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
                 </li>
                 <li>
-                    <a href="#">
-                        <i class='bx bx-book-alt'></i>
-                        <span class="links_name">Team</span>
-                    </a>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Settings</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/user.png" alt="dashboard">
+                        <a href="#">Profile</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/logout.png" alt="dashboard">
+                        <a href="#">Exit</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Dashboard</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Settings</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/user.png" alt="dashboard">
+                        <a href="#">Profile</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/logout.png" alt="dashboard">
+                        <a href="#">Exit</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Dashboard</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/dashboard.png" alt="dashboard">
+                        <a href="#">Settings</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/user.png" alt="dashboard">
+                        <a href="#">Profile</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
+                </li>
+                <li>
+                    <div>
+                        <img src="../static/image/logout.png" alt="dashboard">
+                        <a href="#">Exit</a>
+                    </div>
+                    <img src="../static/image/next.png" alt="->">
                 </li>
             </ul>
-        </div>
-        <section class="home-section">
-            <nav>
-                <div class="sidebar-button">
-                    <i class='bx bx-menu sidebarBtn'></i>
-                    <span class="dashboard">Dashboard</span>
-                </div>
-                <div class="search-box">
-                    <input type="text" placeholder="Search...">
-                    <i class='bx bx-search'></i>
-                </div>
-                <div class="profile-details">
-                    <img src="../static/image/user.jpg" alt="">
-                    <span class="admin_name">DODOBEST</span>
-                    <i class='bx bx-chevron-down'></i>
-                </div>
-            </nav>
-
-            <div class="home-content">
-                <div class="overview-boxes">
-                    {{range .Workers}}
-                        {{if eq .Status "1"}}
-                            <div class="box">
-                                <i class='bx bx-cart-alt cart'></i>
-                                <div class="right-side">
-                                    <div class="box-topic">{{.WorkerName}}</div>
-                                    <div class="number">{{.Status}}</div>
-                                    <div class="indicator">
-                                        <i class='bx bx-up-arrow-alt'></i>
-                                        <span class="text">Up from yesterday</span>
-                                    </div>
-                                </div>
-                                <div></div>
-                            </div>
-                        {{else}}
-                            <div class="box">
-                                <i class='bx bx-cart-alt cart downBox'></i>
-                                <div class="right-side">
-                                    <div class="box-topic">{{.WorkerName}}</div>
-                                    <div class="number">{{.Status}}</div>
-                                    <div class="indicator">
-                                        <i class='bx bx-up-arrow-alt down'></i>
-                                        <span class="text">Down from yesterday</span>
-                                    </div>
-                                </div>
-                                <div></div>
-                            </div>
-                        {{end}}
-                    {{end}}
-
-                </div>
-
-                <div class="sales-boxes">
-                    <div class="recent-sales box">
-                        <div class="title">Chart</div>
-                        <canvas id="myChart" style="width:100%;max-width:100%"></canvas>
+        </nav>
+        <div class="showcase">
+            <header>
+                <div class="search">
+                    <input type="text" placeholder="search">
+                    <div>
+                        <img src="../static/image/search.png" alt="search">
                     </div>
-                    <div class="top-sales box">
-                        <div class="title">Send message</div>
-                        <form action="">
-                            <input type="text" placeholder="register">
-                            <input type="text" placeholder="message">
-                            <input type="submit" value="send">
-                        </form>
+                </div>
+                <div class="profiles">
+                    <div> <img src="../static/image/notification.png" alt=""> </div>
+                    <div> <img src="../static/image/message.png" alt=""> </div>
+                    <div class="pro-img"></div>
+                </div>
+            </header>
+            <div class="big-title">
+                <h2>Dashboard</h2>
+                <h2>June 1, 2023 - August 31, 2023</h2>
+            </div>
+            <div class="showcase-content">
+                <aside>
+                    <h3>Stoke Details</h3>
+                    <div id="chart"></div>
+                </aside>
+                <div class="workers">
+                    <div class="worker-boxs">
+                        {{range .Workers}}
+                            {{if eq .Status "1"}}
+                                <div class="worker-box">
+                                    <div class="head-color">
+                                        <div>
+                                            <img src="../static/image/qwe.png" alt="D:">
+                                            <img src="../static/image/option.png" alt="***">
+                                        </div>
+                                    </div>
+                                    <div class="head-body">
+                                        <h4>ON</h4>
+                                        <p>{{.WorkerName}} worker up</p>
+                                    </div>
+                                </div>
+                            {{else}}
+                                <div class="worker-box">
+                                    <div class="head-color ">
+                                        <div>
+                                            <img src="../static/image/qwe.png" alt="D:">
+                                            <img src="../static/image/option.png" alt="***">
+                                        </div>
+                                    </div>
+                                    <div class="head-body down">
+                                        <h4>OFF</h4>
+                                        <p>{{.WorkerName}} worker down</p>
+                                    </div>
+                                </div>
+                            {{end}}
+                        {{end}}
                     </div>
                 </div>
             </div>
-        </section>
-
+            <div class="three-boxs">
+                <div class="three-box three-box1">
+                    <div>
+                        <h3>Users</h3>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <ul>
+                        <li>
+                            <h3>dodobest</h3>
+                            <h4>Admin</h4>
+                            <img src="../static/image/optionBlack.png" alt="***">
+                        </li>
+                        <li>
+                            <h3>temuulen</h3>
+                            <h4>Admin</h4>
+                            <img src="../static/image/optionBlack.png" alt="***">
+                        </li>
+                        <li>
+                            <h3>dodobest</h3>
+                            <h4>Admin</h4>
+                            <img src="../static/image/optionBlack.png" alt="***">
+                        </li>
+                    </ul>
+                </div>
+                <div class="three-box three-box2">
+                    <div>
+                        <h3>Sales of the last week</h3>
+                    </div>
+                    <div id="radarChart"></div>
+                </div>
+                <div class="three-box"></div>
+            </div>
+            <div class="two-boxs">
+                <div class="two-box"></div>
+                <div class="two-box"></div>
+            </div>
+            <div class="three-boxs">
+                <div class="three-box"></div>
+                <div class="three-box"></div>
+                <div class="three-box"></div>
+            </div>
+        </div>
         <script>
-            const xValues = [
-                100,
-                200,
-                300,
-                400,
-                500,
-                600,
-                700,
-                800,
-                900,
-                1000
-            ];
 
-            new Chart("myChart", {
-                type: "line",
-                data: {
-                    labels: xValues,
-                    datasets: [
-                        {
-                            data: [
-                                860,
-                                1140,
-                                1060,
-                                1060,
-                                1070,
-                                1110,
-                                1330,
-                                2210,
-                                7830,
-                                2478
-                            ],
-                            borderColor: "red",
-                            fill: false
-                        }, {
-                            data: [
-                                1600,
-                                1700,
-                                1700,
-                                1900,
-                                2000,
-                                2700,
-                                4000,
-                                5000,
-                                6000,
-                                7000
-                            ],
-                            borderColor: "green",
-                            fill: false
-                        }, {
-                            data: [
-                                300,
-                                700,
-                                2000,
-                                5000,
-                                6000,
-                                4000,
-                                2000,
-                                1000,
-                                200,
-                                100
-                            ],
-                            borderColor: "blue",
-                            fill: false
-                        }
-                    ]
+            var options = {
+                series: [
+                    44, 55, 67, 83
+                ],
+                chart: {
+                    height: 350,
+                    type: 'radialBar'
                 },
-                options: {
-                    legend: {
-                        display: false
+                plotOptions: {
+                    radialBar: {
+                        dataLabels: {
+                            name: {
+                                fontSize: '22px'
+                            },
+                            value: {
+                                fontSize: '16px'
+                            },
+                            total: {
+                                show: true,
+                                label: 'Total',
+                                formatter: function (w) { // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                                    return 249
+                                }
+                            }
+                        }
                     }
-                }
-            });
-            let sidebar = document.querySelector(".sidebar");
-            let sidebarBtn = document.querySelector(".sidebarBtn");
-            sidebarBtn.onclick = function () {
-                sidebar.classList.toggle("active");
-                if (sidebar.classList.contains("active")) {
-                    sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-                } else 
-                    sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-                
-            }
-        </script>
+                },
+                labels: ['Apples', 'Oranges', 'Bananas', 'Berries']
+            };
+            var chart = new ApexCharts(document.querySelector("#radarChart"), options);
+            chart.render();
 
+        </script>
+        <script>
+            var options = {
+                series: [
+                    {
+                        name: 'TEAM A',
+                        type: 'column',
+                        data: [
+                            23,
+                            11,
+                            22,
+                            27,
+                            13,
+                            22,
+                            37,
+                            21,
+                            44,
+                            22,
+                            30
+                        ]
+                    }, {
+                        name: 'TEAM B',
+                        type: 'area',
+                        data: [
+                            44,
+                            55,
+                            41,
+                            67,
+                            22,
+                            43,
+                            21,
+                            41,
+                            56,
+                            27,
+                            43
+                        ],
+                        color: "#dfe2e6"
+                    }, {
+                        name: 'TEAM C',
+                        type: 'line',
+                        data: [
+                            30,
+                            25,
+                            36,
+                            30,
+                            45,
+                            35,
+                            64,
+                            52,
+                            59,
+                            36,
+                            39
+                        ]
+                    }
+                ],
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    stacked: false
+                },  
+                stroke: {
+                    width: [
+                        0, 2, 5
+                    ],
+                    curve: 'smooth'
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: '40%',
+                        colors: {
+                            ranges: [
+                              {
+                                from: 0,
+                                to: 9999,
+                                color: '#a57dfc' // Set the background color for all columns
+                              }
+                            ]
+                        }
+                    }
+                },
+
+                fill: {
+                    opacity: [
+                        0.85, 0.25, 1
+                    ],
+                    gradient: {
+                        inverseColors: false,
+                        shade: 'light',
+                        type: "vertical",
+                        opacityFrom: 0.85,
+                        opacityTo: 0.55,
+                        stops: [0, 100, 100, 100],
+                    }
+                },
+                labels: [
+                    '01/01/2003',
+                    '02/01/2003',
+                    '03/01/2003',
+                    '04/01/2003',
+                    '05/01/2003',
+                    '06/01/2003',
+                    '07/01/2003',
+                    '08/01/2003',
+                    '09/01/2003',
+                    '10/01/2003',
+                    '11/01/2003'
+                ],
+                markers: {
+                    size: 0
+                },
+                xaxis: {
+                    type: 'datetime'
+                },
+                yaxis: {
+                    title: {
+                        text: 'Points'
+                    },
+                    min: 0
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
+                    y: {
+                        formatter: function (y) {
+                            if (typeof y !== "undefined") {
+                                return y.toFixed(0) + " points";
+                            }
+                            return y;
+
+                        }
+                    }
+                },
+            };
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        </script>
     </body>
 </html>

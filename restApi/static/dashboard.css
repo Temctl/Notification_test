@@ -1,5 +1,12 @@
 /* Googlefont Poppins CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* @import url("./index.css"); */
+:root {
+    --primary-color: "#313338";
+    --second-color: "#2b2d31";
+    --third-color:"#1e1f22";
+    --text-color: "#fff";
+}
 *{
 margin: 0;
 padding: 0;
@@ -8,11 +15,13 @@ font-family: 'Poppins', sans-serif;
 }
 input:focus {
     outline: none;
+
 }
 body {
     /* display: grid; */
     /* grid-template-columns: 1fr 9fr; */
-    background: #f6f7fb;
+    background: #313338;
+    color: #fff !important;
 }
 nav {
     position: fixed;
@@ -20,9 +29,9 @@ nav {
     left: 0;
     width: 257px;
     min-width: 200px;
-    background: #fff;
+    background: #2b2d31;
     height: 100vh;
-    box-shadow: 4px 4px 10px 4px #eff3fb;
+    /* box-shadow: 4px 4px 10px 4px #eff3fb; */
 }
 
 nav ul {
@@ -39,11 +48,12 @@ nav li {
 nav li:hover {
     background: #eff3fb;
 }
-nav li  div {
+nav li div {
     display: flex;
     align-items: center;
 }
-nav li  div a {
+nav li div a {
+    color: #fff;
     margin-left: 20px;
 }
 nav li img {
@@ -63,7 +73,7 @@ nav li a:hover {
 }
 header {
     width: 100%;
-    border-bottom: 2px solid #e8e8e8;
+    border-bottom: 2px solid #2a2c31;
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -77,6 +87,7 @@ header {
     border: none;
     padding: 0.5rem;
     border-radius: 5px;
+    background: #595c66;
 }
 .search div {
     background: #f45b0f;
@@ -85,8 +96,8 @@ header {
     cursor: pointer;
 }
 .search img {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
 }
 .profiles {
     display: flex;
@@ -122,10 +133,11 @@ header {
     align-items: center;
     padding: 1.5rem;
     padding-bottom: 0px;
+    color: #fff;
 }
 .big-title h2:nth-child(2) {
     font-size: 14px;
-    color: #979898;
+    color: #dbdcdc;
     font-weight: 400;
 }
 .showcase-content {
@@ -136,7 +148,7 @@ header {
     padding: 1.5rem;
 }
 .showcase-content aside {
-    background: #fff;
+    background: #2b2d31;
     border-radius: 20px;
     height: 500px;
     padding: 0 2rem;
@@ -155,7 +167,7 @@ header {
 .workers .worker-box {
     width: 100%;
     height: 9rem;
-    background: #fff;
+    background: #2b2d31;
     border-radius: 20px;
     padding: 5px;
 }
@@ -241,7 +253,7 @@ header {
     padding: 1.5rem;
 }
 .three-box {
-    background: #fff;
+    background: #2b2d31;
     height: 400px;
     border-radius: 20px;
 }
@@ -252,7 +264,7 @@ header {
     padding: 1.5rem;
 }
 .two-box {
-    background: #fff;
+    background: #2b2d31;
     height: 400px;
     border-radius: 20px;
 }
@@ -260,11 +272,12 @@ header {
     display: flex;
     align-self: center;
     justify-content: center;
-    background: #f3f6f9;
+    background: #2b2d31;
     /* height: 74px; */
     padding: 1.9rem 0;
     color: #161616;
-    border-bottom: 2px solid #e8e8e8;
+    border-bottom: 2px solid #000000;
+    color: #fff;
 }
 .three-box1 {
     padding: 2rem;
@@ -278,16 +291,16 @@ header {
     font-family: mulish,sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #474d58;
+    color: #fff;
 }
 .three-box1 div input {
-    color: #86898e;
+    color: #595c66;
     font-size: 11px;
     height: 36px;
     padding-left: 12px;
     border: 0;
     padding-right: 6px;
-    background: #eff3fb;
+    background: #595c66;
     border-radius: 6px;
     border: 0;
     font-weight: 400;
@@ -299,7 +312,7 @@ header {
 }
 .three-box1 ul li {
     display: flex;
-    background: #f5f5ff;
+    background: #595c66;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
@@ -325,5 +338,14 @@ header {
     font-family: mulish,sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #474d58;
+    color: #fff;
+}
+#chart {
+    color: #fff !important;
+}
+.apexcharts-xaxis-label {
+    fill: #ffffff; /* Set the desired color for the column description names */
+}
+.apexcharts-yaxis-label {
+    fill: #fff;
 }

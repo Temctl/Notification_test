@@ -197,17 +197,17 @@
                         <li>
                             <h3>dodobest</h3>
                             <h4>Admin</h4>
-                            <img src="../static/image/optionBlack.png" alt="***">
+                            <img src="../static/image/option.png" alt="***">
                         </li>
                         <li>
                             <h3>temuulen</h3>
                             <h4>Admin</h4>
-                            <img src="../static/image/optionBlack.png" alt="***">
+                            <img src="../static/image/option.png" alt="***">
                         </li>
                         <li>
                             <h3>dodobest</h3>
                             <h4>Admin</h4>
-                            <img src="../static/image/optionBlack.png" alt="***">
+                            <img src="../static/image/option.png" alt="***">
                         </li>
                     </ul>
                 </div>
@@ -282,7 +282,10 @@
                             44,
                             22,
                             30
-                        ]
+                        ]    ,  
+                        style: {
+                            colors: ['#fff'] // Set the desired color for the column name
+                        }
                     }, {
                         name: 'TEAM B',
                         type: 'area',
@@ -299,7 +302,9 @@
                             27,
                             43
                         ],
-                        color: "#dfe2e6"
+                        style: {
+                            colors: ['#fff'] // Set the desired color for the column name
+                        }
                     }, {
                         name: 'TEAM C',
                         type: 'line',
@@ -315,7 +320,10 @@
                             59,
                             36,
                             39
-                        ]
+                        ],  
+                        style: {
+                            colors: ['#fff'] // Set the desired color for the column name
+                        }
                     }
                 ],
                 chart: {
@@ -356,6 +364,7 @@
                         opacityTo: 0.55,
                         stops: [0, 100, 100, 100],
                     }
+                    
                 },
                 labels: [
                     '01/01/2003',
@@ -394,7 +403,8 @@
 
                         }
                     }
-                },
+                }, 
+                colors: ['#ffffff'], // Set the text color
             };
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render();
